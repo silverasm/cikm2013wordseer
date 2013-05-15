@@ -1,0 +1,89 @@
+\documentclass{sig-alternate}
+\usepackage{graphicx, url}
+\begin{document}
+\title{Text Sliding: Information Discovery with Intensely Integrated Text Analysis}
+\numberofauthors{4}
+
+\author{% 1st. author
+\alignauthor Firstname LastName\\
+       \affaddr{Address}\\
+       \affaddr{Address}\\
+       \affaddr{Address}\\
+       \email{email@address.edu}
+% 2nd. author
+\alignauthor Firstname LastName\\
+       \affaddr{Address}\\
+       \affaddr{Address}\\
+       \affaddr{Address}\\
+       \email{email@address.edu}
+% 3rd. author
+\alignauthor Firstname LastName\\
+       \affaddr{Address}\\
+       \affaddr{Address}\\
+       \affaddr{Address}\\
+       \email{email@address.edu}
+% 4th. author
+\and
+\alignauthor Firstname LastName\\
+       \affaddr{Address}\\
+       \affaddr{Address}\\
+       \affaddr{Address}\\
+       \email{email@address.edu}
+}
+
+\maketitle
+
+\begin{abstract}
+There are numerous information analysis and discovery tools that allow users to view multidimensional data from different angles by selecting subsets of data, viewing those as visualizations, moving laterally to view other subsets of data, slicing into another view, expanding the viewed data by relaxing constraints, and so on.  However, these tools operate over numerical and categorical data, but do not seamlessly operate over raw textual information with the same flexibility. In this paper we describe a text analysis and discovery tool that allows for highly flexible  ``slicing and dicing'' (hence  ``sliding'') across a text collection.  The goal of the tool is to help scholars and analysts discover patterns and formulate and test hypotheses about the contents of their text collections, midway between what traditional humanities scholars call a  ``close read'' and the digital humanities  ``distant read'' or "culturomics" approach.  We illustrate the text sliding capabilities of the tool with three real-world case studies from the humanities and social sciences -- 18th century secularism, the practice of literacy education, and U.S. perceptions of China and Japan over the last 30 years -- showing how the tool has enabled scholars with no technical background to make new, important discoveries in these text collections.
+
+\end{abstract}
+
+% A category with the (minimum) three required fields
+\category{H.X}{XXXXX XXXXXXX XXXX}{XXXXX}
+%A category including the fourth, optional field follows...
+\category{H.X}{XXXXX }{XXXXX }[XXXXX ]
+
+\terms{Theory}
+
+\keywords{ACM proceedings, \LaTeX, text tagging}
+
+\section{Introduction}
+Current text analysis systems focus on getting computational linguistics and data visualization into the hands of users. Tools such as Jigsaw, IBM TextMiner, SAS Text Analytics, Palantir, and Sandbox take techniques like text classification, named-entity recognition, sentiment analysis and summarization and build systems to automate their use. To make the results of these computational analyses interpretable and explorable, they display the outputs with interactive data visualization. These systems have made advanced text mining and visualization algorithms available to users who may not have expertise in those areas.
+
+However, very little attention has been paid to the other part of the equation: the analysts. Analysts seeking knowledge from text collections are engaging in sensemaking. They do not follow a straight path from data input to analysis output, but meander between analysis, interpretation, exploration and understanding. It is therefore important to support not just algorithmic and visual analysis, but the slicing, filtering and exploration that lead from analysis to analysis, visualization to visualization, and finally to insight.
+
+In this paper, we describe a text analysis tool that supports highly flexible slicing and dicing, as well as frictionless transitions (hence "sliding") between visual analyses, drill-downs, lateral explorations and overviews within a text collection. Our tool uses computational linguistics, information retrieval and data visualization, and enables scholars with no technical background to conduct analyses yielding concrete, useful and otherwise inaccessible knowledge.
+
+The humanities and social sciences (HASS) are our motivation. In these fields, it is common for scholars to have hundreds, even thousands of text-based source documents of interest from which they extract evidence for complex arguments about society and culture. These collections (such as the set of all New York Times editorials about China, the complete works of Shakespeare, or the set of all 18th C. American novels)  are difficult to make sense of and navigate. Unlike numerical data, they cannot be condensed, overviewed, and summarized in an automated fashion without losing significant information. And the metadata that accompanies the documents -- often from library records -- does not capture the varied content of the of the text within.
+
+HASS scholars are an important area of focus for tool builders for another reason: low uptake. A 2012 study of computational tool use among these scholars showed that adoption was low despite an abundance of tools. The main culprit? Poor interface design due to lack of involvement with end users. In our research, we have tried to avoid this problem by taking an iterative, user-centered design approach. We collaborate with active HASS scholars working on text analysis problems of existing professional interest to them, and let their needs, behaviors, and observations drive tool development.
+
+We introduce the text sliding capabilities of our tool using three case studies. The researchers driving these studies used our tool to further their projects on literary history, education, and U.S-China relations. The projects investigated 1) How certain words dropped religious connotations and gained secular tones over the 18th Century in America, 2) How college students from diverse backgrounds remember and reflect upon literacy, and 3) How U.S. perceptions China and Japan responded to China's rise over the last 30 years.
+
+This paper is structured as follows: in the next section, we describe results from the field of sensemaking that motivate the need to augment visual text analytics with ``sliding'' interactions . After that, we describe the main ideas behind text sliding and show text sliding in action with examples of how scholars used these transitions, drill-downs, explorations, and overviews to slide along their sensemaking paths. Then, we describe related systems, and finally, we conclude with a discussion our results and future work.
+
+\section{Motivation: `pain points' in Sensemaking}
+
+\section{Text Sliding}
+
+\subsection{Case Studies}
+
+\subsubsection{Analyzing Literacy Autobiographies Written By Students}
+
+\subsubsection{U.S. Perceptions of China and Japan 1980-2012}
+
+\subsubsection{Secular vs. Religious `Belief'  in 18th C. American Fiction}
+
+\section {Related Work}
+
+\section{Discussion and Future Work}
+
+\section{Acknowledgements}
+We sincerely thank [Firstname Lastname, Firstname Lastname, and Firstname Lastname] for their helpful feedback and comments on the use of our system in Case Study 3. We are also grateful to [Firstname Lastname] for his helpful advice and thought-provoking discussions throughout.
+
+This work is supported by NEH grant HK-50011-12.
+
+\bibliographystyle{abbrv}
+\bibliography{papers} 
+  
+\end{document}
