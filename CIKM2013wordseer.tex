@@ -1,5 +1,5 @@
 \documentclass{sig-alternate}
-\usepackage{graphicx, url}
+\usepackage{subfigure, graphicx, url}
 
 \newcommand{\strong}[1] {\textbf{#1}}
 \newcommand{\code}[1] {\texttt{#1}}
@@ -112,12 +112,50 @@ Pirolli and Card \cite{pirolli_sensemaking_2005} identified ``pain points" in th
 	\end{itemize}
 \end{enumerate}
 
+\subsection{Case Study: U.S. Perceptions of China and Japan}
+
+The text-sliding capabilities of our tool are best illustrated through example. We will use the first case study:  US-China relations.
+
+[FirstName] Fan is a [scholar] at [university's] English department. Fan's research explores how US literature has responded to the rise of China since it began liberalizing its economy in the late 1970s.  His arguments depend upon a set of historical observations about the rise of China  broadly accepted by historians and cultural historians: 
+\begin{enumerate}
+\item From the 1970s to the Tiananmen crackdown in 1989, US observers paid more attention to Japan than China. During this period, China didn't have much more than a strategic, Cold War relevance. 
+\item With the onset of the 1990s, attention shifts from Japan to China. Japan entered its first ``Lost Decade'' of economic stagnation, and China, meanwhile, began deepening its economic relations with the US.
+\item After China's accession to the World Trade Organization in 2001, US-China bilateral relationship becomes increasingly important to global economics and politics.
+\item After 2001, there is an increasing sense that the US's time as the post-socialist era's last remaining superpower are numbered, and that China will replace it.
+\end{enumerate}
+Literary scholars typically allow their claims to rest on observations made by field experts like historians and sociologists, or on their own inductive reasoning. Fan, however, sought to supply these observations with as much empirical evidence as possible, as well as to verify them.
+
+To generate this evidence, Fan collected New York Times editorials from  the Lexis/Nexis database, from 1980 to 2012. Using Lexis/Nexis's metadata, Fan limited the corpus of New York Times editorials to those with subjects ``China" or ``Japan." This resulted in a set of of 5,715 articles which were then imported to our tool.
+
 
 \section{Text Sliding}
 
-The twin concepts of \emph{slices} and \emph{views} are central to text sliding. A slice is a set of sentences, and a view is a visual representation of the data in a slice: anything from a list of the sentences in the slice, to more complex linguistic processing combined with visual analytics.  A slice is like a scientific specimen, a sample of some chemical compound. and views are the different lenses, apparatuses, and tests that reveal different information about the sample.
+\begin{figure}[ht!]
+\begin{center}
+%
+        \subfigure[A single view showing a visualization accompanied by some summary/filters.]{%
+            \label{fig:intro01}
+	\includegraphics[width=0.5\textwidth]{fig/intro/01.png}
+        }%
+        \\
+        \subfigure[A breakdown of the components of the user interface]{%
+            \label{fig:intro02}
+	\includegraphics[width=0.5\textwidth]{fig/intro/02.png}
+        }%
+%
+    \end{center}
+    \caption{%
+        What Fan sees when he opens up his editorials in our tool.
+     }%
+\end{figure}
 
-Through the richness of language, slices are \emph{linguistically associated} with other slices (that also contain a particular word or phrase for example). If there is metadata accompanying the text, such as Act, Scene, and Speaker in Shakespeare's plays, there are also \emph{metadata associations}. Finally,  through the wide variety of visual analytics tool available, there can be many different ways of viewing and analyzing the data in a single slice. Text sliding makes all these associations accessible. 
+When users open up the tool for the first time, they see something like Figure \ref{fig:intro01}. This may seem like a lot of information, but Figure \ref{fig:intro02} it breaks down into simple components. It's a single \strong{view} with a a \strong{Word Tree} visualization of the most frequent word in the \strong{slice} ``the entire collection''. 
+
+Word Trees \cite{wattenberg_word_2008} are an interactive visualizations that allow a user to explore the contexts in which a word is used. They group together common left- and right-contexts into a tree that gets finer and finer as the context get longer, terminating in individual sentences.  Because Fan hasn't specified a search query, the Word Tree view centers on the most frequent content word in the collection (content words exclude very common meaningless words, such as ``the'', ``a'', ``and'', etc.). In Fan's case, this happens to be ``China''.
+
+The twin concepts of \strong{slices} and \strong{views} are central to text sliding. A slice is a set of sentences, and a panel is a visual representation of the data in a slice: anything from a list of the sentences in the slice, to more complex linguistic processing combined with visual analytics.  A slice is like a scientific specimen, a sample of some chemical compound. and views are the different lenses, apparatuses, and tests that reveal different information about the sample.
+
+Text sliding is a way to get from a view of a slice, to a different view. Through the richness of language, slices are \emph{linguistically associated} with other slices (that also contain a particular word or phrase for example). If there is metadata accompanying the text, such as Act, Scene, and Speaker in Shakespeare's plays, there are also \emph{metadata associations}. Finally,  through the wide variety of visual analytics tool available, there can be many different ways of viewing and analyzing the data in a single slice. Text sliding makes all these associations accessible. 
  In fact, we define text sliding as:
 \begin{itemize}
 	\item Getting a different view of the same slice (lateral movement)
@@ -125,14 +163,39 @@ Through the richness of language, slices are \emph{linguistically associated} wi
 \end{itemize}
 
 \subsection{Slices}
-In our tool, we define a slice as \emph{a set of sentences}, although future tools might use different units of text, such as paragraphs, documents, or phrases. We allow arbitrarily-assembled slices, but it is easiest to think of slices as combinations of searches and filters. 
+In our tool, we define a slice as \emph{a set of sentences}, although future tools might use different units of text, such as paragraphs, documents, or phrases. We allow arbitrarily-assembled slices, but it is easiest to think of slices as combinations of searches and filters.  
 
-Slices are conceptually illustrated in Figure \ref{fig:slices}. In that figure, we are assembling a slice corresponding to all sentences spoken by Romeo  in Act 1 in which he mentions ``Capulet''. We start with the whole collection, the collected works of Shakespeare, apply filters for \code{speaker = Romeo} and \code{act = Act 1}  and and also apply a search for \code{`Capulet'}. This leaves us with a slice containing only sentences that match our criteria, in this case, only one sentence:
-\begin{verbatim}
- 	{`Is she a Capulet?'}
-\end{verbatim}
+\begin{figure}[ht!]
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{fig/intro/03b.png}
+\end{center}
+    \caption{%
+        Creating a slice by searching for the word ``China''. This creates a slice containing only sentences that contain the word ``China''. \label{fig:intro03}
+     }%
+\end{figure}
 
-\subsubsection{Linguistic Associations}
+In our case study, Fan was interested characterizing the way China was talked about in the three decades from 1980 to 2009. To do this, he assembled three slices by starting with a \emph{search} for ``China'' (Figure \ref{fig:intro03}) and and then filtering it by decade. 
+
+In our tool, overviews double as filters, which can be used to create or narrow down a slice:
+\begin{figure}[ht!]
+\begin{center}
+%
+        \subfigure[Using the categorical metadata overview to filter the slice ``all sentences containing \emph{China}"]{%
+            \label{fig:intro01}
+	\includegraphics[width=0.5\textwidth]{fig/intro/04a.png}
+        }%
+        \\
+        \subfigure[Using the numerical/date ranges to filter the slice ``all sentences containing \emph{China}" ]{%
+            \label{fig:intro02}
+	\includegraphics[width=0.6\textwidth]{fig/intro/04b.png}
+        }%
+%
+    \end{center}
+    \caption{%
+        What Fan sees when he opens up his editorials in our tool. \label{fig:intro04}
+     }%
+\end{figure}
+
 Slices do not stand alone. In our database, each sentence is indexed according to the following linguistic phenomena:
 \begin{itemize}
   \item Each word in the sentence, and its part of speech (noun, verb, adjective, etc.)
@@ -144,11 +207,7 @@ By traversing these index both ways, we can quickly compute the associations for
 Figure \ref{fig:slices-associated} illustrates the other slices associated with the slice from figure \ref{fig:slices}. That slice only contains one sentence, \code{`Is she a Capulet?'}, but in our tool, it is associated with the following other slices through the words \code{`is'}, \code{`she'}, \code{`a'} and \code{`capulet'}, grammatical relationships between those three words and other words in the collection, and the phrases \code{`Is she'}, \code{`she a'}, \code{`a capulet'},  \code{`is she a'}, and so on.
 
 
-\subsection{Views}
-\begin{figure}
-\includegraphics[width=0.5\textwidth]{fig/sliding/01-view-breakdown.png}
-\caption{The different components of a view \label{fig:view-schematic}}
-\end{figure}
+\subsection{Panels}
 Views are visual representations of a slice. As shown in Figure \ref{fig:view-schematic},  views  are window-like panels, and they contain the following components:
 \begin{itemize}
 	\item A drop down menu to switch to a different view of the same slice (see Figure \ref{fig:chris03})
@@ -169,9 +228,39 @@ Views are visual representations of a slice. As shown in Figure \ref{fig:view-sc
 		\end{itemize}
 \end{itemize}
 
+
 \subsection{Text-Sliding Interactions}
 
-Our goal is to make as many different types of associations and views available without overwhelming the user.
+Our goal is to make as many different types of associations and views available without overwhelming the user. In this section, we illustrate our tool's text sliding interactions through a case study. 
+
+\subsubsection{1970s through early-1990s: The China Card}
+Fan verified his first claim using sliding interactions provided by the word menu and view switcher . His investigation began with an exploration of the ``grammatical neighborhood'' around `China'.
+
+\begin{figure*}[h!]
+\includegraphics[width=\textwidth]{fig/chris/01.png}
+\caption{The word menu for China allows a user to explore all the grammatical relationships in which ``China'' participates. The noun-compound relationship ``China card'' stood out to Fan. \label{fig:chris01}}
+\end{figure*}
+
+\begin{figure}[h!]
+\includegraphics[width=0.3\textwidth]{fig/chris/01b.png}
+\caption{ The menu option revealing that ``China card'' occurred 21 times over Fan's editorials. Clicking on it opens up the list of sentences containing ``China card''  \label{fig:chris01b}}
+\end{figure}
+
+As Figure \ref{fig:chris01} shows, clicking on the word ``China'' opens up a menu with search options. These options act as quick previews of different grammatically-related slices: they show the frequencies with which ``China'' occurs in different grammatical constructions with different words.  For Fan, the noun compound relationship yielded a surprise: an odd construction, ``China card,'' appeared 21 times.
+
+
+Our tool allowed him to explore this this distinctive usage immediately. By selecting that very menu item (Figure \ref{fig:chris01b}), he was able to get a list of matching sentence. When Fan read those sentences, an interpretation suggested itself:
+\begin{quote}[Reading] the sentence search results reveals that phrase is used to refer to the China's strategic value in Cold War geopolitics. Of the four post-2000 instances, only one uses the phrase to describe a contemporary political situation; the others use it to describe Cold War politics. Reducing the vastness of China to a disposable ``card,'' indicates a degree of US self-confidence, not to mention condescension, that disappears after 1989.\end{quote}
+By sliding to a different view of the same data, he was able to verify the temporal claim. Using the drop-down menu at the top left of the panel (described earlier in Figure \ref{fig:chris03}) he selected a different view, Word Frequencies. This kept the slice the same (the sentences containing ``China card''), but opened up the word frequencies view alongside the list of search results.  Because the ``year'' metadata was attached to each article, this view displayed a graph of how frequent  sentences containing ``China Card'' were over time (Figure \ref{fig:chris02}). 
+
+\begin{figure}[h!]
+\includegraphics[width=0.5\textwidth]{fig/chris/02.png}
+\caption{ The number of sentences matching ``China card'' over time. \label{fig:chris02}}
+\end{figure}
+This graph showed him that the cold war phrase, ``China card'' was used up until 1989, but rarely ever after that (he had already accounted for the later ones by looking at the sentences individually). This confirmed his claim that, up until the early 90's, china had a Cold-war strategic significance to the U.S. that later dissipated.
+
+
+
 \subsubsection{Lateral Movement}
 The easiest slide in our tool is \emph{lateral movement}: creating a different view of the same slice.  There is a drop-down menu at the top left corner of each view which provides this function (Figure \ref{fig:chris03}).  Selecting a different view from the menu opens up that new view (on the same slice) alongside the current one. Users can have as many views open as they want, but most displays get crowded after 2 or 3.  
 \begin{figure}[h!]
@@ -243,7 +332,7 @@ From the moment I opened [the tool], `distance' immediately provided new insight
 
 Faced with unexpected discoveries in every part of speech, Ganding decided to explore the adjectives (Figure \ref{fig:rex02}). The top three adjectives were not surprising - other (474), first (379), and new (384).  However,  ``able'' (314) and ``own'' (282) were words that he did not expect to be used frequently.
 
-Ganding now wanted to understand the unexpectedly high frequencies of `able'' and ``own''. Our tool made this exploration easier. Instead of having to open a new window and type new search queries, clicking on the words themselves opened up Word Menus (Figure \ref{fig:rex03}) which allowed him to create word trees centered on those words (Figure \ref{fig:rex04}).  Word Trees \cite{wattenberg_word_2008} are an interactive visualizations that allow a user to explore the contexts in which a word is used. They group together common left- and right-contexts into a tree that gets finer and finer as the context get longer, terminating in individual sentences.  
+Ganding now wanted to understand the unexpectedly high frequencies of `able'' and ``own''. Our tool made this exploration easier. Instead of having to open a new window and type new search queries, clicking on the words themselves opened up Word Menus (Figure \ref{fig:rex03}) which allowed him to create word trees centered on those words (Figure \ref{fig:rex04}).   
 \begin{figure}[h!]
 \includegraphics[width=0.2\textwidth]{fig/rex/03.png}
 \includegraphics[width=0.2\textwidth]{fig/rex/03b.png}
@@ -272,45 +361,6 @@ The Word Frequencies visualization allowed Ganding to confirm his hypothesis. It
 \end{figure}
 
 The increasing frequencies across the course levels confirmed his hunch that as students become more experienced and comfortable with the written word, they used more complex sentence structures more frequently. 
-
-\subsection{U.S. Perceptions of China and Japan}
-[FirstName] Fan is a [scholar] at [university's] English department. Fan's research explores how US literature has responded to the rise of China since it began liberalizing its economy in the late 1970s.  His arguments rest on a set of historical observations about the rise of China  broadly accepted by historians and cultural historians: 
-\begin{enumerate}
-\item From the 1970s to the Tiananmen crackdown in 1989, US observers paid more attention to Japan than China. During this period, China didn't have much more than a strategic, Cold War relevance. 
-\item With the onset of the 1990s, attention shifts from Japan to China. Japan entered its first ``Lost Decade'' of economic stagnation, and China, meanwhile, began deepening its economic relations with the US.
-\item After China's accession to the World Trade Organization in 2001, US-China bilateral relationship becomes increasingly important to global economics and politics.
-\item After 2001, there is an increasing sense that the US's time as the post-socialist era's last remaining superpower are numbered, and that China will replace it.
-\end{enumerate}
-Literary scholars typically allow their claims to rest on observations made by field experts like historians and sociologists, or on their own inductive reasoning. Fan, however, sought to supply these observations with as much empirical evidence as possible, as well as to verify them.
-
-To generate this evidence, Fan collected New York Times editorials from  the Lexis/Nexis database, from 1980 to 2012. Using Lexis/Nexis's metadata, Fan limited the corpus of New York Times editorials to those with subjects ``China" or ``Japan." This resulted in a set of of 5,715 articles which were then imported to our tool.
-
-\subsubsection{1970s through early-1990s: The China Card}
-Fan verified his first claim using sliding interactions provided by the word menu and view switcher . His investigation began with an exploration of the ``grammatical neighborhood'' around `China'.
-
-\begin{figure*}[h!]
-\includegraphics[width=\textwidth]{fig/chris/01.png}
-\caption{The word menu for China allows a user to explore all the grammatical relationships in which ``China'' participates. The noun-compound relationship ``China card'' stood out to Fan. \label{fig:chris01}}
-\end{figure*}
-
-\begin{figure}[h!]
-\includegraphics[width=0.3\textwidth]{fig/chris/01b.png}
-\caption{ The menu option revealing that ``China card'' occurred 21 times over Fan's editorials. Clicking on it opens up the list of sentences containing ``China card''  \label{fig:chris01b}}
-\end{figure}
-
-As Figure \ref{fig:chris01} shows, clicking on the word ``China'' opens up a menu with search options. These options act as quick previews of different grammatically-related slices: they show the frequencies with which ``China'' occurs in different grammatical constructions with different words.  For Fan, the noun compound relationship yielded a surprise: an odd construction, ``China card,'' appeared 21 times.
-
-
-
-Our tool allowed him to explore this this distinctive usage immediately. By selecting that very menu item (Figure \ref{fig:chris01b}), he was able to get a list of matching sentence. When Fan read those sentences, an interpretation suggested itself:
-\begin{quote}[Reading] the sentence search results reveals that phrase is used to refer to the China's strategic value in Cold War geopolitics. Of the four post-2000 instances, only one uses the phrase to describe a contemporary political situation; the others use it to describe Cold War politics. Reducing the vastness of China to a disposable ``card,'' indicates a degree of US self-confidence, not to mention condescension, that disappears after 1989.\end{quote}
-By sliding to a different view of the same data, he was able to verify the temporal claim. Using the drop-down menu at the top left of the panel (described earlier in Figure \ref{fig:chris03}) he selected a different view, Word Frequencies. This kept the slice the same (the sentences containing ``China card''), but opened up the word frequencies view alongside the list of search results.  Because the ``year'' metadata was attached to each article, this view displayed a graph of how frequent  sentences containing ``China Card'' were over time (Figure \ref{fig:chris02}). 
-
-\begin{figure}[h!]
-\includegraphics[width=0.5\textwidth]{fig/chris/02.png}
-\caption{ The number of sentences matching ``China card'' over time. \label{fig:chris02}}
-\end{figure}
-This graph showed him that the cold war phrase, ``China card'' was used up until 1989, but rarely ever after that (he had already accounted for the later ones by looking at the sentences individually). This confirmed his claim that, up until the early 90's, china had a Cold-war strategic significance to the U.S. that later dissipated.
 
 \section {Related Work}
 
