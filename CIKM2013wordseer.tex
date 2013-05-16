@@ -114,7 +114,7 @@ Pirolli and Card \cite{pirolli_sensemaking_2005} identified ``pain points" in th
 
 \subsection{Case Study: U.S. Perceptions of China and Japan}
 
-The text-sliding capabilities of our tool are best illustrated through example. We will use the first case study:  US-China relations.
+We will use the first case study:  US-China relations, to illustrate the text-sliding capabilities of our tool.
 
 [FirstName] Fan is a [scholar] at [university's] English department. Fan's research explores how US literature has responded to the rise of China since it began liberalizing its economy in the late 1970s.  His arguments depend upon a set of historical observations about the rise of China  broadly accepted by historians and cultural historians: 
 \begin{enumerate}
@@ -130,16 +130,15 @@ To generate this evidence, Fan collected New York Times editorials from  the Lex
 
 \section{Text Sliding}
 
+
 \begin{figure}[ht!]
 \begin{center}
 %
-        \subfigure[A single view showing a visualization accompanied by some summary/filters.]{%
-            \label{fig:intro01}
+        \subfigure[A single view showing a visualization accompanied by some summary/filters.            \label{fig:intro01}]{%
 	\includegraphics[width=0.5\textwidth]{fig/intro/01.png}
         }%
         \\
-        \subfigure[A breakdown of the components of the user interface]{%
-            \label{fig:intro02}
+        \subfigure[A breakdown of the components of the user interface  \label{fig:intro02}]{%
 	\includegraphics[width=0.5\textwidth]{fig/intro/02.png}
         }%
 %
@@ -149,11 +148,11 @@ To generate this evidence, Fan collected New York Times editorials from  the Lex
      }%
 \end{figure}
 
-When users open up the tool for the first time, they see something like Figure \ref{fig:intro01}. This may seem like a lot of information, but Figure \ref{fig:intro02} it breaks down into simple components. It's a single \strong{view} with a a \strong{Word Tree} visualization of the most frequent word in the \strong{slice} ``the entire collection''. 
+When users open up the tool for the first time, they see something like Figure \ref{fig:intro01}. This may seem like a lot of information, but Figure \ref{fig:intro02} breaks it down into simple components. It's a single \strong{view} with a a \strong{Word Tree} visualization of the most frequent word in the \strong{slice} ``the entire collection''. 
 
-Word Trees \cite{wattenberg_word_2008} are an interactive visualizations that allow a user to explore the contexts in which a word is used. They group together common left- and right-contexts into a tree that gets finer and finer as the context get longer, terminating in individual sentences.  Because Fan hasn't specified a search query, the Word Tree view centers on the most frequent content word in the collection (content words exclude very common meaningless words, such as ``the'', ``a'', ``and'', etc.). In Fan's case, this happens to be ``China''.
+Word Trees \cite{wattenberg_word_2008} are interactive visualizations that allow a user to explore the contexts in which a word is used. They group together common left- and right-contexts into a tree that gets finer and finer as the context get longer, terminating in individual sentences.  Because Fan hasn't specified a search query, the Word Tree view centers on the most frequent content word in the collection (content words exclude very common meaningless words, such as ``the'', ``a'', ``and'', etc.). In Fan's case, this happens to be ``China''.
 
-The twin concepts of \strong{slices} and \strong{views} are central to text sliding. A slice is a set of sentences, and a panel is a visual representation of the data in a slice: anything from a list of the sentences in the slice, to more complex linguistic processing combined with visual analytics.  A slice is like a scientific specimen, a sample of some chemical compound. and views are the different lenses, apparatuses, and tests that reveal different information about the sample.
+The twin concepts of \strong{slices} and \strong{views} are central to text sliding. A slice is a set of sentences, and a view is a visual representation of the data in a slice: anything from a list of the sentences in the slice, to more complex linguistic processing combined with visual analytics.  A slice is like a scientific specimen, a sample of some chemical compound. and views are the different lenses, apparatuses, and tests that reveal different information about the sample.
 
 Text sliding is a way to get from a view of a slice, to a different view. Through the richness of language, slices are \emph{linguistically associated} with other slices (that also contain a particular word or phrase for example). If there is metadata accompanying the text, such as Act, Scene, and Speaker in Shakespeare's plays, there are also \emph{metadata associations}. Finally,  through the wide variety of visual analytics tool available, there can be many different ways of viewing and analyzing the data in a single slice. Text sliding makes all these associations accessible. 
  In fact, we define text sliding as:
@@ -162,56 +161,11 @@ Text sliding is a way to get from a view of a slice, to a different view. Throug
 	\item Opening a new view of an associated slice (drilling down, following a new thread, or `more like this')
 \end{itemize}
 
-\subsection{Slices}
-In our tool, we define a slice as \emph{a set of sentences}, although future tools might use different units of text, such as paragraphs, documents, or phrases. We allow arbitrarily-assembled slices, but it is easiest to think of slices as combinations of searches and filters.  
-
-\begin{figure}[ht!]
-\begin{center}
-	\includegraphics[width=0.5\textwidth]{fig/intro/03b.png}
-\end{center}
-    \caption{%
-        Creating a slice by searching for the word ``China''. This creates a slice containing only sentences that contain the word ``China''. \label{fig:intro03}
-     }%
-\end{figure}
-
-In our case study, Fan was interested characterizing the way China was talked about in the three decades from 1980 to 2009. To do this, he assembled three slices by starting with a \emph{search} for ``China'' (Figure \ref{fig:intro03}) and and then filtering it by decade. 
-
-In our tool, overviews double as filters, which can be used to create or narrow down a slice:
-\begin{figure}[ht!]
-\begin{center}
-%
-        \subfigure[Using the categorical metadata overview to filter the slice ``all sentences containing \emph{China}"]{%
-            \label{fig:intro01}
-	\includegraphics[width=0.5\textwidth]{fig/intro/04a.png}
-        }%
-        \\
-        \subfigure[Using the numerical/date ranges to filter the slice ``all sentences containing \emph{China}" ]{%
-            \label{fig:intro02}
-	\includegraphics[width=0.6\textwidth]{fig/intro/04b.png}
-        }%
-%
-    \end{center}
-    \caption{%
-        What Fan sees when he opens up his editorials in our tool. \label{fig:intro04}
-     }%
-\end{figure}
-
-Slices do not stand alone. In our database, each sentence is indexed according to the following linguistic phenomena:
-\begin{itemize}
-  \item Each word in the sentence, and its part of speech (noun, verb, adjective, etc.)
-  \item Each consecutive two-, three-, and four-word sequence in the sentence
-  \item Each grammatical relationship in the sentence. (These are identified using a computational linguistics technology called dependency parsing, fully explained in \cite{jurafsky_chapter_2009}. In particular, we use the Stanford dependency parser\footnote{Online demo  at \url{http://nlp.stanford.edu:8080/parser/}}\cite{klein_accurate_2003}.
-\end{itemize}
-By traversing these index both ways, we can quickly compute the associations for a slice. From a slice, we can query for all the words, phrases, or grammatical relations in the sentences in that slice, and from there, to all the other sentences that contain each particular item.
-
-Figure \ref{fig:slices-associated} illustrates the other slices associated with the slice from figure \ref{fig:slices}. That slice only contains one sentence, \code{`Is she a Capulet?'}, but in our tool, it is associated with the following other slices through the words \code{`is'}, \code{`she'}, \code{`a'} and \code{`capulet'}, grammatical relationships between those three words and other words in the collection, and the phrases \code{`Is she'}, \code{`she a'}, \code{`a capulet'},  \code{`is she a'}, and so on.
-
-
-\subsection{Panels}
-Views are visual representations of a slice. As shown in Figure \ref{fig:view-schematic},  views  are window-like panels, and they contain the following components:
+\subsection{Views}
+Views  are window-like panels, and they contain the following components, as deconstructed in Figure \ref{fig:intro02}:
 \begin{itemize}
 	\item A drop down menu to switch to a different view of the same slice (see Figure \ref{fig:chris03})
-	\item Breadcrumbs identifying the slice
+	\item Breadcrumbs describing the searches and filters that define the current slice
 	\item A visualization of the data in the slice. Currently, the choices are:
 		\begin{itemize}
 			\item A list of sentences
@@ -229,11 +183,55 @@ Views are visual representations of a slice. As shown in Figure \ref{fig:view-sc
 \end{itemize}
 
 
+\subsection{Slices}
+In our tool, we define a slice as \emph{a set of sentences}, although future tools might use different units of text, such as paragraphs, documents, or phrases. We allow arbitrarily-assembled slices, but it is easiest to think of slices as combinations of searches and filters.  
+
+For his project, Fan was interested characterizing the way China was talked about in the three decades from 1980 to 2009. To do this, he assembled three slices by starting with a \emph{search} for ``China'' (Figure \ref{fig:intro03}) and and then filtering it by decade (Figure \ref{fig:intro04a}). 
+
+\begin{figure}[ht!]
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{fig/intro/03b.png}
+\end{center}
+    \caption{%
+        Creating a slice by searching for the word ``China''. This creates a slice containing only sentences that contain the word ``China''. \label{fig:intro03}
+     }%
+\end{figure}
+
+\begin{figure}[ht!]
+\begin{center}
+%
+        \subfigure[Fan used the numerical/date ranges to filter the slice ``all sentences containing \emph{China}" to sentences from the 90's. ]{%
+            \label{fig:intro04a}
+	\includegraphics[width=0.5\textwidth]{fig/intro/04b.png}
+        }%
+        \\
+         \subfigure[How to use the categorical metadata overview to filter the slice ``all sentences containing \emph{China}" to only sentences from editorials about Japan]{%
+            \label{fig:intro04b}
+	\includegraphics[width=0.5\textwidth]{fig/intro/04a.png}
+        }%
+%
+    \end{center}
+    \caption{%
+     Overviews double as filters, which can be used to create or narrow down a slice \label{fig:intro04}
+     }%
+\end{figure}
+
+\subsubsection{Associations}
+
+Slices do not stand alone. In our database, each sentence is indexed according to the following linguistic phenomena:
+\begin{itemize}
+  \item Each word in the sentence, and its part of speech (noun, verb, adjective, etc.)
+  \item Each consecutive two-, three-, and four-word sequence in the sentence
+  \item Each grammatical relationship in the sentence. (These are identified using a computational linguistics technology called dependency parsing, fully explained in \cite{jurafsky_chapter_2009}. In particular, we use the Stanford dependency parser\footnote{Online demo  at \url{http://nlp.stanford.edu:8080/parser/}}\cite{klein_accurate_2003}.
+\end{itemize}
+By traversing these indexes both ways, we can quickly compute the associations for a slice. From a slice, we can query for all the words, phrases, or grammatical relations in the sentences in that slice, and from there, to all the other sentences that contain each particular item.
+
+In fact, we present the most common nouns, verbs, and adjectives, as well as the most common phrases the the user automatically. As shown in Figures \ref{fig:intro01} and \ref{fig:intro02}, 
+
 \subsection{Text-Sliding Interactions}
 
-Our goal is to make as many different types of associations and views available without overwhelming the user. In this section, we illustrate our tool's text sliding interactions through a case study. 
+Our goal is to make as many different types of associations and views available without overwhelming the user. 
 
-\subsubsection{1970s through early-1990s: The China Card}
 Fan verified his first claim using sliding interactions provided by the word menu and view switcher . His investigation began with an exploration of the ``grammatical neighborhood'' around `China'.
 
 \begin{figure*}[h!]
@@ -259,23 +257,11 @@ By sliding to a different view of the same data, he was able to verify the tempo
 \end{figure}
 This graph showed him that the cold war phrase, ``China card'' was used up until 1989, but rarely ever after that (he had already accounted for the later ones by looking at the sentences individually). This confirmed his claim that, up until the early 90's, china had a Cold-war strategic significance to the U.S. that later dissipated.
 
-
-
-\subsubsection{Lateral Movement}
 The easiest slide in our tool is \emph{lateral movement}: creating a different view of the same slice.  There is a drop-down menu at the top left corner of each view which provides this function (Figure \ref{fig:chris03}).  Selecting a different view from the menu opens up that new view (on the same slice) alongside the current one. Users can have as many views open as they want, but most displays get crowded after 2 or 3.  
 \begin{figure}[h!]
 \includegraphics[width=0.2\textwidth]{fig/chris/03.png}
 \caption{ This is the view-switcher drop-down menu. It can be found at the top left corner of every view. Selecting an option opens a new view  of the same slice alongside the current view. \label{fig:chris03}}
 \end{figure}
-
-\subsubsection{Filtering by Metadata}
-On the other hand, interactions for getting to different slices are different depending on the type of association. First, there are simple filters, such as going from \emph{Hamlet} to just \emph{Act 1 of Hamlet}. And simple searches, such as going from \emph{Hamlet} to \emph{sentences containing `good' in Hamlet}.
-  
-\begin{figure}
-\includegraphics[width=0.5\textwidth]{fig/sliding/02-metadata-categories.png}
-\caption{The metadata overview for the slice \code{play = Hamlet}.  It shows how many sentences match different metadata categories. Here, we see that in Hamlet, Act 3 has the most sentences, followed by Acts, 1, 5, 4, and 2. \label{fig:metadata-categories}}
-\end{figure}
-For filtering a slice by metadata, we use the metadata overview, shown in Figure \ref{fig:metadata-categories}. It is an `overview' in the sense that it shows how many sentences in the slice match each available metadata category, but it is also a filter. Clicking on any particular value creates a new, smaller slice restricted only to sentences that match that value. For example, If we were viewing a list of sentences from Hamlet,  clicking on Act 1 would change the view to just the list of sentences in \emph{Act 1} of Hamlet.
 
 \subsubsection{Restricting to Matches from a Search}
 
