@@ -54,7 +54,7 @@ There are numerous information analysis and discovery tools that allow users to 
 Current text analysis systems put computational linguistics and data visualization into the hands of users. Tools such as Jigsaw, IBM TextMiner, and SAS Text Analytics take techniques like text classification, named-entity recognition, sentiment analysis and summarization and build systems to automate their use. To make the results of these computational analyses interpretable, they display the outputs with interactive data visualization. These systems have made advanced text mining and visualization algorithms available to users without expertise in those areas.
 
 However, language is a unique form of expression, and text as data is distinct from numerical and categorical data.  Text has both linear and hierarchical structure, its meaning is ambiguous given its representation, it has tens of thousands or hundreds of thousands of features, and frequencies of words are distributed via a power law.  
- Even a small fragment of text does not stand alone, but is densely interconnected with other text through the \emph{linguistic phenomena} that it contains. These are units of meaning that take surface form in text, such as words, phrases, relations between words (including synonymy and hyponymy) and literary devices, such as metaphor, sarcasm and allusion. To illustrate, consider this 13-word "slice" of text from Shakespeare's ``Romeo and Juliet":
+ Even a small fragment of text does not stand alone, but is densely interconnected with other text through the \emph{linguistic phenomena} that it contains. These are units of meaning that take surface form in text, such as words, phrases, relations between words (including synonymy and hyponymy) and literary devices, such as metaphor, sarcasm and allusion. To illustrate, consider this 13-word ``slice'' of text from Shakespeare's ``Romeo and Juliet", where a slice is simply a set of sentences (not necessarily consecutive, like in this example):
 
 \begin{verbatim}
 ROMEO:
@@ -78,64 +78,114 @@ The more structure there is to text, the more kinds of associations are possible
 
 This network of associated slices is immediately apparent to us as humans. And to an analyst trying to make sense of an idea, some associations may be extremely meaningful. In fact, transitions  and associations are central to the analytical process. People seeking knowledge from text are engaging in \emph{sensemaking}. They do not follow a straight path from data input to analysis output, but meander between analysis, interpretation, exploration and understanding on different sub-collections of data.  It is therefore important for text analysis systems to support not just algorithmic and visual analysis, but the transitions: slicing, filtering and exploration that lead from analysis to analysis, visualization to visualization, and finally to insight.
 
-In this paper, we describe a text analysis tool that supports such transitions. It allows highly flexible slicing and dicing, as well as frictionless transitions (hence "sliding") between visual analyses, drill-downs, lateral explorations and overviews of slices in a text collection. Our tool uses computational linguistics, information retrieval and data visualization, and enables scholars with no technical background to conduct analyses yielding concrete, useful and otherwise inaccessible knowledge.
+In this paper, we describe a text analysis tool that supports such transitions. It allows highly flexible slicing and dicing, as well as frictionless transitions (hence ``sliding") between visual analyses, drill-downs, lateral explorations and overviews of slices in a text collection. Our tool uses computational linguistics, information retrieval and data visualization, and enables scholars with no technical background to conduct analyses yielding concrete, useful and otherwise inaccessible knowledge.
 
 \subsection{Humanities and Social Sciences}
 The humanities and social sciences (HASS) are our motivation. In these fields, it is common for scholars to have hundreds, even thousands of text-based source documents of interest from which they extract evidence for complex arguments about society and culture. These collections (such as the set of all New York Times editorials about China, the complete works of Shakespeare, or the set of all 18th C. American novels)  are difficult to make sense of and navigate. Unlike numerical data, they cannot be condensed, overviewed, and summarized in an automated fashion without losing significant information. And the metadata that accompanies the documents -- often from library records -- does not capture the varied content of the of the text within.
 
 HASS scholars are an important area of focus for tool builders for another reason: low uptake. A 2012 study of computational tool use among these scholars showed that adoption was low despite an abundance of tools. The main culprit? Poor interface design due to lack of involvement with end users. In our research, we have tried to avoid this problem by taking an iterative, user-centered design approach. We collaborate with active HASS scholars working on text analysis problems of existing professional interest to them, and let their needs, behaviors, and observations drive tool development.
 
-We introduce the text sliding capabilities of our tool using three case studies. The researchers driving these studies used our tool to further their projects on literary history, education, and U.S-China relations. The projects investigated 1) How certain words dropped religious connotations and gained secular tones over the 18th Century in America, 2) How college students from diverse backgrounds remember and reflect upon literacy, and 3) How U.S. perceptions China and Japan responded to China's rise over the last 30 years.
-
-This paper is structured as follows: in the next section, we describe results from the field of sensemaking that motivate the need for ``sliding'' interactions between slicces. After that, we explain the main ideas behind text sliding and show it in action with extended examples from case studies. Then, we describe related systems, and finally conclude with a discussion our results and future work.
-
-\section{`Pain points' in Sensemaking}
-Observational studies from the literature on sensemaking describe many problems analysts encounter while trying to make sense of text collections. These studies typically watch professionals such as government intelligence analysts \cite{x}, business analysts \cite{x} market researchers \cite{x} and academics \cite{x} at work, attempt to categorize the actions they perform and identify common sequences of actions. Several models of the sensemaking process have emerged \cite{x} These models attempt to explain what one would observe when watching analysts distill understanding from raw data, where "understanding" manifests itself as a summary, report, or presentation.
-
-Pirolli and Card \cite{pirolli_sensemaking_2005} identified ``pain points" in three areas having to do with navigation and transitions between slices of text:
+We introduce the text sliding capabilities of our tool using two case studies. The researchers driving these studies used our tool to further their projects on  education and U.S-China relations. The two projects investigated
 \begin{enumerate}
-\item \strong{Exploring} the collection by searching and filtering. Collections could be large difficult to navigate. 
+	\item How college students from diverse backgrounds remember and reflect upon literacy.
+	\item How U.S. perceptions China and Japan responded to China's rise over the last 30 years.
+\end{enumerate}
+
+This paper is structured as follows: in the next section, we describe results from the field of sensemaking that motivate the need for ``sliding'' interactions between slices. After that, we explain the main ideas behind text sliding and show it in action with extended examples from case studies. Then, we describe related systems, and finally conclude with a discussion our results and future work.
+
+\section{Motivation}
+Observational studies from the literature on sensemaking describe many problems analysts encounter while trying to make sense of text collections. These studies typically watch professionals such as government intelligence analysts \cite{x}, business analysts \cite{x} market researchers \cite{x} and academics \cite{x} at work, attempt to categorize the actions they perform and identify common sequences of actions. Several models of the sensemaking process have emerged \cite{x} These models attempt to explain what one would observe when watching analysts distill understanding from raw data, where ``understanding" usually manifests itself as a summary, report, or presentation.
+
+Pirolli and Card \cite{pirolli_sensemaking_2005} identified ``pain points" in three areas having to do with navigation and transitions between slices while studying intelligence analysts working with large collections of text-based reports:
+\begin{enumerate}
+\item \strong{Exploring} the collection by searching and filtering. Collections were often large difficult to navigate. 
 	\begin{itemize}
-		\item If  associated slices were easier to see and to access, it might make exploration easier. 
+		\item If  associated slices were easy to see and to access, exploration might become easier. 
 	\end{itemize}
 \item \strong{Enriching}, which is the process of collecting a narrower set of items for analysis. This was a time consuming process involving going through documents returned by results, reading them to determine whether they were relevant or not, and placing them into groups.
 	\begin{itemize}
-		\item It needs to be easier to select documents matching a term, quickly skim the text to determine relevance, and to collect the relevant text into a slice for later analysis.
+		\item It should be easy to select documents matching a term, quickly skim the text to determine relevance, and to collect the relevant text into a slice for later analysis.
 	\end{itemize}
 \item \strong{Exploiting}, which is the process of analyzing the collected information by manual schematizing, computational analysis, or visualization. Follow-up actions, such as drilling down to a finer set, noticing something interesting and starting a different analysis, or re-framing the question had a high cost.
 	\begin{itemize}
-		\item This suggests that analysts should be able to explore associations and start new threads of inquiry with low overhead, and without losing their current state.
+		\item It should be easy to explore associations and to start new threads of inquiry with low overhead, and without losing their current state.
 	\end{itemize}
 \end{enumerate}
 
+
 \section{Text Sliding}
 
-Central to the idea of text sliding are the twin concepts of \emph{slices} and \emph{views}.  
+The twin concepts of \emph{slices} and \emph{views} are central to text sliding. A slice is a set of sentences, and a view is a visual representation of the data in a slice: anything from a list of the sentences in the slice, to more complex linguistic processing combined with visual analytics.  A slice is like a scientific specimen, a sample of some chemical compound. and views are the different lenses, apparatuses, and tests that reveal different information about the sample.
+
+Through the richness of language, slices are \emph{linguistically associated} with other slices (that also contain a particular word or phrase for example). If there is metadata accompanying the text, such as Act, Scene, and Speaker in Shakespeare's plays, there are also \emph{metadata associations}. Finally,  through the wide variety of visual analytics tool available, there can be many different ways of viewing and analyzing the data in a single slice. Text sliding makes all these associations accessible. 
+ In fact, we define text sliding as:
+\begin{itemize}
+	\item Getting a different view of the same slice (lateral movement)
+	\item Opening a new view of an associated slice (drilling down, following a new thread, or `more like this')
+\end{itemize}
 
 \subsection{Slices}
-In our tool, a slice is \emph{a set of sentences} (future tools might define it differently: perhaps a set of documents, or a set of words, or some user-specified unit). We allow arbitrary slices, but for now, it is easier to think of slices as combinations of searches and filters. Slices are conceptually illustrated in Figure \ref{fig:slices}. In that figure, we are assembling a slice corresponding to all of Romeo's mentions of the word ``Capulet'' in Act 1. We start with the whole collection, the collected works of Shakespeare, apply filters for \code{speaker = Romeo} and \code{act = Act 1}  and a search for \code{`Capulet'}. This leaves us with a slice containing only sentences that matches our criteria.
+In our tool, we define a slice as \emph{a set of sentences}, although future tools might use different units of text, such as paragraphs, documents, or phrases. We allow arbitrarily-assembled slices, but it is easiest to think of slices as combinations of searches and filters. 
+
+Slices are conceptually illustrated in Figure \ref{fig:slices}. In that figure, we are assembling a slice corresponding to all sentences spoken by Romeo  in Act 1 in which he mentions ``Capulet''. We start with the whole collection, the collected works of Shakespeare, apply filters for \code{speaker = Romeo} and \code{act = Act 1}  and and also apply a search for \code{`Capulet'}. This leaves us with a slice containing only sentences that match our criteria, in this case, only one sentence:
+\begin{verbatim}
+ 	{`Is she a Capulet?'}
+\end{verbatim}
+
+\subsubsection{Linguistic Associations}
+Slices do not stand alone. In our database, each sentence is indexed according to the following linguistic phenomena:
+\begin{itemize}
+  \item Each word in the sentence, and its part of speech (noun, verb, adjective, etc.)
+  \item Each consecutive two-, three-, and four-word sequence in the sentence
+  \item Each grammatical relationship in the sentence. (These are identified using a computational linguistics technology called dependency parsing, fully explained in \cite{jurafsky_chapter_2009}. In particular, we use the Stanford dependency parser\footnote{Online demo  at \url{http://nlp.stanford.edu:8080/parser/}}\cite{klein_accurate_2003}.
+\end{itemize}
+By traversing the index both ways, we can quickly compute the associations for a slice. From a slice, we can query for all the words, phrases, or grammatical relations in the sentences in that slice, and from there, to all the other sentences that contain each particular item.
+
+Figure \ref{fig:slices-associated} illustrates the other slices associated with the slice from figure \ref{fig:slices}. That slice only contains one sentence, \code{`Oh dear account!'}, but in our tool, it is associated with the following other slices through the words \code{`is'}, \code{`she'}, \code{`a'} and \code{`capulet'}, grammatical relationships between those three words and other words in the collection, and the phrases \code{`Is she'}, \code{`she a'}, \code{`a capulet'},  \code{`is she a'}, and so on.
 
 
 \subsection{Views}
-Views are how our tool represents slices to users. Figure \ref{fig:view-schematic} 
-
-\subsection{Associations}
-Slices do not stand alone. As described in the introduction, text is densely interconnected and associative. In our database, each sentence, and therefore each set of sentences, is associated with the following linguistic phenomena:
+Views are visual representations of a slice. As shown in Figure \ref{fig:view-schematic},  views  are window-like panels, and they contain the following components:
 \begin{itemize}
-  \item Words
-  \item Consecutive two-, three-, and four-word sequences
-  \item Grammatical relationships, identified using a computational linguistics technology called dependency parsing, fully explained in \cite{}. In particular, we use the Stanford dependency parser\footnote{Online demo  at \url{http://nlp.stanford.edu:8080/parser/}}\cite{}.
+	\item Breadcrumbs identifying the slice
+	\item A visualization of the data in the slice, one of:
+		\begin{itemize}
+			\item A list of sentences
+			\item A list of documents that match the sentences in the slice
+			\item An interactive word tree \cite{wattenberg_word_2008} of the most common word in the slice, or the search term, if specified
+			\item Charts of how many sentences in the slice are distributed across various metadata categories
+			\item If the slice is a full document, a simple reading interface
+			\item If the slice is the result of a grammatical relation query, bar charts showing how often different words in the slice that appear in the relations
+		\end{itemize}
+	\item Summary statistics of:
+		\begin{itemize}
+			\item How many sentences within the slice match different metadata categories
+			\item The most frequent nouns, verbs, adjectives and multi-word phrases
+		\end{itemize}
 \end{itemize}
-Figure \ref{fig:slices-associated} illustrates some other slices associated with the slice from figure \ref{fig:slices}. That slice only contains one sentence, \code{`Oh dear account!'}, but in our tool, it is associated with the following other slices through the words \code{`is'}, \code{`she'}, \code{`a'} and \code{`capulet'}, grammatical relationships between those three words and other words in the collection, and the phrases \code{`Is she'}, \code{`she a'}, \code{`a capulet'},  \code{`is she a'}, and so on.
+
+\subsection{Text-Sliding Interactions}
+
+Our goal is to make as many different types of associations and views available without overwhelming the user.
+
+\subsubsection{A Different View of the Same Slice}
 
 
-\subsection{Case Studies}
+\subsubsection{A New View of an Associated Slice}
 
-\subsubsection{Analyzing Literacy Autobiographies Written By Students}
+\subsubsection*{Metadata Associations}
 
-\subsubsection{U.S. Perceptions of China and Japan 1980-2012}
 
-\subsubsection{Secular vs. Religious `Belief'  in 18th C. American Fiction}
+\subsubsection*{Linguistic Associations}
+
+
+
+\section{Case Studies}
+
+\subsection{Literacy Autobiographies}
+
+\subsection{U.S. Perceptions of China and Japan}
+
 
 \section {Related Work}
 
@@ -150,3 +200,5 @@ This work is supported by NEH grant HK-50011-12.
 \bibliography{papers} 
   
 \end{document}
+
+
