@@ -1,5 +1,9 @@
 \documentclass{sig-alternate}
 \usepackage{graphicx, url}
+
+\newcommand{\strong}[1] {\textbf{#1}}
+\newcommand{\code}[1] {\texttt{#1}}
+
 \begin{document}
 \title{Text Sliding: Information Discovery with Intensely Integrated Text Analysis}
 \numberofauthors{4}
@@ -83,11 +87,46 @@ HASS scholars are an important area of focus for tool builders for another reaso
 
 We introduce the text sliding capabilities of our tool using three case studies. The researchers driving these studies used our tool to further their projects on literary history, education, and U.S-China relations. The projects investigated 1) How certain words dropped religious connotations and gained secular tones over the 18th Century in America, 2) How college students from diverse backgrounds remember and reflect upon literacy, and 3) How U.S. perceptions China and Japan responded to China's rise over the last 30 years.
 
-This paper is structured as follows: in the next section, we describe results from the field of sensemaking that motivate the need for ``sliding'' interactions . After that, we explain the main ideas behind text sliding and show it in action with extended examples from case studies. Then, we describe related systems, and finally conclude with a discussion our results and future work.
+This paper is structured as follows: in the next section, we describe results from the field of sensemaking that motivate the need for ``sliding'' interactions between slicces. After that, we explain the main ideas behind text sliding and show it in action with extended examples from case studies. Then, we describe related systems, and finally conclude with a discussion our results and future work.
 
-\section{Motivation: `pain points' in Sensemaking}
+\section{`Pain points' in Sensemaking}
+Observational studies from the literature on sensemaking describe many problems analysts encounter while trying to make sense of text collections. These studies typically watch professionals such as government intelligence analysts \cite{x}, business analysts \cite{x} market researchers \cite{x} and academics \cite{x} at work, attempt to categorize the actions they perform and identify common sequences of actions. Several models of the sensemaking process have emerged \cite{x} These models attempt to explain what one would observe when watching analysts distill understanding from raw data, where "understanding" manifests itself as a summary, report, or presentation.
+
+Pirolli and Card \cite{pirolli_sensemaking_2005} identified ``pain points" in three areas having to do with navigation and transitions between slices of text:
+\begin{enumerate}
+\item \strong{Exploring} the collection by searching and filtering. Collections could be large difficult to navigate. 
+	\begin{itemize}
+		\item If  associated slices were easier to see and to access, it might make exploration easier. 
+	\end{itemize}
+\item \strong{Enriching}, which is the process of collecting a narrower set of items for analysis. This was a time consuming process involving going through documents returned by results, reading them to determine whether they were relevant or not, and placing them into groups.
+	\begin{itemize}
+		\item It needs to be easier to select documents matching a term, quickly skim the text to determine relevance, and to collect the relevant text into a slice for later analysis.
+	\end{itemize}
+\item \strong{Exploiting}, which is the process of analyzing the collected information by manual schematizing, computational analysis, or visualization. Follow-up actions, such as drilling down to a finer set, noticing something interesting and starting a different analysis, or re-framing the question had a high cost.
+	\begin{itemize}
+		\item This suggests that analysts should be able to explore associations and start new threads of inquiry with low overhead, and without losing their current state.
+	\end{itemize}
+\end{enumerate}
 
 \section{Text Sliding}
+
+Central to the idea of text sliding are the twin concepts of \emph{slices} and \emph{views}.  
+
+\subsection{Slices}
+In our tool, a slice is \emph{a set of sentences} (future tools might define it differently: perhaps a set of documents, or a set of words, or some user-specified unit). We allow arbitrary slices, but for now, it is easier to think of slices as combinations of searches and filters. Slices are conceptually illustrated in Figure \ref{fig:slices}. In that figure, we are assembling a slice corresponding to all of Romeo's mentions of the word ``Capulet'' in Act 1. We start with the whole collection, the collected works of Shakespeare, apply filters for \code{speaker = Romeo} and \code{act = Act 1}  and a search for \code{`Capulet'}. This leaves us with a slice containing only sentences that matches our criteria.
+
+
+\subsection{Views}
+Views are how our tool represents slices to users. Figure \ref{fig:view-schematic} 
+
+\subsection{Associations}
+Slices do not stand alone. As described in the introduction, text is densely interconnected and associative. In our database, each sentence, and therefore each set of sentences, is associated with the following linguistic phenomena:
+\begin{itemize}
+  \item Words
+  \item Consecutive two-, three-, and four-word sequences
+  \item Grammatical relationships, identified using a computational linguistics technology called dependency parsing, fully explained in \cite{}. In particular, we use the Stanford dependency parser\footnote{Online demo  at \url{http://nlp.stanford.edu:8080/parser/}}\cite{}.
+\end{itemize}
+Figure \ref{fig:slices-associated} illustrates some other slices associated with the slice from figure \ref{fig:slices}. That slice only contains one sentence, \code{`Oh dear account!'}, but in our tool, it is associated with the following other slices through the words \code{`is'}, \code{`she'}, \code{`a'} and \code{`capulet'}, grammatical relationships between those three words and other words in the collection, and the phrases \code{`Is she'}, \code{`she a'}, \code{`a capulet'},  \code{`is she a'}, and so on.
 
 
 \subsection{Case Studies}
