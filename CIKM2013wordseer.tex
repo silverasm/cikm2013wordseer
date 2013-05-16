@@ -44,17 +44,17 @@ There are numerous information analysis and discovery tools that allow users to 
 
 % A category with the (minimum) three required fields
 \category{H.X}{XXXXX XXXXXXX XXXX}{XXXXX}
+
 %A category including the fourth, optional field follows...
 \category{H.X}{XXXXX }{XXXXX }[XXXXX ]
 
-\terms{Theory}
-
-\keywords{ACM proceedings, \LaTeX, text tagging}
+\keywords{exploratory data analysis, text mining, information visualization, digital humanities}
 
 \section{Introduction}
 Current text analysis systems put computational linguistics and data visualization into the hands of users. Tools such as Jigsaw, IBM TextMiner, and SAS Text Analytics take techniques like text classification, named-entity recognition, sentiment analysis and summarization and build systems to automate their use. To make the results of these computational analyses interpretable, they display the outputs with interactive data visualization. These systems have made advanced text mining and visualization algorithms available to users without expertise in those areas.
 
-However, text is distinct from other types of data because it is inherently meaningful and rich with associations.  Even a small fragment of text does not stand alone, but is densely interconnected with other text through the \emph{linguistic phenomena} that it contains. These are units of meaning that take surface form in text, such as words, phrases, relations between words, and literary devices, such as metaphor, sarcasm and allusion. To illustrate, consider this 13-word ``slice'' of text from Shakespeare's ``Romeo and Juliet":
+However, language is a unique form of expression, and text as data is distinct from numerical and categorical data.  Text has both linear and hierarchical structure, its meaning is ambiguous given its representation, it has tens of thousands or hundreds of thousands of features, and frequencies of words are distributed via a power law.  
+ Even a small fragment of text does not stand alone, but is densely interconnected with other text through the \emph{linguistic phenomena} that it contains. These are units of meaning that take surface form in text, such as words, phrases, relations between words (including synonymy and hyponymy) and literary devices, such as metaphor, sarcasm and allusion. To illustrate, consider this 13-word "slice" of text from Shakespeare's ``Romeo and Juliet":
 
 \begin{verbatim}
 ROMEO:
@@ -64,13 +64,13 @@ ROMEO:
 
 Surrounding this tiny slice is a swarm of other slices of text, each associated with the different linguistic phenomena in this slice. For instance:
 \begin{itemize}
-\item Each of the 11 distinct words in the above excerpt is a jumping-off point to all the sentences in which it occurs, to other words that mean the same thing, or to other words used near it.
-\item Each  two-, three-, or n-word phrase can be associated with are all the sentences in which it occurs
-\item  Each grammatical relationship between words (such as ``dear" being an adjective modifier of  ``account") can is a link to other words that enter that relation (other adjectives describing ``account", or other things that are ``dear".)
-\item For every instance of a literary device, such as the exclamation ``dear account'', or the imagery of debt, can be associated with all other occurrences of it, or the different phrasings with which it surfaces in the play.
+\item Each of the 11 distinct words in the above excerpt can be thought of as a jumping-off point to all of the other sentences in which it occurs, as well as to sentences containing other words that mean the same thing, or to other words that tend to be used near it.
+\item Each  two-, three-, or n-word phrase can be associated with every other sentence in which it occurs
+\item  Each grammatical relationship between words (such as ``dear" being an adjective modifier of  ``account") can be thought of as a link to other words that enter that relation (other adjectives describing ``account", or other things that are ``dear".)
+\item Each instance of a literary device, such as the exclamation ``dear account'', or the imagery of debt, can be associated with all other occurrences of this phrase, or the different phrasings with which this concept surfaces in the play.
 \end{itemize}
 
-The more structure there is to text, the more kinds of associations are possible. In Shakespeare, we have metadata, such as speaker, act, and scene, so associations based on these dimensions also exist:
+The more structure there is to text, the more kinds of associations are possible. Shakespeare plays have metadata, such as speaker, act, and scene, so associations based on these dimensions also exist:
 \begin{itemize}
 \item The speaker, Romeo, can be associated with all the other speeches by him.
 \item The location within the play: Act 1, Scene 4 can be associated with the other scenes in that act, or the other speakers in that scene.
