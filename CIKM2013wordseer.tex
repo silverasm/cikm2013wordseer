@@ -139,16 +139,21 @@ Slices do not stand alone. In our database, each sentence is indexed according t
   \item Each consecutive two-, three-, and four-word sequence in the sentence
   \item Each grammatical relationship in the sentence. (These are identified using a computational linguistics technology called dependency parsing, fully explained in \cite{jurafsky_chapter_2009}. In particular, we use the Stanford dependency parser\footnote{Online demo  at \url{http://nlp.stanford.edu:8080/parser/}}\cite{klein_accurate_2003}.
 \end{itemize}
-By traversing the index both ways, we can quickly compute the associations for a slice. From a slice, we can query for all the words, phrases, or grammatical relations in the sentences in that slice, and from there, to all the other sentences that contain each particular item.
+By traversing these index both ways, we can quickly compute the associations for a slice. From a slice, we can query for all the words, phrases, or grammatical relations in the sentences in that slice, and from there, to all the other sentences that contain each particular item.
 
-Figure \ref{fig:slices-associated} illustrates the other slices associated with the slice from figure \ref{fig:slices}. That slice only contains one sentence, \code{`Oh dear account!'}, but in our tool, it is associated with the following other slices through the words \code{`is'}, \code{`she'}, \code{`a'} and \code{`capulet'}, grammatical relationships between those three words and other words in the collection, and the phrases \code{`Is she'}, \code{`she a'}, \code{`a capulet'},  \code{`is she a'}, and so on.
+Figure \ref{fig:slices-associated} illustrates the other slices associated with the slice from figure \ref{fig:slices}. That slice only contains one sentence, \code{`Is she a Capulet?'}, but in our tool, it is associated with the following other slices through the words \code{`is'}, \code{`she'}, \code{`a'} and \code{`capulet'}, grammatical relationships between those three words and other words in the collection, and the phrases \code{`Is she'}, \code{`she a'}, \code{`a capulet'},  \code{`is she a'}, and so on.
 
 
 \subsection{Views}
+\begin{figure}
+\includegraphics[width=0.5\textwidth]{fig/sliding/01-view-breakdown.png}
+\caption{The different components of a view \label{fig:view-schematic}}
+\end{figure}
 Views are visual representations of a slice. As shown in Figure \ref{fig:view-schematic},  views  are window-like panels, and they contain the following components:
 \begin{itemize}
+	\item A drop down menu to switch to a different view of the same slice (see Figure \ref{fig:chris03})
 	\item Breadcrumbs identifying the slice
-	\item A visualization of the data in the slice, one of:
+	\item A visualization of the data in the slice. Currently, the choices are:
 		\begin{itemize}
 			\item A list of sentences
 			\item A list of documents that match the sentences in the slice
@@ -167,32 +172,46 @@ Views are visual representations of a slice. As shown in Figure \ref{fig:view-sc
 \subsection{Text-Sliding Interactions}
 
 Our goal is to make as many different types of associations and views available without overwhelming the user.
+\subsubsection{Lateral Movement}
+The easiest slide in our tool is \emph{lateral movement}: creating a different view of the same slice.  There is a drop-down menu at the top left corner of each view which provides this function (Figure \ref{fig:chris03}).  Selecting a different view from the menu opens up that new view (on the same slice) alongside the current one. Users can have as many views open as they want, but most displays get crowded after 2 or 3.  
+\begin{figure}[h!]
+\includegraphics[width=0.2\textwidth]{fig/chris/03.png}
+\caption{ This is the view-switcher drop-down menu. It can be found at the top left corner of every view. Selecting an option opens a new view  of the same slice alongside the current view. \label{fig:chris03}}
+\end{figure}
 
-\subsubsection{A Different View of the Same Slice}
+\subsubsection{Filtering by Metadata}
+On the other hand, interactions for getting to different slices are different depending on the type of association. First, there are simple filters, such as going from \emph{Hamlet} to just \emph{Act 1 of Hamlet}. And simple searches, such as going from \emph{Hamlet} to \emph{sentences containing `good' in Hamlet}.
+  
+\begin{figure}
+\includegraphics[width=0.5\textwidth]{fig/sliding/02-metadata-categories.png}
+\caption{The metadata overview for the slice \code{play = Hamlet}.  It shows how many sentences match different metadata categories. Here, we see that in Hamlet, Act 3 has the most sentences, followed by Acts, 1, 5, 4, and 2. \label{fig:metadata-categories}}
+\end{figure}
+For filtering a slice by metadata, we use the metadata overview, shown in Figure \ref{fig:metadata-categories}. It is an `overview' in the sense that it shows how many sentences in the slice match each available metadata category, but it is also a filter. Clicking on any particular value creates a new, smaller slice restricted only to sentences that match that value. For example, If we were viewing a list of sentences from Hamlet,  clicking on Act 1 would change the view to just the list of sentences in \emph{Act 1} of Hamlet.
+
+\subsubsection{Restricting to Matches from a Search}
 
 
-\subsubsection{A New View of an Associated Slice}
-
-\subsubsection*{Metadata Associations}
+\subsubsection{Overview/Filters by Common Words and Phrases }
 
 
-\subsubsection*{Linguistic Associations}
+\subsubsection{Related Words}
 
+\subsubsection{Grammatical Relationships}
 
+\subsubsection {Creating Arbitrary Sets}
 
 \section{Case Studies}
 
 \subsection{Literacy Autobiographies}
 
 \subsubsection{Introduction}
-As a college English Composition instructor,  [FirstName] Ganding, at  [university's] school of Education asks students to write often and in a variety of situations. In this project, he examined ways in which he might draw upon our tool to assist in the teaching and learning of writing. He was particularly interested in one student writing genre - the literacy autobiography. In this type of writing, students describe significant experiences they have had with literacy and reflect upon the importance of literacy to their lives.  
+As a college English Composition instructor,  [FirstName] Ganding, at  [university's] school of Education asks students to write often and in a variety of situations. In this project, he examined ways in which he might draw upon our tool to assist in the teaching and learning of writing. He was particularly interested in the literacy autobiography. In this type of writing, students describe significant experiences they have had with literacy and reflect upon the importance of literacy to their lives.  
 
 He analyzed the content of approximately 140 literacy autobiographies written by students from courses that he has taught over that past two years, each about 1,500 to 2,000 words long. He is familiar with the collection, having previously read and commented on each of the 140 essays included.  Table \ref{table:rex-courses} shows the different courses from which literacy autobiographies were analyzed. The courses were at different colleges and taught at different proficiency levels.
 
 Among the questions that guided his inquiry were the following. In this example, we show how our tool helped him get answers:
 \begin{enumerate}\item What can a distant reading of student literacy autobiographies tell him about students that close readings cannot?\item What patterns exist in student literacy autobiographies at different course levels and institutions?
 \end{enumerate}
-
 
 
 \begin{table}
@@ -265,41 +284,34 @@ The increasing frequencies across the course levels confirmed his hunch that as 
 \end{enumerate}
 Literary scholars typically allow their claims to rest on observations made by field experts like historians and sociologists, or on their own inductive reasoning. Fan, however, sought to supply these observations with as much empirical evidence as possible, as well as to verify them.
 
-To generate this evidence, Fan collected New York Times editorials from  the Lexis/Nexis database, from 1980 to 2012. Using Lexis/Nexis's metadata, Fan limited the corpus of New York Times editorials to those with subjects ``China" or ``Japan." This resulted in a set of of 5,715 articles which were then imported to our tool. In addition, Fan constructed a sub-corpus consisting of unsigned editorials (n=489) and manually read these.
-
-This corpus possesses a number of features that make it a strong source for evidence. First, the genre of the editorial lacks the literary features -- metaphor, figural language, etc. -- that might interfere with distant-readings. Second, editorials are generally written as immediate responses to events, and therefore make greater use of generalization, stereotype and readily available cultural frameworks than, say, long-form commentary or essays that are more rooted in reportage and empirical research. In other words, editorials give expression to precisely the kinds of generalizations that Fan's claims track.
+To generate this evidence, Fan collected New York Times editorials from  the Lexis/Nexis database, from 1980 to 2012. Using Lexis/Nexis's metadata, Fan limited the corpus of New York Times editorials to those with subjects ``China" or ``Japan." This resulted in a set of of 5,715 articles which were then imported to our tool.
 
 \subsubsection{1970s through early-1990s: The China Card}
-Text sliding interactions provided by the Word Menu and view switcher gave Fan the tools to verify his first claim. His investigation began with an exploration of the ``grammatical neighborhood'' around `China'.
+Fan verified his first claim using sliding interactions provided by the word menu and view switcher . His investigation began with an exploration of the ``grammatical neighborhood'' around `China'.
 
 \begin{figure*}[h!]
 \includegraphics[width=\textwidth]{fig/chris/01.png}
 \caption{The word menu for China allows a user to explore all the grammatical relationships in which ``China'' participates. The noun-compound relationship ``China card'' stood out to Fan. \label{fig:chris01}}
 \end{figure*}
 
-As Figure \ref{fig:chris01} shows, clicking on the word ``China'' opens up a menu with search options. These options act as quick previews of different grammatically-related slices: they show the frequencies with which ``China'' occurs in different grammatical constructions with different words.  For Fan, the noun compound relationship yielded a surprise: the construction, ``China card'', appearing 21 times.
-
 \begin{figure}[h!]
 \includegraphics[width=0.3\textwidth]{fig/chris/01b.png}
 \caption{ The menu option revealing that ``China card'' occurred 21 times over Fan's editorials. Clicking on it opens up the list of sentences containing ``China card''  \label{fig:chris01b}}
 \end{figure}
 
-Our tool allowed him to explore this this distinctive usage further upon discovery. By selecting that very menu item (Figure \ref{fig:chris01b}), he was able to get a list of matching sentence. Upon reading those sentences, an interpretation became clear to Fan:
+As Figure \ref{fig:chris01} shows, clicking on the word ``China'' opens up a menu with search options. These options act as quick previews of different grammatically-related slices: they show the frequencies with which ``China'' occurs in different grammatical constructions with different words.  For Fan, the noun compound relationship yielded a surprise: an odd construction, ``China card,'' appeared 21 times.
+
+
+
+Our tool allowed him to explore this this distinctive usage immediately. By selecting that very menu item (Figure \ref{fig:chris01b}), he was able to get a list of matching sentence. When Fan read those sentences, an interpretation suggested itself:
 \begin{quote}[Reading] the sentence search results reveals that phrase is used to refer to the China's strategic value in Cold War geopolitics. Of the four post-2000 instances, only one uses the phrase to describe a contemporary political situation; the others use it to describe Cold War politics. Reducing the vastness of China to a disposable ``card,'' indicates a degree of US self-confidence, not to mention condescension, that disappears after 1989.\end{quote}
-
-Sliding to a different view helped him to verify this. Using the drop-down menu at the top of the panel, he selected a different view, Word Frequencies (Figure \ref{fig:chris03}). 
-\begin{figure}[h!]
-\includegraphics[width=0.2\textwidth]{fig/chris/03.png}
-\caption{ The drop-down menu that opens up the list of sentences alongside the time-frequencies for ``China card''  \label{fig:chris03}}
-\end{figure}
-
-This kept the slice the same (the sentences containing ``China card''), but opened up the word frequencies view alongside the list of search results.  This displayed a graph of how frequent ``China Card'' was over time (Figure \ref{fig:chris02}). 
+By sliding to a different view of the same data, he was able to verify the temporal claim. Using the drop-down menu at the top left of the panel (described earlier in Figure \ref{fig:chris03}) he selected a different view, Word Frequencies. This kept the slice the same (the sentences containing ``China card''), but opened up the word frequencies view alongside the list of search results.  Because the ``year'' metadata was attached to each article, this view displayed a graph of how frequent  sentences containing ``China Card'' were over time (Figure \ref{fig:chris02}). 
 
 \begin{figure}[h!]
 \includegraphics[width=0.5\textwidth]{fig/chris/02.png}
-\caption{ The frequency of ``China card'' over time. \label{fig:chris02}}
+\caption{ The number of sentences matching ``China card'' over time. \label{fig:chris02}}
 \end{figure}
-On looking at the graph, he realized that  ``China card'' was used up until 1989, but rarely ever after that, confirming the claim that, up until the early 90's, china had a Cold-war strategic significance to the U.S. but that it later gave way to a different relationship.
+This graph showed him that the cold war phrase, ``China card'' was used up until 1989, but rarely ever after that (he had already accounted for the later ones by looking at the sentences individually). This confirmed his claim that, up until the early 90's, china had a Cold-war strategic significance to the U.S. that later dissipated.
 
 \section {Related Work}
 
