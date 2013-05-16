@@ -34,7 +34,7 @@
 \maketitle
 
 \begin{abstract}
-There are numerous information analysis and discovery tools that allow users to view multidimensional data from different angles by selecting subsets of data, viewing those as visualizations, moving laterally to view other subsets of data, slicing into another view, expanding the viewed data by relaxing constraints, and so on.  However, these tools operate over numerical and categorical data, but do not seamlessly operate over raw textual information with the same flexibility. In this paper we describe a text analysis and discovery tool that allows for highly flexible  ``slicing and dicing'' (hence  ``sliding'') across a text collection.  The goal of the tool is to help scholars and analysts discover patterns and formulate and test hypotheses about the contents of their text collections, midway between what traditional humanities scholars call a  ``close read'' and the digital humanities  ``distant read'' or "culturomics" approach.  We illustrate the text sliding capabilities of the tool with three real-world case studies from the humanities and social sciences -- 18th century secularism, the practice of literacy education, and U.S. perceptions of China and Japan over the last 30 years -- showing how the tool has enabled scholars with no technical background to make new, important discoveries in these text collections.
+There are numerous information analysis and discovery tools that allow users to view multidimensional data from different angles by selecting subsets of data, viewing those as visualizations, moving laterally to view other subsets of data, slicing into another view, expanding the viewed data by relaxing constraints, and so on.  However, these tools operate over numerical and categorical data, but do not seamlessly operate over raw textual information with the same flexibility. In this paper we describe a text analysis and discovery tool that allows for highly flexible  ``slicing and dicing'' (hence  ``sliding'') across a text collection.  The goal of the tool is to help scholars and analysts discover patterns and formulate and test hypotheses about the contents of their text collections, midway between what traditional humanities scholars call a  ``close read'' and the digital humanities  ``distant read'' or "culturomics" approach.  We illustrate the text sliding capabilities of the tool with two real-world case studies from the humanities and social sciences -- the practice of literacy education, and U.S. perceptions of China and Japan over the last 30 years -- showing how the tool has enabled scholars with no technical background to make new, important discoveries in these text collections.
 
 \end{abstract}
 
@@ -48,25 +48,44 @@ There are numerous information analysis and discovery tools that allow users to 
 \keywords{ACM proceedings, \LaTeX, text tagging}
 
 \section{Introduction}
-Current text analysis systems focus on getting computational linguistics and data visualization into the hands of users. Tools such as Jigsaw, IBM TextMiner, SAS Text Analytics, Palantir, and Sandbox take techniques like text classification, named-entity recognition, sentiment analysis and summarization and build systems to automate their use. To make the results of these computational analyses interpretable and explorable, they display the outputs with interactive data visualization. These systems have made advanced text mining and visualization algorithms available to users who may not have expertise in those areas.
+Current text analysis systems put computational linguistics and data visualization into the hands of users. Tools such as Jigsaw, IBM TextMiner, and SAS Text Analytics take techniques like text classification, named-entity recognition, sentiment analysis and summarization and build systems to automate their use. To make the results of these computational analyses interpretable, they display the outputs with interactive data visualization. These systems have made advanced text mining and visualization algorithms available to users without expertise in those areas.
 
-However, very little attention has been paid to the other part of the equation: the analysts. Analysts seeking knowledge from text collections are engaging in sensemaking. They do not follow a straight path from data input to analysis output, but meander between analysis, interpretation, exploration and understanding. It is therefore important to support not just algorithmic and visual analysis, but the slicing, filtering and exploration that lead from analysis to analysis, visualization to visualization, and finally to insight.
+However, text is distinct from other types of data because it is inherently meaningful and rich with associations.  Even a small fragment of text does not stand alone, but is densely interconnected with other text through the \emph{linguistic phenomena} that it contains. These are units of meaning that take surface form in text, such as words, phrases, relations between words, and literary devices, such as metaphor, sarcasm and allusion. To illustrate, consider this 20-word  ``slice'' of text from Shakespeare's "Romeo and Juliet":
 
-In this paper, we describe a text analysis tool that supports highly flexible slicing and dicing, as well as frictionless transitions (hence "sliding") between visual analyses, drill-downs, lateral explorations and overviews within a text collection. Our tool uses computational linguistics, information retrieval and data visualization, and enables scholars with no technical background to conduct analyses yielding concrete, useful and otherwise inaccessible knowledge.
+\begin{quote}
+\end{quote}
 
+Surrounding this small slice is a swarm of other slices of text, each associated with the different linguistic phenomena within. For instance:
+\begin{itemize}
+\item Each word in the above excerpt is a jumping-off point to all the sentences in which it occurs, to other words that mean the same thing, or to other words used near it.
+\item Each  two-, three-, or n-word phrase can be associated with are all the sentences in which it occurs
+\item  Each grammatical relationship between words (such as ``good" being an adjective modifier of  ``man") can is a link to other words that enter that relation (other adjectives describing ``man", or other words that are ``good".)
+\item For every instance of a literary device, such as metaphor, imagery or allusion, can be associated with all other occurrences of it, or the different phrasings with which it surfaces.
+\end{itemize}
+
+The more structure there is to text, the more kinds of associations are possible. In Shakespeare, we have metadata, such as speaker, act, and scene, so associations based on these dimensions also exist:
+\begin{itemize}
+\item The speaker, Romeo, can be associated with all the other speeches by him.
+\item The location within the play: Act 1, Scene2 can be associated with the other scenes in that act, or the other speakers in that scene.
+\end{itemize}
+
+This network of associated slices is immediately apparent to us as humans. And to an analyst trying to make sense of an idea, some associations may be extremely meaningful. In fact, transitions  and associations are central to the analytical process. People seeking knowledge from text are engaging in \emph{sensemaking}. They do not follow a straight path from data input to analysis output, but meander between analysis, interpretation, exploration and understanding on different sub-collections of data.  It is therefore important for text analysis systems to support not just algorithmic and visual analysis, but the transitions: slicing, filtering and exploration that lead from analysis to analysis, visualization to visualization, and finally to insight.
+
+In this paper, we describe a text analysis tool that supports such transitions. It allows highly flexible slicing and dicing, as well as frictionless transitions (hence "sliding") between visual analyses, drill-downs, lateral explorations and overviews of slices in a text collection. Our tool uses computational linguistics, information retrieval and data visualization, and enables scholars with no technical background to conduct analyses yielding concrete, useful and otherwise inaccessible knowledge.
+
+\subsection{Humanities and Social Sciences}
 The humanities and social sciences (HASS) are our motivation. In these fields, it is common for scholars to have hundreds, even thousands of text-based source documents of interest from which they extract evidence for complex arguments about society and culture. These collections (such as the set of all New York Times editorials about China, the complete works of Shakespeare, or the set of all 18th C. American novels)  are difficult to make sense of and navigate. Unlike numerical data, they cannot be condensed, overviewed, and summarized in an automated fashion without losing significant information. And the metadata that accompanies the documents -- often from library records -- does not capture the varied content of the of the text within.
 
 HASS scholars are an important area of focus for tool builders for another reason: low uptake. A 2012 study of computational tool use among these scholars showed that adoption was low despite an abundance of tools. The main culprit? Poor interface design due to lack of involvement with end users. In our research, we have tried to avoid this problem by taking an iterative, user-centered design approach. We collaborate with active HASS scholars working on text analysis problems of existing professional interest to them, and let their needs, behaviors, and observations drive tool development.
 
 We introduce the text sliding capabilities of our tool using three case studies. The researchers driving these studies used our tool to further their projects on literary history, education, and U.S-China relations. The projects investigated 1) How certain words dropped religious connotations and gained secular tones over the 18th Century in America, 2) How college students from diverse backgrounds remember and reflect upon literacy, and 3) How U.S. perceptions China and Japan responded to China's rise over the last 30 years.
 
-This paper is structured as follows: in the next section, we describe results from the field of sensemaking that motivate the need to augment visual text analytics with ``sliding'' interactions . After that, we describe the main ideas behind text sliding and show text sliding in action with examples of how scholars used these transitions, drill-downs, explorations, and overviews to slide along their sensemaking paths. Then, we describe related systems, and finally, we conclude with a discussion our results and future work.
+This paper is structured as follows: in the next section, we describe results from the field of sensemaking that motivate the need for ``sliding'' interactions . After that, we explain the main ideas behind text sliding and show it in action with extended examples from case studies. Then, we describe related systems, and finally conclude with a discussion our results and future work.
 
 \section{Motivation: `pain points' in Sensemaking}
 
 \section{Text Sliding}
 
-\subsubsection{System Description}
 
 \subsection{Case Studies}
 
@@ -75,7 +94,6 @@ This paper is structured as follows: in the next section, we describe results fr
 \subsubsection{U.S. Perceptions of China and Japan 1980-2012}
 
 \subsubsection{Secular vs. Religious `Belief'  in 18th C. American Fiction}
-
 
 \section {Related Work}
 
