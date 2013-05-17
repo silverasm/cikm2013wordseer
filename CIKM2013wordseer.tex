@@ -37,16 +37,8 @@ To this end, we describe a text analysis and discovery tool that allows for high
 
 \end{abstract}
 
-% A category with the (minimum) three required fields
-\category{H.X}{XXXXX XXXXXXX XXXX}{XXXXX}
-
-%A category including the fourth, optional field follows...
-\category{H.X}{XXXXX }{XXXXX }[XXXXX ]
-
-\keywords{exploratory data analysis, text mining, information visualization, digital humanities}
-
 \section{Introduction}
-Given a collection of text data, how can one explore its contents to find new patterns and insight?  This paper describes a new tool for exploratory data analysis \cite{tukey} that attempts to provide frictionless access to text and its metadata.  Although many tools have been developed to analyze numerical and categorical data, language in its written form of text has special properties that makes it more difficult to analyze. Text has both linear and hierarchical structure, its meaning is ambiguous given its representation, it has tens of thousands or hundreds of thousands of features, and frequencies of words are usually distributed via a power law.   Even a small fragment of text does not stand alone, but is densely interconnected with other text through linguistic phenomena.  These are units of meaning that take surface form in text, such as words, phrases, relations between words (including synonymy and hyponymy), not to mention literary devices, such as metaphor, sarcasm and allusion. To illustrate, consider this 13-word ``slice'' of text from Shakespeare's ``Romeo and Juliet", where a slice is simply a set of sentences (not necessarily consecutive, like in this example):
+Given a collection of text data, how can one explore its contents to find new patterns and insight?  This paper describes a new tool for exploratory data analysis \cite{tukey1980we} that attempts to provide frictionless access to text and its metadata.  Although many tools have been developed to analyze numerical and categorical data, language in its written form of text has special properties that makes it more difficult to analyze. Text has both linear and hierarchical structure, its meaning is ambiguous given its representation, it has tens of thousands or hundreds of thousands of features, and frequencies of words are usually distributed via a power law.   Even a small fragment of text does not stand alone, but is densely interconnected with other text through linguistic phenomena.  These are units of meaning that take surface form in text, such as words, phrases, relations between words (including synonymy and hyponymy), not to mention literary devices, such as metaphor, sarcasm and allusion. To illustrate, consider this 13-word ``slice'' of text from Shakespeare's ``Romeo and Juliet", where a slice is simply a set of sentences (not necessarily consecutive, like in this example):
 
 \begin{verbatim}
 ROMEO:
@@ -211,6 +203,13 @@ One of his first goals was to get a sense of the different ways China was discus
      }%
 \end{figure}
 
+WordSeer's overviews showed clear differences between the decades. In particular, the increasing  frequencies of growth-related verbs contributed to a sense of China's rise, as shown by the frequencies per decade below:
+\begin{itemize}
+\item ``grow, growing'':  294, 232, 421
+\item ``rise, rising'': 101, 134, 249
+\item ``develop, developing'': 274, 404, 476
+\end{itemize}
+
 \subsection{Associated Slices}
 
  In the database, each sentence is indexed according to the following linguistic phenomena:
@@ -221,7 +220,7 @@ One of his first goals was to get a sense of the different ways China was discus
   \end{itemize}  
  By traversing these indexes, we can compute the associations for a slice. From a slice, we can query for all the words, phrases, or grammatical relations in the sentences in that slice, and from there, to all the other sentences that contain each particular item.  
 
- Grammatical relationships are identified using a dependency parser as explained in \cite{jurafsky_chapter_2009}. In particular, we use the Stanford dependency parser\cite{klein_accurate_2003} which extracts many kinds of relationships, but some of the more easily understood ones include \emph{noun compound}, where two nouns come together to signify a new concept, \emph{adjective modifier} where an adjective describes another word, and \emph{direct subject} in which a word is the agent of a verb. 
+ Grammatical relationships are identified using the Stanford dependency parser\cite{klein_accurate_2003} which extracts many kinds of relationships, but some of the more easily understood ones include \emph{noun compound}, where two nouns come together to signify a new concept, \emph{adjective modifier} where an adjective describes another word, and \emph{direct subject} in which a word is the agent of a verb. 
 
 Each view automatically presents the most common nouns, verbs, and adjectives (Figure \ref{fig:intro06}), as well as the most common phrases (Figure \ref{fig:intro07}), along with their counts (providing a query preview \cite{donn_query_1996} in a panel at the bottom.    
 \begin{figure}[ht!]
@@ -262,7 +261,7 @@ The word menu reduces friction in both discovery and search. It only takes one m
 
 Searches and filters are useful, but cannot always express  specific analysis goals. WordSeer therefore allows users to construct custom slices through Word-, Sentence-, and Document Sets. These custom slices behave like any other slices, which means that they can be summarized in views,  analyzed, filtered and searched. But they are more powerful that other slices because they also behave like metadata, transforming them into \emph{categorical filters}.
 
-Word Sets are well-illustrated by an example from Case Study 1.  One concept of interest in this study is ``growth''. The scholar wished to investigate the occurrence of growth-related words in editorials about China.  First, he creates a new word set and types in some growth-related words "growing, develop, developing, grow, rise, rising" (Figure \ref{fig:intro10a-word-sets}). The result is a Word Set representing a new slice of sentences, those containing at least one of those words. 
+Word Sets are well-illustrated by an example from Case Study 1.  One concept of interest in this study was ``growth''. The scholar wished to confirm his intuitions about China's rise by checking whether  growth-related words became more frequent over time in editorials about China. First, he creates a new word set and types in some growth-related words "growing, develop, developing, grow, rise, rising" (Figure \ref{fig:intro10a-word-sets}). The result is a Word Set representing a new slice of sentences, those containing at least one of those words. 
 
 \begin{figure}[ht!]
 \begin{center}
@@ -307,35 +306,13 @@ This section has introduced the core text sliding features of WordSeer.  The nex
 
 \section{Case Study: U.S. Perceptions of\\China Japan}
 
- `C.F'. is a literary scholar at [university's] English department. His work depends upon a set of historical observations about the rise of China that are broadly accepted by historians and cultural historians. Literary scholars typically allow their claims to rest on observations made by field experts like historians and sociologists, or on their own inductive reasoning, but C.F. wanted to verify his observations by gathering as much empirical evidence for them as possible. The four statements he wanted to verify were:
-\begin{enumerate}
-\item From the 1970s prior to the Tiananmen Square crackdown in 1989, U.S. observers paid more attention to Japan than China. During this period, China did not have  more than a strategic, Cold War relevance. 
-\item With the onset of the 1990s, attention shifts from Japan to China. Japan entered its first ``Lost Decade'' of economic stagnation, and China, meanwhile, began deepening its economic relations with the U.S.
-\item After China's accession to the World Trade Organization in 2001, U.S.-China bilateral relationship becomes increasingly important to global economics and politics.
-\item After 2001, there is an increasing sense that the U.S.'s time as the post-socialist era's last remaining superpower are numbered, and that China will replace it.
-\end{enumerate}
-
+ `C.F'. is a literary scholar at [university's] English department. His work on American literature's reactions to China's rise draws upon a set of historical observations about the ``rise of China'' that are broadly accepted by historians and cultural historians. Literary scholars typically allow their claims to rest on observations made by field experts like historians and sociologists, or on their own inductive reasoning, but C.F. wanted to verify some of those observations by gathering as much empirical evidence for them as possible. 
+ 
 Using the Lexis/Nexis database, C.F. collected \emph{New York Times} editorials from 1980 to 2012, limiting his collection to editorials tagged with subjects ``China" or ``Japan." This left a set of 5,715 editorials, which we imported to WordSeer. Each editorial was associated with three pieces of metadata: year, month, and country (either China or Japan).
 
 After a few weeks of face-to-face meetings, C.F. gradually became comfortable using WordSeer on his own.  He used WordSeer to find evidence for \emph{all four} observations above. However, due to limited space, we only describe assertions 1 and 3, because those investigations made particularly heavy use of text sliding.
 
-\subsection{Confirming Intuitions}
-After becoming comfortable with WordSeer's functionality, C.F's first goal was to get a sense of the tone towards China in the three different decades in his collection: the `80s, `90s, and `00s.  He already had some intuitions of what he would find, but never having used the \emph{New York Times} editorials, or done any previous computational analysis, he wanted to test both the reliability of his corpus, and the ability of WordSeer to replicate well-known facts.
-
-Using a combination of filters for the different year spans and a search for ``China'', C.F. assembled three different slices of sentences mentioning China, one for each decade. Then, he opened up each decade in a different view and compared the most frequent words and phrases (from the automatically-generated overviews).
-
-WordSeer's overviews showed clear differences between the decades. Each part of speech revealed a different trend in China's changing relationship with the U.S. 
-For instance, the increasing  frequencies of certain growth-related verbs contributed to a sense of China's rise, as shown by the frequencies per decade below:
-\begin{itemize}
-\item ``grow, growing'':  294, 232, 421
-\item ``rise, rising'': 101, 134, 249
-\item ``develop, developing'': 274, 404, 476
-\end{itemize}
-As described above, using the Word Frequencies visualization in combination with Word Sets, he was able to get a clearer picture. First, he grouped these six verbs into a ``growth'' word set, and then visualized its frequency over time in the China editorials (Figure \ref{fig:chris-04a}).  The result is a graph showing a steady increase, almost a doubling, of growth-related words in editorials about China.
-
-This first investigation allowed C.F. to gain some confidence in using a text analysis tool. Secure in having affirmed that editorials commonly discussed "the rise of China," in a pattern that he expected, he returned to his original questions.
-
-\subsection{1980's: Insignificant, Except for Cold War Strategy}
+\subsection{1980's: China Insignificant Except for Cold War Strategy}
 While comparing the most frequent adjectives for the three decades, C.F noticed a drop-off in cold war words. ``Soviet''  went from  a count of 1029 in the 1980s to only 80 in the 2000s, and ``communist'' went from 284 to 112.   To investigate the drop-off in more detail, he used the the Word Menu to quickly open up word frequency plots for these two words over time, and filtered them to just the editorials about China.  Figure \ref{fig:chris04b} shows a plot of these words together:
 
 \begin{figure}[h!]
@@ -364,9 +341,7 @@ The Word Frequencies view of the same data allowed him to make that temporal cla
 \end{figure}
 The graph shows that ``China card'' the rhetorical figure signifying cold-war strategic value, was used relatively frequently until 1989, but rarely  after that. This supported his claim that, up until the early 90's, China had a Cold-war strategic significance to the U.S. that later dissipated.
 
-\strong{What about the blip in ~2005?}
-
-\subsection{Mid `90's onwards: China's ties with the U.S. Strengthen}
+\subsection{Mid `90s onwards: China's ties with the U.S. Strengthen}
 
 A major event in Chinese international relations occurred in 2001, when China joined the World Trade Organization (WTO).  Although attention had been shifting towards China since the `90s, it is during this period that U.S.-China relations are thought to have become more interdependent, and central to global politics. 
 
@@ -463,13 +438,44 @@ The Word Frequencies visualization allowed R.G. to confirm his hypothesis. It sh
 \end{figure}
 The increasing frequencies across the course levels confirmed his hunch that as students become more experienced and comfortable with the written word, they used more complex sentence structures more frequently. 
 
+\section{Discussion}
+The case studies show how WordSeer's text manipulation and visualization features helped scholars make new discoveries about the world and create new understanding from text collections; these are discoveries that most likely they would not have been able to make with any other existing tool.
 
-\input{relatedwork}
-\input{discussion}
-\section{Acknowledgements}
-We sincerely thank [Firstname Lastname, Firstname Lastname, and Firstname Lastname] for helpful comments on a Case Study not described in this paper. We are also grateful to [Firstname Lastname] for his helpful advice and thought-provoking discussions throughout.
+Prior to using WordSeer, C.F. had general ideas about the points he wanted to make based on years of reading, but had no way to quantify or codify those ideas based on data.  In just a few weeks, WordSeer allowed him to find changes in use in language that reflected historians' understanding of the rise of China (its transformation from a `card' played by American diplomats during the cold war,  to its present-day status as a `central' and `entangled' partner of the United States), but with more precision (the steady increase in growth-related verbs over the last 30 years, the sudden jump in  phrases like ``US and China'' after 1994) and with more nuance (the emergence of words relating to the `centrality' and `interdependence'  of their relationship in the 2000s).
 
-This work is supported by NEH grant HK-50011-12.
+Prior to using WordSeer, R.G. had spent hours reading and thinking about the literacy essays, but had not looked at them in terms of word frequency or syntactic structure.  Using WordSeer, he was able to see the documents in a new light and form new  understanding of the general trends in his students' process of learning to write.   He was also able to formulate and find evidence for a hypothesis about an increase in proficiency with advanced writing structures as they moved to successively advanced educational levels.   He used a complex combination of searching for grammatical structures, side-by-side comparisons of sets of sentences according to adjectives and their use in context, selecting a subset of words and comparing their frequency across a metadata classification.  
+
+A key component of the use of the tool in these examples is the freedom it affords the user to pivot on words, on words' relations to other words, to create groups of words and cross them with arbitrary metadata categories, and to be able to immediately view  the context of their original sentences and documents, thus allowing ``close reading" as part of the text analysis process.
+
+\section{Related Work}
+
+Exploratory data analysis  (EDA) is an approach popularized by the statistician John Tukey whose goals are to maximize insight into a data set, uncover underlying structure, test underlying assumptions, and find bases from which to formulate hypotheses to test with confirmatory approaches \cite{tukey1977exploratory,tukey1980we}.  Many of the tools developed for EDA such as Polaris (which because the product Tableau) \cite{stolte2002polaris}, and Spotfire \cite{ahlberg1996spotfire} allow users to view multidimensional data from different angles by selecting subsets of data, viewing those as visualizations, moving laterally to view other subsets of data, moving into another view, expanding the viewed data by relaxing constraints, and so on.  However, these tools operate over numerical and categorical data, but do not seamlessly operate over raw textual information with the same flexibility. 
+
+ Early tools such as Protofoil \cite{rao1994protofoil} made first steps into linking text search, category search, grouping, and clustering.  More recent tools such as Jigsaw \cite{gorg_combining_2012},  Takmi (made into the product IBM TextMiner) \cite{uramoto2004text}, and SAS Text Analytics integrate analysis techniques like text classification, named-entity recognition, sentiment analysis and summarization into one interface. 
+ To make the results of these computational analyses interpretable, they display the outputs with interactive data visualization. These systems have made advanced text mining and visualization algorithms available to users without expertise in those areas, but do not provide flexibility of  access to the text of the system described here.   The TRIST search and sensemaking system \cite{jonker2005information} provides a compelling interfaces to help analysts selection a subset of documents from a large collection for further scrutiny, including extracting important entities and organizing retrieved documents into topics, but with less emphasis on analyzing text at the word level.
+
+There are a number of exploratory tools for bibliographic citations, including Paperlens \cite{lee2005understanding} and Apolo \cite{chau2011apolo}, two  of many tools for exploring collections of bibliographic citations.  These provide access to network structure of authors, and relations among metadata categories, but do not provide rich access to the text itself.
+
+In the digital humanities space, the Subjunctive interface \cite{bron2012subjunctive} is designed for Media Studies researchers and allows for two side-by-side comparisons of text content, but only with a limited set of views (bar charts and line graphs of frequencies along with word clouds).  WordHoard \cite{mueller_digital_2008} computes word counts for rich metadata categories in Shakespeare, Featurelens \cite{don2007discovering} helps  reveal groups of words and phrases that frequently occur near each other in a collection, and
+TAPor \cite{rockwell2003text} shows multiple different visualizations of a text.
+
+\section{Future Work}
+As an exploratory data analysis (EDA) system, WordSeer aids in the formulation of hypotheses, and the accumulation of evidence in favor or in refutation of hypothesis. A significant improvement to the tool would be a way to help users try to disprove any hypothesis that they think the tool has helped them to find. For instance, Grimmer \cite{grimmer} describes methods to validate hypotheses formed from politician's press releases, such as comparing categories formed from these documents to candidate's voting records.  Assessments of literacy essays can be compared to learning outcomes and grades, for example.  
+
+There are several improvements that need to be made to the user interface. The first problem is that our window-management panel is rigid in structure, opening up views side by side from left to right. This makes having more than two or three simultaneous panels impractical on most displays. A more adaptive, customizable window management system would make transitioning to a new views and managing old views more frictionless.
+
+Second, the user's history of actions should be made more accessible. At present, previous views can only be revisited can via back and forward buttons on each panel, and by opening them up individually from the list of past actions. The system should instead give the user a sense of the different sensemaking paths they have taken, and allow them to replay their history, and branch off from it.
+
+The third problem is that users cannot customize their views according to their needs. The panels always display the same three overviews: the metadata on the left, and the most frequent phrases, nouns, verbs, and adjectives on the bottom. The user should be able to choose to expand or collapse these overviews by default, as well as the details of the overviews themselves: perhaps they would like to see the most most distinctive words in the slice, instead of the most frequent. The overviews also need to make it clear that the the counts they show are the number of matching \emph{sentences}, and not the number of matching \emph{documents}, and to give users a way of switching between the two.
+
+Finally, although the tool provides results in under a second in some cases, in other cases the wait is longer, depending on the size of the collection and the operation requested.  A next step will be optimizing of the tool's performance to further encourage exploration. 
+ 
+ \subsection{Requested Features}
+ Both scholars wanted to search for sentence structures beyond word-to-word relationships. C.F. was interested in sentences with a comparative structure, specifically comparisons between  Chinese and Japanese things. As a composition instructor, R.G. was interested in applications of a ``sentences structure search'' to teaching.  If there was a way to summarize students' most frequent sentence-structure mistakes, or to find overall commonalities in the ways students structured their sentences, instructors could focus on helping the students improve in those areas.
+ 
+Both scholars also wanted to automatically create groups based on a set of examples, and to fine-tune the results by giving feedback. For example, C.F. could have used it to identify sentences describing the complexities of the US-China relationship, and R.G. could have used it to automatically catalog the different senses of the word ``get'':  becoming (`I got ready to \ldots'), and acquisition (`I got a lot of practice \ldots'). Instead of having to manually construct them by reading.
+ 
+The system should also incorporate standard text analysis tools such as text classification and sentiment analysis, and should allow users to make organize words according to pre-defined word dictionaries.
 
 \bibliographystyle{abbrv}
 \bibliography{old_cikm} 
