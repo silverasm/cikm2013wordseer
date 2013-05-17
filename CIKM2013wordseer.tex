@@ -60,7 +60,7 @@ The more structure there is to text, the more kinds of associations are possible
 \item The location within the play: Act 1, Scene 4 can be associated with the other scenes in that act, or the all speakers in that scene.
 \end{itemize}
 
-This network of associated slices is apparent to the reader. And to an analyst trying to make sense of an idea, some associations may be deeply meaningful.  Transitions  and associations are central to the text analysis process, and people seeking knowledge from text are engaging in \emph{sensemaking}. They do not follow a straight path from data input to analysis output, but meander between analysis, interpretation, exploration and understanding on different sub-collections of data \cite{russell_cost_1993, russell_being_2006, pirolli_sensemaking_2005}.  It is therefore important for text analysis systems to support not just algorithmic and visual analysis, but the transitions: slicing, filtering and exploration that lead from analysis to analysis, visualization to visualization, and finally to insight.
+This network of associated slices is apparent to the reader. And to an analyst trying to make sense of an idea, some associations may be deeply meaningful.  Transitions  and associations are central to the text analysis process, and people seeking knowledge from text are engaging in \emph{sensemaking}. They do not follow a straight path from data input to analysis output, but meander between analysis, interpretation, exploration and understanding on different sub-collections of data \cite{russell_cost_1993, pirolli_sensemaking_2005}.  It is therefore important for text analysis systems to support not just algorithmic and visual analysis, but the transitions: slicing, filtering and exploration that lead from analysis to analysis, visualization to visualization, and finally to insight.
 
 In this paper, we describe a text analysis tool called WordSeer that supports such transitions\footnote{This is version 3.0 of WordSeer, which has notably more flexible interactions than older versions.}.  It allows highly flexible slicing and dicing, as well as frictionless transitions (hence ``sliding") between visual analyses, drill-downs, lateral explorations and overviews of slices in a text collection. Our tool uses computational linguistics, information retrieval and data visualization, and enables scholars with no technical background to conduct analyses yielding concrete, useful and otherwise inaccessible knowledge. 
 
@@ -72,8 +72,6 @@ This paper is structured as follows: in the next section, we explain how we are 
 \subsection{Humanities and Social Sciences}
 The design of the tool is motivated by the desire to support the humanities and social sciences (HASS). In these fields, it is common for scholars to have hundreds, even thousands of text-based source documents of interest from which they extract evidence for complex arguments about society and culture. These collections (such as the set of all \emph{New York Times} editorials about China, the complete works of Shakespeare, or the set of all 18th Century American novels)  are difficult to make sense of and navigate. Unlike numerical data, they cannot be condensed, overviewed, and summarized in an automated fashion without losing significant information. And the metadata that accompanies the documents -- often from library records -- does not capture the varied content of the of the text within.
 
-HASS scholars are an important area of focus for tool builders for another reason: low uptake. A 2012 study of computational tool use among these scholars showed that adoption was low despite an abundance of tools \cite{gibbs_building_2012}. The main culprit? Poor interface design. In our research, we have tried to avoid this problem by taking an iterative, user-centered design approach. We collaborate with active HASS scholars working on text analysis problems of existing professional interest to them, and let their needs, behaviors, and observations drive tool development.
-
 We introduce the text sliding capabilities of WordSeer using two case studies. The researchers driving these studies successfully used the tool to further their projects, which investigated:
 \begin{enumerate}
 	\item How U.S. perceptions of China and Japan responded to China's rise over the last 30 years.
@@ -82,8 +80,6 @@ We introduce the text sliding capabilities of WordSeer using two case studies. T
 
 
 \subsection{Supporting Sensemaking}
-
-Observational studies from the literature on sensemaking describe many problems analysts encounter while trying to make sense of text collections. These studies typically study professionals such as government intelligence analysts \cite{pirolli_sensemaking_2005}, business analysts \cite{} market researchers \cite{x} and academics \cite{x} at work, attempt to categorize the actions they perform and identify common sequences of actions. Several models of the sensemaking process have emerged \cite{hearst_models_2009}. These models attempt to explain what one would observe when watching analysts distill ``understanding" from raw data, where understanding usually manifests itself as a summary, report, or presentation.
 
 While studying intelligence analysts working with large collections of text-based reports, Pirolli and Card \cite{pirolli_sensemaking_2005} identified ``pain points" in three areas having to do with navigation and transitions. After each, we identify the design goals in our system that attempt to address each issue:
 \begin{enumerate}
@@ -232,14 +228,11 @@ Each view automatically presents the most common nouns, verbs, and adjectives (F
      }%
 \end{figure}
 
-Individual words are jumping-off points. They can be acted upon wherever they appear via the Word Menu (Figure \ref{fig:intro08}). The Word Menu is one tool in  WordSeer enabling \emph{lateral movement}.  Any time a user sees a word, they can follow up on it by examining the grammatical relations in which it occurs, seeing related words,  and creating visualizations of the slice of sentences that contains the word, as well as the slices containing various relationships to other words.
+Individual words are jumping-off points. They can be acted upon wherever they appear via the Word Menu (Figure \ref{fig:chris01}). The Word Menu is one tool in  WordSeer enabling \emph{lateral movement}.  Any time a user sees a word, they can follow up on it by examining the grammatical relations in which it occurs, seeing related words,  and creating visualizations of the slice of sentences that contains the word, as well as the slices containing various relationships to other words.
 
-\begin{figure}[ht!]
-\begin{center}
-	\includegraphics[width=0.5\textwidth]{fig/intro/08.png}
-\end{center}
-    \caption{%
-      The Word Menu for `japan' showing all the grammatical relationships it has with other words. \label{fig:intro08}}%
+\begin{figure}[h!]
+\includegraphics[width=0.5\textwidth]{fig/chris/01.png}
+\caption{The word menu for `China'.   After selecting \emph{China > Search > noun compound modifier}, the noun-compound relationship ``China card'' stood out to C.F. \label{fig:chris01}}
 \end{figure}
 
 
@@ -261,7 +254,7 @@ The word menu reduces friction in both discovery and search. It only takes one m
 
 Searches and filters are useful, but cannot always express  specific analysis goals. WordSeer therefore allows users to construct custom slices through Word-, Sentence-, and Document Sets. These custom slices behave like any other slices, which means that they can be summarized in views,  analyzed, filtered and searched. But they are more powerful that other slices because they also behave like metadata, transforming them into \emph{categorical filters}.
 
-Word Sets are well-illustrated by an example from Case Study 1.  One concept of interest in this study was ``growth''. The scholar wished to confirm his intuitions about China's rise by checking whether  growth-related words became more frequent over time in editorials about China. First, he creates a new word set and types in some growth-related words "growing, develop, developing, grow, rise, rising" (Figure \ref{fig:intro10a-word-sets}). The result is a Word Set representing a new slice of sentences, those containing at least one of those words. 
+Word Sets are well-illustrated by an example from Case Study 1.  One concept of interest in this study was ``growth''. The scholar wished to confirm his intuitions about China's rise by checking whether  growth-related words became more frequent over time in editorials about China. First, he created a new word set and types in some growth-related words ``growing, develop, developing, grow, rise, rising" (Figure \ref{fig:intro10a-word-sets}). The result was a Word Set representing a new slice of sentences, those containing at least one of those words. 
 
 \begin{figure}[ht!]
 \begin{center}
@@ -287,7 +280,7 @@ Word Sets are well-illustrated by an example from Case Study 1.  One concept of 
        Word Sets in WordSeer. \label{fig:intro10-word-sets}
      }%
 \end{figure}
-Once the word set is created, the entire user interface responds to its presence. The search box now shows a drop-down option for the set  (Figure \ref{fig:intro10b-word-sets}).  The word menu shows the option to add a new words (Figure \ref{fig:intro10c-word-sets}) and the metadata overviews (Figure \ref{fig:intro10d-word-sets}), previously restricted to pre-defined categories,  now show this new ``category'', and allows him to filter based on it.   
+After a word set was created, the entire user interface responded to its presence. The search box now showed a drop-down option for the set  (Figure \ref{fig:intro10b-word-sets}).  The word menu showed the option to add a new words (Figure \ref{fig:intro10c-word-sets}) and the metadata overviews (Figure \ref{fig:intro10d-word-sets}), previously restricted to pre-defined categories,  now showed this new ``category'', and allowsed him to filter based on it.   
 
 \begin{figure}[ht!]
 \begin{center}
@@ -298,7 +291,7 @@ Once the word set is created, the entire user interface responds to its presence
      }%
 \end{figure}
 
-Finally, he selects the  \code{\{growth\}} Word Set as his search query, opens a Word Frequencies view, and applies the \code{ country = China} filter to focus on editorials about China. The resulting visualization is Figure \ref{fig:chris04a}, which shows almost a doubling of the frequency of these words over the 30-year period from 1980 to 2012.
+To verify that China did indeed rise, he selected the  \code{\{growth\}} Word Set as his search query, and opened a Word Frequencies view with the  \code{ country = China} filter. The resulting visualization is Figure \ref{fig:chris04a}, which shows almost a doubling of the frequency of these words in editorials about China over the 30-year period from 1980 to 2012. Satisfied that WordSeer was capable of reproducing this widely accepted fact, `C.F' was able to move on to deeper questions.
 
 For sentences and documents, the idea is the same.  Users can hand-pick collections of sentences from the reading view, and from search results view, or collections of documents from the document search results view.  Once created, all these sets can be overviewed and analyzed like any other slice, and additionally used as filters.
 
@@ -321,11 +314,6 @@ While comparing the most frequent adjectives for the three decades, C.F noticed 
 \end{figure}
 
 Plotting the terms together (Figure \ref{fig:chris04b}) added depth to his initial calculations.  The plot shows the dominance, and equally dramatic drop-off, in cold war mentions over this time period. In the early `80s, almost 11\% -- more than 1 in 10 sentences in those editorials -- mentions one of these the cold war terms. By the `90s, however, this association is down to a trickle. 
-
-\begin{figure}[h!]
-\includegraphics[width=0.5\textwidth]{fig/chris/01.png}
-\caption{The word menu for `China'.   After selecting \emph{China > Search > noun compound modifier}, the noun-compound relationship ``China card'' stood out to C.F. \label{fig:chris01}}
-\end{figure}
 
 An exploration of the ``grammatical neighborhood'' around `China'  helped C.F. find yet more evidence for this idea. This time, it was through a distinctive rhetorical device. As Figure \ref{fig:chris01} shows, clicking on the word ``China'' opens up a menu with search options. These options act as quick previews of different grammatically-related slices: they show the frequencies with which ``China'' occurs in different grammatical constructions with different words.  For C.F., the noun compound relationship yielded a surprise. He noticed an odd construction, ``China card,'' which appeared 21 times.
 
@@ -364,16 +352,14 @@ WordSeer's sentence sets are designed to solve this problem. C.F. recognized thi
 \begin{quote}
 [The filtering process] was significantly aided by the ability to click on the sentence and immediately see it located in context within the full editorial.
 \end{quote}
-He eliminated about half the sentences from consideration, leaving him with a set of  79 sentences. A Word Frequencies view of this smaller slice made the picture much clearer (Figure \ref{fig:chris06}). Of the 79 sentences, the overwhelming majority (86\%) occur after 1995.
-\begin{figure}[h!]
-\includegraphics[width=0.5\textwidth]{fig/chris/06.png}
-\caption{ The distribution of sentences in in the  \code{\{US-China\} relations slice}.  86\% of the sentences occur after 1994. \label{fig:chris06}}
-\end{figure}
+He eliminated about half the sentences from consideration, leaving him with a set of  79 sentences. A Word Frequencies view of this smaller slice made the picture much clearer. Of the 79 sentences, the overwhelming majority (86\%) occurred after 1995.
+
 C.F. noticed a subtle point: as he moved from the 1990's to the 2000's, the relationship between the U.S. and China seemed to be increasingly  `central' and `inter-dependent':
 \begin{quote}
-Phrases and words like the following begin to appear: ``21st century's most important relationship,'' ``co-dependent,'' ``interlocking,'' etc. But I achieved a more precise sense of the themes of \emph{interdependence} and \emph{centrality } more precisely using a Word Set of thematically-related adjectives drawn from the Frequent Adjectives overview. Using the set consisting of ``most, central, important, indispensable, dependent, interdependent, dependency, entangled, interlocking, interdependency'' (taken from the overview). The graph shows that it's not until 1995 that the U.S.-China relationship is characterized by these themes.
+Phrases and words like the following begin to appear: ``21st century's most important relationship,'' ``co-dependent,'' ``interlocking,'' etc. But I achieved a more precise sense of the themes of \emph{interdependence} and \emph{centrality } more precisely using a Word Set of thematically-related adjectives drawn from the Frequent Adjectives overview.
 \end{quote}
-Figure \ref{fig:chris07} shows the distribution of centrality and interdependence adjectives detected automatically by the tool, intersected with the conjoined U.S.-China relationship sentences curated by C.F.
+C.F. composed a Word Set of the words ``most, central, important, indispensable, dependent, interdependent, dependency, entangled, interlocking, interdependency'' (taken from the overview). Figure \ref{fig:chris07} shows the distribution of centrality and interdependence adjectives detected automatically by the tool, intersected with the conjoined U.S.-China relationship sentences curated by C.F. The year-overview for the filtered set immediately shows that it's not until 1995 that the U.S.-China relationship is characterized by these themes.
+
 \begin{figure}[h!]
 \includegraphics[width=0.5\textwidth]{fig/chris/07.png}
 \caption{ The distribution of the \code{\{centrality and interdependence\}} Word Set within the \code{conjunction(United States, China)} slice. There are no occurrences before 1995. \label{fig:chris07}}
@@ -383,7 +369,7 @@ Figure \ref{fig:chris07} shows the distribution of centrality and interdependenc
 \section{Case Study: Literacy Essays}
 
 \subsection{Introduction}
-As a college English Composition instructor,  R.G., at  [university's] school of Education asks students to write often and in a variety of situations. In this project, he examined ways in which he might draw upon the tool to assist in the teaching and learning of writing. He was particularly interested in the literacy autobiography. In this type of writing, students describe significant experiences they have had with literacy and reflect upon the importance of literacy to their lives.  
+As a college English Composition instructor,  R.G., at  [university's] school of Education asks students to write often and in a variety of situations. In this project, he examined ways in which WordSeer to assist in the teaching and learning of writing. He was particularly interested in the literacy autobiography, in which students describe significant experiences they have had with literacy and reflect upon the importance of literacy to their lives.  
 
 R.G. analyzed the content of approximately 140 literacy autobiographies written by students from courses that he has taught over that past two years, each about 1,500 to 2,000 words long. He is familiar with the collection, having previously read and commented on each of the essays.  Table \ref{table:rex-courses} shows the different courses from which literacy autobiographies were analyzed. The courses were at different colleges and taught at different proficiency levels.
 
@@ -408,7 +394,7 @@ Edu 140 (n=40) & [anonymized] & Upper division \\
 
  \subsection{A new take on students' experiences}
 
-R.G. doesn't usually consider the frequencies of words unless a student repeats one to the point of distraction. However, the tool's very first overview (like the one C.F saw in Figure \ref{fig:intro01}, except on R.G's data) prompted him to consider the significance of individual words and their repeated use.  As he states:
+R.G. doesn't usually consider the frequencies of words unless a student repeats one to the point of distraction. However, the WordSeer's very first overview (automatically generated for the whole collection on startup) prompted him to consider the significance of individual words and their repeated use.  As he states:
 \begin{quote}
 From the moment I opened WordSeer, `distance' immediately provided new insight and areas of exploration as I was intrigued by unexpected high word frequencies.  The most obvious example is the frequent use of the word ``time" which is not only the most frequent noun but also the most frequent word overall.  As opposed to ``literacy'', ``language'', and any noun or verb forms of ``read'' and ``write'', the Word Tree for ``time'' appears before any term is placed in the keyword search.   I found similar surprises in the adjective and verb frequencies, and these surprises would guide my decision-making and analysis.
 \end{quote}
@@ -429,9 +415,9 @@ Student writers articulate their experiences from some first encounter with the 
 \end{quote} 
 
 \subsection{Writing proficiency across courses}
-The different courses R.G. taught had different emphases and were taken by students with differing amounts of college education. He was especially interested in differences in sentence construction, hypothesizing that more proficient students would use advanced structures more frequently. To initiate the analyses, he performed word searches on terms such as ``though", ``while", ``although", and ``however", which indicate a complex structure called a ``concessive''. He was expecting concessives to be increasingly frequent as student experience increased from English 1A, to English 201, to English 5, to Ed140.
+The different courses R.G. taught were taken by students with differing amounts of college education. He was especially interested in differences in sentence construction, hypothesizing that more proficient students would use advanced structures more frequently. To initiate the analyses, he performed word searches on terms such as ``though", ``while", ``although", and ``however", which indicate a complex structure called a ``concessive''. He was expecting concessives to be increasingly frequent as student experience increased from English 1A, to English 201, to English 5, to Ed140.
 
-The Word Frequencies visualization allowed R.G. to confirm his hypothesis. It shows how often terms occur across different metadata categories (and can show the counts stacked or grouped, normalized or raw). R.G. searched for multiple terms simultaneously, which created a comparative visualization (Figure \ref{fig:rex05}).
+To follow up R.G. created a Word Frequencies visualization of this terms. This visualization shows how often terms occur across different metadata categories (and can show the counts stacked or grouped, normalized or raw). R.G. added all the concessive terms to the same view, which created a comparative visualization (Figure \ref{fig:rex05}).
 \begin{figure}[h!]
 \includegraphics[width=0.5\textwidth]{fig/rex/05.png}
 \caption{The frequencies of different "concessive" words across the Course category: `although' (blue), `though' (orange) `while' (green) and `however' (red). \label{fig:rex05}}
@@ -456,17 +442,15 @@ Exploratory data analysis  (EDA) is an approach popularized by the statistician 
 
 There are a number of exploratory tools for bibliographic citations, including Paperlens \cite{lee2005understanding} and Apolo \cite{chau2011apolo}, two  of many tools for exploring collections of bibliographic citations.  These provide access to network structure of authors, and relations among metadata categories, but do not provide rich access to the text itself.
 
-In the digital humanities space, the Subjunctive interface \cite{bron2012subjunctive} is designed for Media Studies researchers and allows for two side-by-side comparisons of text content, but only with a limited set of views (bar charts and line graphs of frequencies along with word clouds).  WordHoard \cite{mueller_digital_2008} computes word counts for rich metadata categories in Shakespeare, Featurelens \cite{don2007discovering} helps  reveal groups of words and phrases that frequently occur near each other in a collection, and
+In the digital humanities space, the Subjunctive interface \cite{bron2012subjunctive} is designed for Media Studies researchers and allows for two side-by-side comparisons of text content, but only with a limited set of views (bar charts and line graphs of frequencies along with word clouds). Featurelens \cite{don2007discovering} helps  reveal groups of words and phrases that frequently occur near each other in a collection, and
 TAPor \cite{rockwell2003text} shows multiple different visualizations of a text.
 
 \section{Future Work}
-As an exploratory data analysis (EDA) system, WordSeer aids in the formulation of hypotheses, and the accumulation of evidence in favor or in refutation of hypothesis. A significant improvement to the tool would be a way to help users try to disprove any hypothesis that they think the tool has helped them to find. For instance, Grimmer \cite{grimmer} describes methods to validate hypotheses formed from politician's press releases, such as comparing categories formed from these documents to candidate's voting records.  Assessments of literacy essays can be compared to learning outcomes and grades, for example.  
+As an exploratory data analysis (EDA) system, WordSeer aids in the formulation of hypotheses, and the accumulation of evidence in favor or in refutation of hypothesis. A significant improvement to the tool would be a way to help users try to disprove any hypothesis that they think the tool has helped them to find. For example, assessments of literacy essays could be compared to learning outcomes and grades.
 
-There are several improvements that need to be made to the user interface. The first problem is that our window-management panel is rigid in structure, opening up views side by side from left to right. This makes having more than two or three simultaneous panels impractical on most displays. A more adaptive, customizable window management system would make transitioning to a new views and managing old views more frictionless.
+There are several improvements that need to be made to the user interface. The most pressing problem is the rigid left-to-right arrangement of panels, which makes having more than two or three simultaneous views impractical on most displays. A more adaptive, customizable layout would make managing and navigating between views more frictionless. Next, the user's history of actions should be made more accessible. At present history is presented as a linear sequence of actions. The system should instead give the user a sense of the different sensemaking paths they have taken, and allow them to replay their history, and branch off from it.
 
-Second, the user's history of actions should be made more accessible. At present, previous views can only be revisited can via back and forward buttons on each panel, and by opening them up individually from the list of past actions. The system should instead give the user a sense of the different sensemaking paths they have taken, and allow them to replay their history, and branch off from it.
-
-The third problem is that users cannot customize their views according to their needs. The panels always display the same three overviews: the metadata on the left, and the most frequent phrases, nouns, verbs, and adjectives on the bottom. The user should be able to choose to expand or collapse these overviews by default, as well as the details of the overviews themselves: perhaps they would like to see the most most distinctive words in the slice, instead of the most frequent. The overviews also need to make it clear that the the counts they show are the number of matching \emph{sentences}, and not the number of matching \emph{documents}, and to give users a way of switching between the two.
+The third problem is that users cannot customize their views according to their needs. The same three overviews are always present: the metadata on the left, and the most frequent phrases, nouns, verbs, and adjectives on the bottom. The user should be able to choose to expand or collapse these by default, as well to choose different overviews: perhaps the most most distinctive words in the slice, instead of the most frequent. The overviews also need to make it clear that the the counts they show are the number of matching \emph{sentences}, and not the number of matching \emph{documents}, and to give users a way of switching between the two.
 
 Finally, although the tool provides results in under a second in some cases, in other cases the wait is longer, depending on the size of the collection and the operation requested.  A next step will be optimizing of the tool's performance to further encourage exploration. 
  
