@@ -146,7 +146,6 @@ Views  are window-like panels, and the user can open up any number of panels in 
 \\ \indent -- The most frequent nouns, verbs, adjectives and multi-word phrases in the slice.
 \\
 
-
 The simplest sliding interaction in WordSeer is creating a different view of the same slice.  There is a drop-down menu at the top left corner of each view which provides this function (Figure \ref{fig:chris03}).  Selecting a different view from the menu opens up that new view (on the same slice) alongside the current one. Users can have as many views open as they want, but most displays get crowded after two are three are open; the tool allows the panels to be collapsed and a history panel allows revisiting of earlier views.  
 \begin{figure}[h!]
 \begin{center}
@@ -179,11 +178,11 @@ Word Trees \cite{wattenberg_word_2008} are interactive visualizations that allow
 
 \subsection{Slices}
 
-The primary way in which WordSeer allows users to make slices is by intersecting \emph{searches} and \emph{filters}.  A search restricts the collection to just the sentences matching the query, and a filter restricts it to just sentences matching a particular metadata value. 
+The easiest way to make slices in WordSeer by intersecting \emph{searches} and \emph{filters}.  A search restricts the collection to just the sentences matching the query, and a filter restricts it to just sentences matching a particular metadata value. 
 
-Case study 1 (see below) illustrates the importance of allowing users to compose their own slices from the contents of a  broader collection. In the study, the scholar `C.F.', an English PhD candidate whose dissertation focuses on how U.S. literature responded to the rise of China, used a collection of  the last 30 years of \emph{New York Times} editorials about China and Japan to get a sense of how perceptions towards those countries have shifted.
+Case study 1 (see below) illustrates the importance of allowing users to compose their own slices. The study was conducted by  `C.F.',  a scholar studying US-China relations through a collection of 5,715  \emph{New York Times} editorials about China and Japan from 1980 to 2012. 
 
-His first goal was to get a sense of the differences in the way China was discussed in the 80's, 90's and 00's. To do this, he assembled three slices by starting with a \emph{search} for ``China'' (Figure \ref{fig:intro03})  and then filtering the `Year' category to range over a decade (Figure \ref{fig:intro04a}).  WordSeer also allows filtering by categorical values. If he had wanted to, he could have filtered these results to just editorials whose main topic tag was China or Japan, using the controls shown in Figure \ref{fig:intro04b}. 
+One of his first goals was to get a sense of the different ways China was discussed in the `80s, `90s and `00s. To do this, he assembled three slices, one for each decade, by starting with a \emph{search} for ``China'' (Figure \ref{fig:intro03})  and then filtering the `Year' category to range over each ten-year period (Figure \ref{fig:intro04a}).  WordSeer does not require metadata to be numerical ranges, it can also work with categorical values. If he had wanted to, he could have filtered these results to just editorials whose main topic tag was China or Japan, using the controls shown in Figure \ref{fig:intro04b}. 
 \begin{figure}[ht!]
 \begin{center}
 	\includegraphics[width=0.5\textwidth]{fig/intro/03b.png}
@@ -196,7 +195,7 @@ His first goal was to get a sense of the differences in the way China was discus
 \begin{figure}[ht!]
 \begin{center}
 %
-        \subfigure[C.F. used the numerical/date ranges from the Metadata Filter  to create the slice ``all sentences from the 1990's containing \emph{China}'']{%
+        \subfigure[C.F. used the date-range overview to select the slice ``all sentences from the 1990's matching \emph{China}'']{%
             \label{fig:intro04a}
 	\includegraphics[width=0.5\textwidth]{fig/intro/04b.png}
         }%
@@ -212,35 +211,25 @@ His first goal was to get a sense of the differences in the way China was discus
      }%
 \end{figure}
 
-\subsection{Grammatical Relations}
+\subsection{Associated Slices}
 
  In the database, each sentence is indexed according to the following linguistic phenomena:
 \begin{itemize}
   \item Each word in the sentence, and its part of speech (noun, verb, adjective, etc.),
   \item Each consecutive two-, three-, and four-word sequence in the sentence,
   \item Each grammatical relationship in the sentence. 
-  \end{itemize}
-  
-  The grammatical relationships are identified using a dependency parser as explained in \cite{jurafsky_chapter_2009}. In particular, we use the Stanford dependency parser\cite{klein_accurate_2003} which extracts many kinds of relationships, but some of the more easily understood ones include \emph{noun compound}, where two nouns come together to signify a new concept, \emph{adjective modifier} where an adjective describes another word, and \emph{direct subject} in which a word is the agent of a verb. By traversing these indexes, we can compute the associations for a slice. From a slice, we can query for all the words, phrases, or grammatical relations in the sentences in that slice, and from there, to all the other sentences that contain each particular item.  
+  \end{itemize}  
+ By traversing these indexes, we can compute the associations for a slice. From a slice, we can query for all the words, phrases, or grammatical relations in the sentences in that slice, and from there, to all the other sentences that contain each particular item.  
 
+ Grammatical relationships are identified using a dependency parser as explained in \cite{jurafsky_chapter_2009}. In particular, we use the Stanford dependency parser\cite{klein_accurate_2003} which extracts many kinds of relationships, but some of the more easily understood ones include \emph{noun compound}, where two nouns come together to signify a new concept, \emph{adjective modifier} where an adjective describes another word, and \emph{direct subject} in which a word is the agent of a verb. 
 
 Each view automatically presents the most common nouns, verbs, and adjectives (Figure \ref{fig:intro06}), as well as the most common phrases (Figure \ref{fig:intro07}), along with their counts (providing a query preview \cite{donn_query_1996} in a panel at the bottom.    
 \begin{figure}[ht!]
 \begin{center}
-	\includegraphics[width=0.5\textwidth]{fig/intro/06a.png}
 	\includegraphics[width=0.5\textwidth]{fig/intro/06.png}
 \end{center}
     \caption{%
-       The most frequent nouns, verbs, and adjectives in the \emph{New York Times} editorials for case study 1.  \label{fig:intro06}
-     }%
-\end{figure}
-
-\begin{figure}[ht!]
-\begin{center}
-	\includegraphics[width=0.2\textwidth]{fig/intro/07.png}
-\end{center}
-    \caption{%
-       The most frequent phrases in the \emph{New York Times} editorals for case study 1. \label{fig:intro07}
+       The most frequent phrases, nouns, verbs, and adjectives in the \emph{New York Times} editorials for case study 1.  \label{fig:intro06}
      }%
 \end{figure}
 
@@ -251,23 +240,20 @@ Individual words are jumping-off points. They can be acted upon wherever they ap
 	\includegraphics[width=0.5\textwidth]{fig/intro/08.png}
 \end{center}
     \caption{%
-      The Word Menu for `japan'.  Clicking on any of the menu options opens up the slice of matching sentences in a new view.  In this case it will select sentences containing "Germany" and "Japan" in a conjunction relationship. \label{fig:intro08}}%
+      The Word Menu for `japan' showing all the grammatical relationships it has with other words. \label{fig:intro08}}%
 \end{figure}
 
 
 \begin{figure}[ht!]
 \begin{center}
-	\includegraphics[width=0.5\textwidth]{fig/intro/09.png}
+	\includegraphics[width=0.3\textwidth]{fig/intro/09.png}
 \end{center}
     \caption{%
  		The words that co-occur most frequently with `Japan'. Clicking on any of these words opens up a Word Menu, this time with the option to see the sentences containing the co-occurrence.
 	\label{fig:intro09}}%
 \end{figure}
 
-
-The related words option in the Word Menu shows the nouns, verbs, and adjectives that co-occur most frequently with the clicked-on word. For example, if we click on `Japan' and open up the related words (Figure \ref{fig:intro09}) the pop-up shows the words that co-occur most frequently with `Japan' in this collection \cite{algorithm used}. Each of these related words can be clicked in turn, opening up a new Word Menu. These menus have the additional option to `See co-occurences', as shown in the new Word Menu for `exports'.  Selecting that option opens up a new view showing just those sentences in which the two words appear together  (in this case, `Japan' and `exports').  
-
-\strong{conflating co-occurrences with related words here; are we going to describe the related words algorithm?}
+The related words option in the Word Menu shows the nouns, verbs, and adjectives that co-occur most frequently with the clicked-on word. For example, if we click on `Japan' and open up the related words (Figure \ref{fig:intro09}) the pop-up shows the words that co-occur most frequently with `Japan' in this collection. Each of these related words can be clicked in turn, opening up a new Word Menu. These menus have the additional option to `See co-occurences', as shown in the new Word Menu for `exports'.  Selecting that option opens up a new view showing just those sentences in which the two words appear together  (in this case, `Japan' and `exports').  
 
 The word menu reduces friction in both discovery and search. It only takes one menu click to discover that `exports' occurs frequently with `Japan', and only one more to see all the sentences in which `Japan' and `exports' are mentioned together.  
 
@@ -276,13 +262,13 @@ The word menu reduces friction in both discovery and search. It only takes one m
 
 Searches and filters are useful, but cannot always express  specific analysis goals. WordSeer therefore allows users to construct custom slices through Word-, Sentence-, and Document Sets. These custom slices behave like any other slices, which means that they can be summarized in views,  analyzed, filtered and searched. But they are more powerful that other slices because they also behave like metadata, transforming them into \emph{categorical filters}.
 
-Word Sets are well illustrated by an example from Case Study 1.  One concept of interest in this study is ``growth''. The scholar wished to investigate the occurrence of growth-related words in editorials about China.  First, he creates a new word set and types in some growth-related words "growing, develop, developing, grow, rise, rising" (Figure \ref{fig:intro10a-word-sets}). The result is a Word Set representing a new slice of sentences, those containing at least one of those words. 
+Word Sets are well-illustrated by an example from Case Study 1.  One concept of interest in this study is ``growth''. The scholar wished to investigate the occurrence of growth-related words in editorials about China.  First, he creates a new word set and types in some growth-related words "growing, develop, developing, grow, rise, rising" (Figure \ref{fig:intro10a-word-sets}). The result is a Word Set representing a new slice of sentences, those containing at least one of those words. 
 
 \begin{figure}[ht!]
 \begin{center}
 %
         \subfigure[Creating a ``growth'' word set with 6 words in it. \label{fig:intro10a-word-sets}]{%
-	\includegraphics[width=0.5\textwidth]{fig/intro/10a-word-sets.png}
+	\includegraphics[width=0.2\textwidth]{fig/intro/10a-word-sets.png}
         }%
         \\
         \subfigure[The set now appears in the drop-down menu in the search box. \label{fig:intro10b-word-sets}]{%
@@ -321,21 +307,17 @@ This section has introduced the core text sliding features of WordSeer.  The nex
 
 \section{Case Study: U.S. Perceptions of\\China Japan}
 
-C.F. is a PhD student at [university's] English department. His dissertation explores how U.S. literature has responded to the rise of China since it began liberalizing its economy in the late 1970s.  His arguments depend upon a set of historical observations about the rise of China  broadly accepted by historians and cultural historians: 
+ `C.F'. is a literary scholar at [university's] English department. His work depends upon a set of historical observations about the rise of China that are broadly accepted by historians and cultural historians. Literary scholars typically allow their claims to rest on observations made by field experts like historians and sociologists, or on their own inductive reasoning, but C.F. wanted to verify his observations by gathering as much empirical evidence for them as possible. The four statements he wanted to verify were:
 \begin{enumerate}
 \item From the 1970s prior to the Tiananmen Square crackdown in 1989, U.S. observers paid more attention to Japan than China. During this period, China did not have  more than a strategic, Cold War relevance. 
 \item With the onset of the 1990s, attention shifts from Japan to China. Japan entered its first ``Lost Decade'' of economic stagnation, and China, meanwhile, began deepening its economic relations with the U.S.
 \item After China's accession to the World Trade Organization in 2001, U.S.-China bilateral relationship becomes increasingly important to global economics and politics.
 \item After 2001, there is an increasing sense that the U.S.'s time as the post-socialist era's last remaining superpower are numbered, and that China will replace it.
 \end{enumerate}
-Literary scholars typically allow their claims to rest on observations made by field experts like historians and sociologists, or on their own inductive reasoning. C.F., however, sought to supply these observations with as much empirical evidence as possible, as well as to verify them.
 
-To generate this evidence, C.F. collected \emph{New York Times} editorials from  the Lexis/Nexis database, from 1980 to 2012. Using Lexis/Nexis's metadata, C.F. limited the corpus to those tagged with subjects ``China" or ``Japan." This resulted in a set of 5,715 editorials which were then imported to the tool.
+Using the Lexis/Nexis database, C.F. collected \emph{New York Times} editorials from 1980 to 2012, limiting his collection to editorials tagged with subjects ``China" or ``Japan." This left a set of 5,715 editorials, which we imported to WordSeer. Each editorial was associated with three pieces of metadata: year, month, and country (either China or Japan).
 
-After a few weeks of face-to-face meetings in which we discussed his research goals and demonstrated how to use WordSeer to ask questions, C.F. gradually became comfortable using WordSeer on his own. After that, we continued to meet, but focused on discussing his progress, and on plans for new analysis features based on his needs.
-
-By the end of his project, C.F. had used WordSeer to find evidence for all four observations above. The discussion below elaborates on numbers 1 and 3, because those investigations made particularly heavy use of text sliding.
-
+After a few weeks of face-to-face meetings, C.F. gradually became comfortable using WordSeer on his own.  He used WordSeer to find evidence for \emph{all four} observations above. However, due to limited space, we only describe assertions 1 and 3, because those investigations made particularly heavy use of text sliding.
 
 \subsection{Confirming Intuitions}
 After becoming comfortable with WordSeer's functionality, C.F's first goal was to get a sense of the tone towards China in the three different decades in his collection: the `80s, `90s, and `00s.  He already had some intuitions of what he would find, but never having used the \emph{New York Times} editorials, or done any previous computational analysis, he wanted to test both the reliability of his corpus, and the ability of WordSeer to replicate well-known facts.
@@ -453,17 +435,9 @@ Edu 140 (n=40) & [anonymized] & Upper division \\
 
 R.G. doesn't usually consider the frequencies of words unless a student repeats one to the point of distraction. However, the tool's very first overview (like the one C.F saw in Figure \ref{fig:intro01}, except on R.G's data) prompted him to consider the significance of individual words and their repeated use.  As he states:
 \begin{quote}
-From the moment I opened [the tool], `distance' immediately provided new insight and areas of exploration as I was intrigued by unexpected high word frequencies.  The most obvious example is the frequent use of the word ``time" which is not only the most frequent noun but also the most frequent word overall.  As opposed to ``literacy'', ``language'', and any noun or verb forms of ``read'' and ``write'', the Word Tree for ``time'' appears before any term is placed in the keyword search.   I found similar surprises in the adjective and verb frequencies, and these surprises would guide my decision-making and analysis.
+From the moment I opened WordSeer, `distance' immediately provided new insight and areas of exploration as I was intrigued by unexpected high word frequencies.  The most obvious example is the frequent use of the word ``time" which is not only the most frequent noun but also the most frequent word overall.  As opposed to ``literacy'', ``language'', and any noun or verb forms of ``read'' and ``write'', the Word Tree for ``time'' appears before any term is placed in the keyword search.   I found similar surprises in the adjective and verb frequencies, and these surprises would guide my decision-making and analysis.
 \end{quote}
-
-\begin{figure}
-\begin{center}
-\includegraphics[width=0.3\textwidth]{fig/rex/02.png}
-\end{center}
-\caption{The most frequent adjectives overall in R.G.'s literacy essays \label{fig:rex02}.}
-\end{figure}
-
-Faced with unexpected discoveries in every part of speech, R.G. decided to explore the adjectives (Figure \ref{fig:rex02}). The top three adjectives were not surprising - ``other" (474),``first" (379), and ``new" (384).  However,  ``able'' (314) and ``own'' (282) were words that he did not expect to be used frequently.
+Faced with unexpected discoveries in every part of speech, R.G. decided to explore the adjectives. The top three adjectives were not surprising - ``other" (474),``first" (379), and ``new" (384).  However,  ``able'' (314) and ``own'' (282) were words that he did not expect to be used frequently.
 
 R.G. now wanted to understand the unexpectedly high frequencies of ``able'' and ``own''. WordSeer made this exploration easier. Instead of having to open a new window and type new search queries, clicking on the words themselves opened up Word Menus which allowed him to create Word Trees centered on those words.
 
