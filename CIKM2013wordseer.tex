@@ -38,7 +38,7 @@
 \maketitle
 
 \begin{abstract}
-There are numerous information analysis and discovery tools that allow users to view multidimensional data from different angles by selecting subsets of data, viewing those as visualizations, moving laterally to view other subsets of data, slicing into another view, expanding the viewed data by relaxing constraints, and so on.  However, these tools operate over numerical and categorical data, but do not seamlessly operate over raw textual information with the same flexibility. In this paper we describe a text analysis and discovery tool that allows for highly flexible  ``slicing and dicing'' (hence  ``sliding'') across a text collection.  The goal of the tool is to help scholars and analysts discover patterns and formulate and test hypotheses about the contents of their text collections, midway between what traditional humanities scholars call a  ``close read'' and the digital humanities  ``distant read'' or ``culturomics" approach.  We illustrate the text sliding capabilities of the tool with two real-world case studies from the humanities and social sciences -- the practice of literacy education, and U.S. perceptions of China and Japan over the last 30 years -- showing how the tool has enabled scholars with no technical background to make new, important discoveries in these text collections.
+There are numerous information analysis and discovery tools that allow users to view multidimensional data from different angles by selecting subsets of data, viewing those as visualizations, moving laterally to view other subsets of data, slicing into another view, expanding the viewed data by relaxing constraints, and so on.  However, these tools operate over numerical and categorical data, but do not seamlessly operate over raw textual information with the same flexibility. In this paper we describe a text analysis and discovery tool that allows for highly flexible  ``slicing and dicing'' (hence  ``sliding'') across a text collection.  The goal of the tool is to help scholars and analysts discover patterns and formulate and test hypotheses about the contents of their text collections, midway between what traditional humanities scholars call a  ``close read'' and the digital humanities  ``distant read'' or "culturomics" approach.  We illustrate the text sliding capabilities of the tool with two real-world case studies from the humanities and social sciences -- the practice of literacy education, and U.S. perceptions of China and Japan over the last 30 years -- showing how the tool has enabled scholars with no technical background to make new, important discoveries in these text collections.
 
 \end{abstract}
 
@@ -55,7 +55,7 @@ Current text analysis systems put computational linguistics and data visualizati
 
 However, language is a unique form of expression, and text as data is distinct from numerical and categorical data.  Text has both linear and hierarchical structure, its meaning is ambiguous given its representation, it has tens of thousands or hundreds of thousands of features, and frequencies of words are distributed via a power law.  
 
- Even a small fragment of text does not stand alone, but is densely interconnected with other text through the \emph{linguistic phenomena} that it contains. These are units of meaning that take surface form in text, such as words, phrases, relations between words (including synonymy and hyponymy) and literary devices, such as metaphor, sarcasm and allusion. To illustrate, consider this 13-word ``slice'' of text from Shakespeare's ``Romeo and Juliet", where a slice is simply a set of sentences (not necessarily consecutive, like in this example):
+Even a small fragment of text does not stand alone, but is densely interconnected with other text through the \emph{linguistic phenomena} that it contains. These are units of meaning that take surface form in text, such as words, phrases, relations between words (including synonymy and hyponymy) and literary devices, such as metaphor, sarcasm and allusion. To illustrate, consider this 13-word ``slice'' of text from Shakespeare's ``Romeo and Juliet", where a slice is simply a set of sentences (not necessarily consecutive, like in this example):
 
 \begin{verbatim}
 ROMEO:
@@ -77,7 +77,7 @@ The more structure there is to text, the more kinds of associations are possible
 \item The location within the play: Act 1, Scene 4 can be associated with the other scenes in that act, or the all speakers in that scene.
 \end{itemize}
 
-This network of associated slices is apparent to us as readers. And to an analyst trying to make sense of an idea, some associations may be deeply meaningful.  Transitions  and associations are central to the text analysis process, and people seeking knowledge from text are engaging in \emph{sensemaking}. They do not follow a straight path from data input to analysis output, but meander between analysis, interpretation, exploration and understanding on different sub-collections of data.  It is therefore important for text analysis systems to support not just algorithmic and visual analysis, but the transitions: slicing, filtering and exploration that lead from analysis to analysis, visualization to visualization, and finally to insight.
+This network of associated slices is apparent to the reader. And to an analyst trying to make sense of an idea, some associations may be deeply meaningful.  Transitions  and associations are central to the text analysis process, and people seeking knowledge from text are engaging in \emph{sensemaking}. They do not follow a straight path from data input to analysis output, but meander between analysis, interpretation, exploration and understanding on different sub-collections of data.  It is therefore important for text analysis systems to support not just algorithmic and visual analysis, but the transitions: slicing, filtering and exploration that lead from analysis to analysis, visualization to visualization, and finally to insight.
 
 In this paper, we describe a text analysis tool called WordSeer that supports such transitions.\footnote{This is version 3.0 of WordSeer, which has notably more flexible interactions than older versions.}  It allows highly flexible slicing and dicing, as well as frictionless transitions (hence ``sliding") between visual analyses, drill-downs, lateral explorations and overviews of slices in a text collection. Our tool uses computational linguistics, information retrieval and data visualization, and enables scholars with no technical background to conduct analyses yielding concrete, useful and otherwise inaccessible knowledge. 
 
@@ -100,7 +100,7 @@ We introduce the text sliding capabilities of WordSeer using two case studies. T
 
 \subsection{Supporting Sensemaking}
 
-Observational studies from the literature on sensemaking describe many problems analysts encounter while trying to make sense of text collections. These studies typically study professionals such as government intelligence analysts \cite{x}, business analysts \cite{x} market researchers \cite{x} and academics \cite{x} at work, attempt to categorize the actions they perform and identify common sequences of actions. Several models of the sensemaking process have emerged \cite{x} These models attempt to explain what one would observe when watching analysts distill ``understanding" from raw data, where understanding usually manifests itself as a summary, report, or presentation.
+Observational studies from the literature on sensemaking describe many problems analysts encounter while trying to make sense of text collections. These studies typically study professionals such as government intelligence analysts \cite{x}, business analysts \cite{x} market researchers \cite{x} and academics \cite{x} at work, attempt to categorize the actions they perform and identify common sequences of actions. Several models of the sensemaking process have emerged \cite{x} These models attempt to explain what one would observe when watching analysts distill "understanding" from raw data, where understanding usually manifests itself as a summary, report, or presentation.
 
 Pirolli and Card \cite{pirolli_sensemaking_2005} identified ``pain points" in three areas having to do with navigation and transitions between slices while studying intelligence analysts working with large collections of text-based reports:
 \begin{enumerate}
@@ -121,9 +121,7 @@ Pirolli and Card \cite{pirolli_sensemaking_2005} identified ``pain points" in th
 
 
 
-
 \section{Text Sliding}
-
 
 
 \begin{figure}[ht!]
@@ -143,15 +141,15 @@ Pirolli and Card \cite{pirolli_sensemaking_2005} identified ``pain points" in th
      }%
 \end{figure}
 
-When a user opens up WordSeer for the first time, rather than showing a blank screen requiring the user to think up a query, the tool  provides summary statistics immediately, as shown in Figure \ref{fig:intro01} on a collection of \emph{New York Times} editorials.  Figure \ref{fig:intro02} breaks this down into its core components. This is a single \emph{view} with a \emph{Word Tree} visualization of the most frequent content word in the \emph{slice} ``the entire collection''. 
+When a user opens up WordSeer for the first time, rather than showing a blank screen a requiring the user to think up a query, the tool  provides summary statistics immediately, as shown in Figure \ref{fig:intro01} on a collection of \emph{New York Times} editorials.  Figure \ref{fig:intro02} breaks this down into its core components. This is a single \emph{view} with a \emph{Word Tree} visualization of the most frequent content word in the \emph{slice} ``the entire collection''. 
 
-Word Trees \cite{wattenberg_word_2008} are interactive visualizations that allow a user to explore the contexts in which a word is used. They group together common left- and right-contexts into a tree that gets finer and finer as the context get longer, terminating in individual sentences.  Because no query has yet been specified, the Word Tree view centers on the most frequent content word in the collection (content words exclude very common (stop) words, such as ``the'', ``a'', ``and'', etc.). In this case, the most frequent content word is ``China'' (see first case study below).
+Word Trees \cite{wattenberg_word_2008} are interactive visualizations that allow a user to explore the contexts in which a word is used. They group together common left- and right-contexts into a tree that gets finer and finer as the context get longer, terminating in individual sentences.  Because no query has yet been specified, the Word Tree view centers on the most frequent content word in the collection (content words exclude very common (stop) words, such as ``the'', ``a'', ``and'', etc.). In this case, the most frequent content word is``China'' (see first case study below).  Other visualizations are also available, including a tabular list of sentences along with their metadata, a heatmap showing the location of query terms within each document, and bar charts and other statistics about the distribution of the metadata and the query terms, as described below.
 
 The paired concepts of \emph{slices} and \emph{views} are central to text sliding. A slice is a set of sentences, and a view is a visual representation of the data in a slice: the view can range from a simple vertical list of the sentences in the slice, to more complex linguistic processing combined with visual analytics.  A slice is like a scientific specimen or a sample of some chemical compound,  and a view is a lens or a test that reveals different information about the sample.
 (Currently we define a slice as \emph{a set of sentences}, although in future it might use different units of text, such as paragraphs, documents, or phrases.) We allow arbitrarily-assembled slices, but it is easiest to think of slices as combinations of searches and filters.  
 
 
-Text sliding is a way to move from a view of a slice to a different view. Through the richness of language, slices are \emph{linguistically associated} with other slices (that also contain a particular word or phrase, for example). If there is metadata accompanying the text, such as year, and author, as in these editorials, the user can take advantage of these  \emph{metadata associations}.  Through the wide variety of visual analytics tool available, there are many different ways of viewing and analyzing the data in a single slice. Text sliding makes all these associations accessible in a ``low friction" way.
+Text sliding is a way to move from a view of a slice to a different view. Through the richness of language, slices can be \emph{linguistically associated} with other slices (that also contain a particular word or phrase, for example). \strong{Need to define linguistically associated; this is not a technical term.  Do you mean textually associated?  Or via syntactic relations?} If there is metadata accompanying the text, such as year, and author, as in these editorials, the user can take advantage of these  \emph{metadata associations}.  Through the wide variety of visual analytics tool available, there are several different ways of viewing and analyzing the data in a single slice. Text sliding makes all these associations accessible in a "low friction" way.
 
 In detail, we define text sliding as:
 \begin{itemize}
@@ -192,9 +190,13 @@ Views  are window-like panels, and the user can open up any number of panels in 
 \begin{itemize}
   \item Each word in the sentence, and its part of speech (noun, verb, adjective, etc.)
   \item Each consecutive two-, three-, and four-word sequence in the sentence
-  \item Each grammatical relationship in the sentence. (These are identified using a computational linguistics technology called dependency parsing,  explained in \cite{jurafsky_chapter_2009}. In particular, we use the Stanford dependency parser \cite{klein_accurate_2003}.
+  \item Each grammatical relationship in the sentence. (These are identified using a dependency parser  explained in \cite{jurafsky_chapter_2009}. In particular, we use the Stanford dependency parser\cite{klein_accurate_2003}).
 \end{itemize}
-By traversing these indexes both ways, we can quickly compute the associations for a slice. From a slice, we can query for all the words, phrases, or grammatical relations in the sentences in that slice, and from there, to all the other sentences that contain each particular item.  Additionally, each view presents the most common nouns, verbs, and adjectives, as well as the most common phrases the the user automatically as shown in Figures \ref{fig:intro01} and \ref{fig:intro02}, 
+
+By traversing these indexes both ways, we can quickly compute the associations for a slice. \strong{I don't know what you mean by "these indexes both ways" here.}  From a slice, we can query for all the words, phrases, or grammatical relations in the sentences in that slice, and from there, to all the other sentences that contain each particular item.  Additionally, each view presents the most common nouns, verbs, and adjectives, as well as the most common phrases, along with their counts, automatically as shown in Figures \ref{fig:intro01} and \ref{fig:intro02}.    
+
+Individual words, wherever they appear within a view, can also be queried in terms of the grammatical relations in which they appear, via the Word Menu, which shows query previews of the number of grammatical relations of each type that the word appears in within the given slice.
+
 
 
 \subsection{Case Study: U.S. Perceptions of China vs. Japan}
@@ -303,12 +305,12 @@ Among the questions that guided his inquiry were the following. In this example,
 \begin{tabular}{lll}
 Course& College & Level \\
 \hline
-Engl 1A (n=29) & Berkeley City C.& First-year \\
-Engl 201AB (n=28) & C. of Alameda & Pre-transfer \\
-Engl 5 (n=40) & Berkeley City C. & Transfer level \\
-Edu 140 (n=40) & UC Berkeley & Upper division \\
+Engl 1A (n=29) & [anonymized] & First-year \\
+Engl 201AB (n=28) & [anonymized] & Pre-transfer \\
+Engl 5 (n=40) & [anonymized] & Transfer level \\
+Edu 140 (n=40) & [anonymized] & Upper division \\
 \end{tabular}
-\caption{The four different courses, each at a different proficiency level, from which literacy autobiographies were analyzed. \label{table:rex-courses}}
+\caption{The four different courses, each at a different proficiency level, from which literacy autobiographies were analyzed by R.G. \label{table:rex-courses}}
 \end{table}
 
 
@@ -316,12 +318,12 @@ Edu 140 (n=40) & UC Berkeley & Upper division \\
 
 \begin{figure*}
 \includegraphics[width=\textwidth]{fig/rex/01.png}
-\caption{The initial display when opening the tool \label{fig:rex01} on R.G.'s literacy essays.}
+\caption{The initial display when opening the tool \label{fig:rex01} on R.G.'s literacy autobiographies.}
 \end{figure*}
 
-R.G. doesn't usually consider the frequencies of words unless a student repeats one to the point of distraction. However, WordSeer's very first overview -- a Word Tree combined with summaries of word frequencies (such as the one C.F saw in Figure \ref{fig:intro01}, except on R.G.'s data)-- prompted him to consider the significance of individual words and their repeated use.  As he states:
+R.G. doesn't usually consider the frequencies of words unless a student repeats one to the point of distraction. However, the tool's very first overview (Figure \ref{fig:rex01}) prompted him to consider the significance of individual words and their repeated use.  As he states:
 \begin{quote}
-From the moment I opened WordSeer, `distance' immediately provided new insight and areas of exploration as I was intrigued by unexpected high word frequencies.  The most obvious example is the frequent use of the word ``time" which is not only the most frequent noun but also the most frequent word overall.  As opposed to ``literacy'', ``language'', and any noun or verb forms of ``read'' and ``write'', the Word Tree for ``time'' appears before any term is placed in the keyword search.   I found similar surprises in the adjective and verb frequencies, and these surprises would guide my decision-making and analysis.
+From the moment I opened [the tool], `distance' immediately provided new insight and areas of exploration as I was intrigued by unexpected high word frequencies.  The most obvious example is the frequent use of the word ``time" which is not only the most frequent noun but also the most frequent word overall.  As opposed to ``literacy'', ``language'', and any noun or verb forms of ``read'' and ``write'', the Word Tree for ``time'' appears before any term is placed in the keyword search.   I found similar surprises in the adjective and verb frequencies, and these surprises would guide my decision-making and analysis.
 \end{quote}
 
 \begin{figure}
@@ -329,13 +331,13 @@ From the moment I opened WordSeer, `distance' immediately provided new insight a
 \caption{The most frequent adjectives overall in R.G.'s literacy essays \label{fig:rex02}.}
 \end{figure}
 
-Faced with unexpected discoveries in every part of speech, R.G. decided to explore the adjectives (Figure \ref{fig:rex02}). The top three adjectives were not surprising - other (474), first (379), and new (384).  However,  ``able'' (314) and ``own'' (282) were words that he did not expect to be used frequently.
+Faced with unexpected discoveries in every part of speech, R.G. decided to explore the adjectives (Figure \ref{fig:rex02}). The top three adjectives were not surprising - "other" (474), "first" (379), and "new" (384).  However,  ``able'' (314) and ``own'' (282) were words that he did not expect to be used frequently.
 
-R.G. now wanted to understand the unexpectedly high frequencies of ``able'' and ``own''. WordSeer made this exploration easier. Instead of having to open a new window and type new search queries, clicking on the words themselves opened up Word Menus (Figure \ref{fig:rex03}) which allowed him to create Word Trees centered on those words (Figure \ref{fig:rex04}).   
+R.G. now wanted to understand the unexpectedly high frequencies of "able'' and ``own''. WordSeer made this exploration easier. Instead of having to open a new window and type new search queries, clicking on the words themselves opened up Word Menus (Figure \ref{fig:rex03}) which allowed him to create Word Trees centered on those words (Figure \ref{fig:rex04}).   
 \begin{figure}[h!]
 \includegraphics[width=0.2\textwidth]{fig/rex/03.png}
 \includegraphics[width=0.2\textwidth]{fig/rex/03b.png}
-\caption{Clicking on ``able" and ``own" in the frequent adjectives list brings up a menu with the option to create Word Trees centered on those words in new panels. The results are shown in Figure \ref{fig:rex04} \label{fig:rex03}. The `able' tree shows that students frequently talk about the act of being \emph{able to} in relation to literacy-related concepts. On the right, we see the expression of \emph{personal} ownership in the forms of ``[on, in] my own''.}
+\caption{Clicking on the "able" and "own" in the frequent adjectives list brings up a menu with the option to create Word Trees centered on those words in new panels. The results are shown in Figure \ref{fig:rex04} \label{fig:rex03}.}
 \end{figure}
 
 \begin{figure*}[h!]
@@ -343,14 +345,14 @@ R.G. now wanted to understand the unexpectedly high frequencies of ``able'' and 
 \caption{ On R.G.'s literacy essays data set, two side-by-side Word Trees created from the word menu (with the bottom and side overview panels collapsed). On the left, the tree is centered on `able' and filtered to `able to', and on the right, the tree is centered on  `own' and filtered to `my own' in new panels \label{fig:rex04}.}
 \end{figure*}
 
-The Word Tree for ``able" (Figure \ref{fig:rex04} left) revealed that the most common use of the adjective able was: \code{[form of the verb `to be'] + able + to [action verb]} with the most common ``abilities'' being literacy-related: read, understand, communicate, learn, speak, etc.  For ``own'' (Figure \ref{fig:rex04} right), the most common construction was: \code{[preposition] + my + own}.  He also used the Word Tree to zoom in and read the individual sentences.
+The Word Tree for "able" (Figure \ref{fig:rex04} left) revealed that the most common use of the adjective able was: \code{[form of the verb `to be'] + able + to [action verb]} with the most common ``abilities'' being literacy-related: read, understand, communicate, learn, speak, etc.  For ``own'' (Figure \ref{fig:rex04} right), the most common construction was: \code{[preposition] + my + own}.  He also used the Word Tree to zoom in and read the individual sentences.
 
 As a result, R.G. came away with a new insight about his students:
 \begin{quote}
 Student writers articulate their experiences from some first encounter with the unfamiliar, followed by a process of being ``able" to act within that which is becoming less unfamiliar.  Moving into literacy requires these writers to develop their ``own" abilities as necessary to survive and prosper in that context.
 \end{quote} 
 
-\subsubsection{Writing proficiency at across courses}
+\subsubsection{Writing proficiency across courses}
 The different courses R.G. taught had different emphases and were taken by students with differing amounts of college education. He was especially interested in differences in sentence construction, hypothesizing that more proficient students would use advanced structures more frequently. To initiate the analyses, he performed word searches on terms such as ``though", ``while", ``although", and ``however", which indicate a complex structure called a ``concessive''. He was expecting consessives to be increasingly frequent as he moved from English 1A, to English 201, to English 5, to Ed140.
 
 The Word Frequencies visualization allowed R.G. to confirm his hypothesis. It shows how often terms occur across different metadata categories (and can shown the counts stacked or grouped, or normalized or raw). R.G. searched for multiple terms simultaneously, which created a comparative visualization (Figure \ref{fig:rex05}).
@@ -362,8 +364,6 @@ The Word Frequencies visualization allowed R.G. to confirm his hypothesis. It sh
 
 The increasing frequencies across the course levels confirmed his hunch that as students become more experienced and comfortable with the written word, they used more complex sentence structures more frequently. 
 
-\include{relatedwork}
-\include{discussion}
 
 \section{Acknowledgements}
 We sincerely thank [Firstname Lastname, Firstname Lastname, and Firstname Lastname] for helpful comments on a Case Study not described in this paper. We are also grateful to [Firstname Lastname] for his helpful advice and thought-provoking discussions throughout.
