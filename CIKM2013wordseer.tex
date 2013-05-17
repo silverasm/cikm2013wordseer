@@ -136,13 +136,13 @@ Pirolli and Card \cite{pirolli_sensemaking_2005} identified ``pain points" in th
 
 When a user opens up WordSeer for the first time, rather than showing a blank screen a requiring the user to think up a query, the tool  provides summary statistics immediately, as shown in Figure \ref{fig:intro01} on a collection of \emph{New York Times} editorials.  Figure \ref{fig:intro02} breaks this down into its core components. This is a single \emph{view} with a \emph{Word Tree} visualization of the most frequent content word in the \emph{slice} ``the entire collection''. 
 
-Word Trees \cite{wattenberg_word_2008} are interactive visualizations that allow a user to explore the contexts in which a word is used. They group together common left- and right-contexts into a tree that gets finer and finer as the context get longer, terminating in individual sentences.  Because no query has yet been specified, the Word Tree view centers on the most frequent content word in the collection (content words exclude very common (stop) words, such as ``the'', ``a'', ``and'', etc.). In this case, the most frequent content word is``China'' (see first case study below).  Other visualizations are also available, including a tabular list of sentences along with their metadata, a heatmap showing the location of query terms within each document, and bar charts and other statistics about the distribution of the metadata and the query terms, as described below.
+Word Trees \cite{wattenberg_word_2008} are interactive visualizations that allow a user to explore the contexts in which a word is used. They group together common left- and right-contexts into a tree that gets finer and finer as the context get longer, terminating in individual sentences.  Because no query has yet been specified, the Word Tree view centers on the most frequent content word in the collection (content words exclude very common (stop) words, such as ``the'', ``a'', ``and'', etc.). In this case, the most frequent content word is ``China'' (see first case study below).  Other visualizations are also available, including a tabular list of sentences along with their metadata, a heatmap showing the location of query terms within each document, and bar charts and other statistics about the distribution of the metadata and the query terms, as described below.
 
 The paired concepts of \emph{slices} and \emph{views} are central to text sliding. A slice is a set of sentences, and a view is a visual representation of the data in a slice: the view can range from a simple vertical list of the sentences in the slice, to more complex linguistic processing combined with visual analytics.  A slice is like a scientific specimen or a sample of some chemical compound,  and a view is a lens or a test that reveals different information about the sample.
 (Currently we define a slice as \emph{a set of sentences}, although in future it might use different units of text, such as paragraphs, documents, or phrases.) We allow arbitrarily-assembled slices, but it is easiest to think of slices as combinations of searches and filters.  
 
 
-Text sliding is a way to move from a view of a slice to a different view. Through the richness of language, slices can be \emph{linguistically associated} with other slices (that also contain a particular word or phrase, for example). \strong{Need to define linguistically associated; this is not a technical term.  Do you mean textually associated?  Or via syntactic relations?} If there is metadata accompanying the text, such as year, and author, as in these editorials, the user can take advantage of these  \emph{metadata associations}.  Through the wide variety of visual analytics tool available, there are several different ways of viewing and analyzing the data in a single slice. Text sliding makes all these associations accessible in a "low friction" way.
+Text sliding is a way to move from a view of a slice to a different view. Through the richness of language, slices can be associated with many other slices (such as those that contain the same  words, phrases, or ideas). If there is metadata accompanying the text, such as year, and topic, as in these editorials, the user can take advantage of these  \emph{metadata associations}.  Finally, through the wide variety of visual analytics tool available, there are several different ways of viewing and analyzing the data in a single slice. Text sliding makes all these associations accessible in a ``low friction" way.
 
 In detail, we define text sliding as:
 \begin{itemize}
@@ -182,17 +182,50 @@ The simplest sliding interaction in WordSeer is creating a different view of the
 \caption{ The view-switcher drop-down menu, found at the top left corner of every view. Selecting an option opens a new view  of the same slice alongside the current view. \label{fig:chris03}}
 \end{figure}
 
+\subsection{Slices}
+
+The primary way in which WordSeer allows users to make slices is by intersecting \emph{searches} and \emph{filters}.  A search restricts the collection to just the sentences matching the query, and a filter restricts it to just sentences matching a particular metadata value. 
+
+Case study 1 (see below) illustrates the importance of allowing users to compose their own slices from the contents of a  broader collection. In the study, the scholar `C.F.', an English PhD candidate whose dissertation focuses on how US literature responded to the rise of China, used a collection of  the last 30 years of \emph{New York Times} editorials about China and Japan to get a sense of how perceptions towards those countries have shifted.
+
+His first goal was to get a sense of the differences in the way China was discussed in the 80's, 90's and 00's. To do this, he assembled three slices by starting with a \emph{search} for ``China'' (Figure \ref{fig:intro03})  and then filtering the `Year' category to range over a decade (Figure \ref{fig:intro04a}).  WordSeer also allows filtering by categorical values. If he had wanted to, he could have filtered these results to just editorials whose main topic was China or Japan, using the controls shown in Figure \ref{fig:intro04b}. 
+\begin{figure}[ht!]
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{fig/intro/03b.png}
+\end{center}
+    \caption{%
+        Creating a slice by searching for the word ``China''. This creates a slice containing only sentences that contain the word ``China''. \label{fig:intro03}
+     }%
+\end{figure}
+
+\begin{figure}[ht!]
+\begin{center}
+%
+        \subfigure[C.F. used the numerical/date ranges from the Metadata Filter  to filter the slice ``all sentences containing \emph{China}" to sentences from the 90's. ]{%
+            \label{fig:intro04a}
+	\includegraphics[width=0.5\textwidth]{fig/intro/04b.png}
+        }%
+        \\
+         \subfigure[How to use the categorical metadata overview to filter the slice ``all sentences containing \emph{China}" to only sentences from editorials about China.]{%
+            \label{fig:intro04b}
+	\includegraphics[width=0.5\textwidth]{fig/intro/04a.png}
+        }%
+%
+    \end{center}
+    \caption{%
+     Overviews double as filters, which can be used to create or narrow down a slice \label{fig:intro04}.
+     }%
+\end{figure}
 
 \subsection{Grammatical Relations}
-
 
  In our database, each sentence is indexed according to the following linguistic phenomena:
 \begin{itemize}
   \item Each word in the sentence, and its part of speech (noun, verb, adjective, etc.)
   \item Each consecutive two-, three-, and four-word sequence in the sentence
-  \item Each grammatical relationship in the sentence. (These are identified using a dependency parser  explained in \cite{jurafsky_chapter_2009}. In particular, we use the Stanford dependency parser\cite{klein_accurate_2003}).
+  \item Each grammatical relationship in the sentence. (These are identified using a dependency parser  explained in \cite{jurafsky_chapter_2009}. In particular, we use the Stanford dependency parser\cite{klein_accurate_2003}).  The parser extracts many kinds of relationships, but some of the more easily understood ones include \emph{noun compound}, where two nouns come together to signify a new concept, \emph{adjective modifier} where an adjective describes another word, and \emph{direct subject} in which a word is the agent of a verb.
+  
 \end{itemize}
-
 By traversing these indexes, we can quickly compute the associations for a slice. From a slice, we can query for all the words, phrases, or grammatical relations in the sentences in that slice, and from there, to all the other sentences that contain each particular item.  
 
 
@@ -226,7 +259,6 @@ Individual words are jumping-off points. They can be acted upon wherever they ap
       The Word Menu for `japan'.  The search options show how often `Japan' appears in different grammatical relations. Expanding upon the `conjunction' relation, for example, shows that `Japan' appears in the  `conjunction' relation  2211 times, and is most often paired with Europe, Germany, the US, Korea, Russia, and Britain. Clicking on any of the menu options opens up the slice of matching sentences in a new view \label{fig:intro08}}%
 \end{figure}
 
-The related words option in the Word Menu shows the nouns, verbs, and adjectives that co-occur most frequently with the clicked-on word. For example, figure \ref{fig:intro09} shows the words that co-occur most frequently with `Japan'. Each of these related words words can be clicked, opening up a new Word Menu. These menus are identical to the normal Word Menu except that they have the additional option to `See co-occurences', as shown in the new Word Menu for `exports'. Clicking on the option opens up a new view showing a list of sentences in which the two words (`Japan' and `exports') appear together.
 
 \begin{figure}[ht!]
 \begin{center}
@@ -234,12 +266,65 @@ The related words option in the Word Menu shows the nouns, verbs, and adjectives
 \end{center}
     \caption{%
  		The nouns, verbs, and adjectives that co-occur most frequently with `Japan'. Clicking on any of these words opens up a Word Menu, this time with the option to see co-occurrences.  Clicking on the option  above opens up a view of the sentences in which `Japan' and `exports'  co-occur.
-	}%
+	\label{fig:intro09}}%
 \end{figure}
 
-\subsection{Case Study: U.S. Perceptions of China vs. Japan}
 
-C.F. is a PhD student at [university's] English department. C.F.'s research explores how US literature has responded to the rise of China since it began liberalizing its economy in the late 1970s.  His arguments depend upon a set of historical observations about the rise of China  broadly accepted by historians and cultural historians: 
+The related words option in the Word Menu shows the nouns, verbs, and adjectives that co-occur most frequently with the clicked-on word. For example, if we click on `Japan' and open up the related words (Figure \ref{fig:intro09}) the pop-up shows the words that co-occur most frequently with `Japan'. Each of these related words words can be clicked in turn, opening up a new Word Menu. These menus have the additional option to `See co-occurences', as shown in the new Word Menu for `exports'. That option opens up a new view showing just those sentences in which the two words appear together  (in this case, `Japan' and `exports'). 
+
+The word menu reduces friction in both discovery and search. It only takes one menu click to discover that `exports' occurs frequently with `Japan', and only one more to see all the sentences in which `Japan' and `exports' are mentioned together.  
+
+
+\subsection{Custom Slices with Sets}
+
+Searches and filters are useful, but cannot always express  specific analysis goals. WordSeer therefore allows users to construct custom slices through Word-, Sentence-, and Document Sets. These custom slices behave like any other slices, which means that they can be summarized in views,  analyzed, filtered and searched. But they are more powerful that other slices because they also behave like metadata, making them \emph{categorical filters}.
+
+Word Sets are perfectly illustrated by an example from Case Study 1 (see below). One concept of interest in this study was ``growth''. The scholar wished to investigate the occurrence of growth-related words in editorials about China.  
+
+First, he needs to create a new word set and type in some growth-related words (Figure \ref{fig:intro10a-word-sets}). The result is a Word Set representing a new slice of sentences, those containing at least one of those words. 
+
+\begin{figure}[ht!]
+\begin{center}
+%
+        \subfigure[Creating a ``growth'' word set with 6 words in it. \label{fig:intro10a-word-sets}]{%
+	\includegraphics[width=0.2\textwidth]{fig/intro/10a-word-sets.png}
+        }%
+        \\
+        \subfigure[The set now appears in the drop-down menu in the search box. \label{fig:intro10b-word-sets}]{%
+	\includegraphics[width=0.5\textwidth]{fig/intro/10b-word-sets.png}
+        }%
+         \\
+        \subfigure[The set also appears in the word menu  \label{fig:intro10c-word-sets}]{%
+	\includegraphics[width=0.2\textwidth]{fig/intro/10c-word-sets.png}
+        }%
+        \quad
+        \subfigure[ The set also appears in the metadata overview   \label{fig:intro10d-word-sets}]{%
+	\includegraphics[width=0.2\textwidth]{fig/intro/10d-word-sets.png}
+        }%
+%
+    \end{center}
+    \caption{%
+       Word Sets in WordSeer. \label{fig:intro10-word-sets}
+     }%
+\end{figure}
+Once the word set is created, the entire user interface responds to its presence. The search box now shows a drop-down option for the set  (Figure \ref{fig:intro10b-word-sets}).  The word menu shows the option to add a new words (Figure \ref{fig:intro10d-word-sets}) and the metadata overviews (Figure \ref{fig:intro10d-word-sets}), previously restricted to pre-defined categories,  now show this new ``category'', and allows him to filter based on it.   
+
+\begin{figure}[ht!]
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{fig/chris/04a.png}
+\end{center}
+    \caption{%
+	A Word Frequencies view of the slice corresponding to the \code{\{growth\}} word set shows that the frequency of this group of words in \emph{New York Times} editorials about China steadily increases between the 1980s and 2000s. \label{fig:chris04a}
+     }%
+\end{figure}
+
+Finally, he selects the  \code{\{growth\}} Word Set as his search query, opens a Word Frequencies view, and applies the \code{ country = China} filter to focus on editorials about China. The resulting visualization is Figure \ref{fig:chris04a}, which shows almost a doubling of the frequency of these words over the 30-year period from 1980 to 2012.
+
+For sentences and documents, the idea is the same.  Users can hand-pick collections of sentences from the reading view, and from search results view, or collections of documents from the document search results view.  Once created, all these sets can be overviewed and analyzed like any other slice, and additionally used as filters.
+
+\section{Case Study: U.S. Perceptions of\\China Japan}
+
+C.F. is a PhD student at [university's] English department. His dissentation explores how US literature has responded to the rise of China since it began liberalizing its economy in the late 1970s.  His arguments depend upon a set of historical observations about the rise of China  broadly accepted by historians and cultural historians: 
 \begin{enumerate}
 \item From the 1970s prior to the Tiananmen Square crackdown in 1989, US observers paid more attention to Japan than China. During this period, China did not have  more than a strategic, Cold War relevance. 
 \item With the onset of the 1990s, attention shifts from Japan to China. Japan entered its first ``Lost Decade'' of economic stagnation, and China, meanwhile, began deepening its economic relations with the US.
@@ -250,38 +335,56 @@ Literary scholars typically allow their claims to rest on observations made by f
 
 To generate this evidence, C.F. collected \emph{New York Times} editorials from  the Lexis/Nexis database, from 1980 to 2012. Using Lexis/Nexis's metadata, C.F. limited the corpus to those tagged with subjects ``China" or ``Japan." This resulted in a set of 5,715 editorials which were then imported to the tool.
 
-C.F.'s first goal was to get a sense of the different wayChina was talked about over the 80's, 90's and 00's. To do this, he assembled three slices by starting with a \emph{search} for ``China'' (Figure \ref{fig:intro03})  and then filtering it by decade (Figure \ref{fig:intro04a}).  Filtering by categorical metadata is also possible. If he chose, he could have further filtered the results to those editorials whose main topic was Japan, as shown in Figure \ref{fig:intro04b}. 
-\begin{figure}[ht!]
-\begin{center}
-	\includegraphics[width=0.5\textwidth]{fig/intro/03b.png}
-\end{center}
-    \caption{%
-        Creating a slice by searching for the word ``China''. This creates a slice containing only sentences that contain the word ``China''. \label{fig:intro03}
-     }%
+After a few weeks of face-to-face meetings in which we discussed his research goals and demonstrated how to use WordSeer to ask questions, C.F. gradually became comfortable using WordSeer on his own. After that, we continued to meet, but focused on discussing his progress, and to on plans for new analysis features based on his needs.
+
+
+\subsection{Confirming Intuitions}
+After becoming comfortable with WordSeer's functionality, C.F's first goal was to get a sense of the tone towards China in the three different decades in his collection: the `80s, `90s, and `00s.  He already had some intuitions of what he would find, but never having used the \emph{New York Times} editorials, or done any previous computational analysis, he wanted to test both the reliability of his corpus, and the ability of WordSeer to replicate well-known facts.
+
+Using a combination of filters for the different year spans and a search for ``China'', C.F. assembled three different slices of sentences mentioning China, one for each decade. Then, he opened up each decade in a different view and compared the most frequent words and phrases (from the automatically-generated overviews).
+
+\begin{figure}[h!]
+\includegraphics[width=0.5\textwidth]{fig/chris/01.png}
+\caption{The word menu for China allows a user to explore all the grammatical relationships in which ``China'' participates.   After selecting \emph{China > Search > noun compound modifier}, the noun-compound relationship ``China card'' stood out to C.F. \label{fig:chris01}}
 \end{figure}
 
-\begin{figure}[ht!]
-\begin{center}
-%
-        \subfigure[C.F. used the numerical/date ranges from the Metadata Filter  to filter the slice ``all sentences containing \emph{China}" to sentences from the 90's. ]{%
-            \label{fig:intro04a}
-	\includegraphics[width=0.5\textwidth]{fig/intro/04b.png}
-        }%
-        \\
-         \subfigure[How to use the categorical metadata overview to filter the slice ``all sentences containing \emph{China}" to only sentences from editorials about Japan.]{%
-            \label{fig:intro04b}
-	\includegraphics[width=0.5\textwidth]{fig/intro/04a.png}
-        }%
-%
-    \end{center}
-    \caption{%
-     Overviews double as filters, which can be used to create or narrow down a slice \label{fig:intro04}.
-     }%
+Fortunately, WordSeer's overviews showed clear differences between the decades. Each part of speech revealed a different trend in China's changing relationship with the US. 
+For instance, the increasing  frequencies of certain growth-related verbs contributed to a sense of China's rise.
+\begin{itemize}
+\item ``grow, growing'':  294, 232, 421
+\item ``rise, rising'': 101, 134, 249
+\item ``develop, developing'': 274, 404, 476
+\end{itemize}
+Using the Word Frequencies visualization in combination with Word Sets, he was able to get a clearer picture. First, he grouped these six verbs into a ``growth'' word set, and then visualized its frequency over time in the China editorials (Figure \ref{fig:chris-growth-over-time}).  The result is a graph showing a steady increase, almost a doubling, of growth-related words in editorials about China.
+
+This first investigation allowed C.F. to rest easy. Secure in having re-discovered the rise of China, he returned to his original questions.
+
+\subsection{1980's: Insignificant, Except for Cold War Strategy}
+While comparing the most frequent adjectives for the three decades C.F noticed a drop-off in cold war words, and an increase in global and financial words:
+\begin{itemize}
+\item ``Soviet''  went from 1029 in the 1980s to only 80 in the 2000s, and ``communist'' went from 284 to 112.  
+\item On the other hand,  ``global'' had a five-fold increase from from 208 in the 1980s to 1047 in the 2000's. In the same time span,  ``financial'' doubled from 192 to 394.
+\end{itemize}
+
+\begin{figure}[h!]
+\includegraphics[width=0.5\textwidth]{fig/chris/04b.png}
+\caption{The Word Frequencies of `communist' (blue, bottom) and `soviet' (orange, top) in the editorials about China over time. In the early `90's almost 1 in 10 sentences about China mentions one of these two terms. However, in the early `90s, there is a sharp decline, and the terms gradually decrease in frequency over the remaining 20 years. }
+\end{figure}
+
+The Word Frequency visualization of these terms in the China editorials (Figure \ref{}) adds depth to these observations.  It shows the dominance and equally dramatic drop-off in cold war mentions over this time period. In the early `80s, almost 11\% -- more than 1 in 10 sentences in those editorials -- mentions one of these the cold war terms. By the `90s, however, this association is down to a trickle. 
+
+An exploration of the ``grammatical neighborhood'' around `China'  helped C.F. find yet more evidence for this idea. This time, through the decline of a rhetorical device. As Figure \ref{fig:chris01} shows, clicking on the word ``China'' opens up a menu with search options. These options act as quick previews of different grammatically-related slices: they show the frequencies with which ``China'' occurs in different grammatical constructions with different words.  For C.F., the noun compound relationship yielded a surprise. He noticed an odd construction, ``China card,'' which appeared 21 times.
+
+\begin{figure}[h!]
+\includegraphics[width=0.5\textwidth]{fig/chris/01.png}
+\caption{The word menu for China allows a user to explore all the grammatical relationships in which ``China'' participates.   After selecting \emph{China > Search > noun compound modifier}, the noun-compound relationship ``China card'' stood out to C.F. \label{fig:chris01}}
 \end{figure}
 
 
 
-C.F. verified his first claim using sliding interactions provided by the word menu and view switcher . His investigation began with an exploration of the ``grammatical neighborhood'' around `China'. As Figure \ref{fig:chris01} shows, clicking on the word ``China'' opens up a menu with search options. These options act as quick previews of different grammatically-related slices: they show the frequencies with which ``China'' occurs in different grammatical constructions with different words.  For C.F., the noun compound relationship yielded a surprise: an odd construction, ``China card,'' which appeared 21 times.
+\subsection{1990's: Strengthening Ties with the U.S.}
+When he compared the frequencies of common nouns across the three slices, he noticed a stark drop-off in occurrence of the word ``rights'', which went from 1451 occurrences in the 90's to merely 399 in the 00's. Further investigation using ``Word Frequencies'' search with terms ``human rights'' and ``rights abuses'' revealed the magnitude of the drop off:
+
 
 
 \begin{figure}[h!]
