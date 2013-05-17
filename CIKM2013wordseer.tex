@@ -26,13 +26,6 @@
        \affaddr{Address}\\
        \affaddr{Address}\\
        \email{email@address.edu}
-% 4th. author
-\and
-\alignauthor Firstname LastName\\
-       \affaddr{Address}\\
-       \affaddr{Address}\\
-       \affaddr{Address}\\
-       \email{email@address.edu}
 }
 
 \maketitle
@@ -183,6 +176,13 @@ Views  are window-like panels, and the user can open up any number of panels in 
 		\end{itemize}
 \end{itemize}
 
+The simplest sliding interaction in WordSeer is creating a different view of the same slice.  There is a drop-down menu at the top left corner of each view which provides this function (Figure \ref{fig:chris03}).  Selecting a different view from the menu opens up that new view (on the same slice) alongside the current one. Users can have as many views open as they want, but most displays get crowded after two are three are open; the tool allows the panels to be collapsed and a history panel allows revisiting of earlier views.  
+\begin{figure}[h!]
+\includegraphics[width=0.2\textwidth]{fig/chris/03.png}
+\caption{ The view-switcher drop-down menu, found at the top left corner of every view. Selecting an option opens a new view  of the same slice alongside the current view. \label{fig:chris03}}
+\end{figure}
+
+
 \subsection{Grammatical Relations}
 
 
@@ -193,11 +193,49 @@ Views  are window-like panels, and the user can open up any number of panels in 
   \item Each grammatical relationship in the sentence. (These are identified using a dependency parser  explained in \cite{jurafsky_chapter_2009}. In particular, we use the Stanford dependency parser\cite{klein_accurate_2003}).
 \end{itemize}
 
-By traversing these indexes both ways, we can quickly compute the associations for a slice. \strong{I don't know what you mean by "these indexes both ways" here.}  From a slice, we can query for all the words, phrases, or grammatical relations in the sentences in that slice, and from there, to all the other sentences that contain each particular item.  Additionally, each view presents the most common nouns, verbs, and adjectives, as well as the most common phrases, along with their counts, automatically as shown in Figures \ref{fig:intro01} and \ref{fig:intro02}.    
-
-Individual words, wherever they appear within a view, can also be queried in terms of the grammatical relations in which they appear, via the Word Menu, which shows query previews of the number of grammatical relations of each type that the word appears in within the given slice.
+By traversing these indexes, we can quickly compute the associations for a slice. From a slice, we can query for all the words, phrases, or grammatical relations in the sentences in that slice, and from there, to all the other sentences that contain each particular item.  
 
 
+Each view automatically presents the most common nouns, verbs, and adjectives (Figure \ref{fig:intro06}), as well as the most common phrases (Figure \ref{fig:intro07}), along with their counts, in a panel at the bottom.    
+\begin{figure}[ht!]
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{fig/intro/06a.png}
+	\includegraphics[width=0.5\textwidth]{fig/intro/06.png}
+\end{center}
+    \caption{%
+        Each view automatically shows the most frequent nouns, verbs, and adjectives in the slice, along with their counts, in a bottom panel. This is a zoomed-in view of the bottom panel of Figure 1 \ref{fig:intro01}, which shows the most frequent words in the \emph{New York Times} editorals for case study 1 below.  \label{fig:intro06}
+     }%
+\end{figure}
+
+\begin{figure}[ht!]
+\begin{center}
+	\includegraphics[width=0.2\textwidth]{fig/intro/07.png}
+\end{center}
+    \caption{%
+        A zoomed-in view of the bottom panel of Figure 1 \ref{fig:intro01} showing the most frequent phrases in the \emph{New York Times} editorals for case study 1 below.  \label{fig:intro07}
+     }%
+\end{figure}
+
+Individual words are jumping-off points. They can be acted upon wherever they appear via the Word Menu (Figure \ref{fig:intro08}). The word menu is how WordSeer enables \emph{lateral movement}.  Any time a user sees a word, they can follow up on it by examining the grammatical relations in which it occurs, seeing related words,  and creating visualizations of the slice of sentences that contains the word, as well as the slices containing various relationships to other words.
+
+\begin{figure}[ht!]
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{fig/intro/08.png}
+\end{center}
+    \caption{%
+      The Word Menu for `japan'.  The search options show how often `Japan' appears in different grammatical relations. Expanding upon the `conjunction' relation, for example, shows that `Japan' appears in the  `conjunction' relation  2211 times, and is most often paired with Europe, Germany, the US, Korea, Russia, and Britain. Clicking on any of the menu options opens up the slice of matching sentences in a new view \label{fig:intro08}}%
+\end{figure}
+
+The related words option in the Word Menu shows the nouns, verbs, and adjectives that co-occur most frequently with the clicked-on word. For example, figure \ref{fig:intro09} shows the words that co-occur most frequently with `Japan'. Each of these related words words can be clicked, opening up a new Word Menu. These menus are identical to the normal Word Menu except that they have the additional option to `See co-occurences', as shown in the new Word Menu for `exports'. Clicking on the option opens up a new view showing a list of sentences in which the two words (`Japan' and `exports') appear together.
+
+\begin{figure}[ht!]
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{fig/intro/09.png}
+\end{center}
+    \caption{%
+ 		The nouns, verbs, and adjectives that co-occur most frequently with `Japan'. Clicking on any of these words opens up a Word Menu, this time with the option to see co-occurrences.  Clicking on the option  above opens up a view of the sentences in which `Japan' and `exports'  co-occur.
+	}%
+\end{figure}
 
 \subsection{Case Study: U.S. Perceptions of China vs. Japan}
 
@@ -212,8 +250,7 @@ Literary scholars typically allow their claims to rest on observations made by f
 
 To generate this evidence, C.F. collected \emph{New York Times} editorials from  the Lexis/Nexis database, from 1980 to 2012. Using Lexis/Nexis's metadata, C.F. limited the corpus to those tagged with subjects ``China" or ``Japan." This resulted in a set of 5,715 editorials which were then imported to the tool.
 
-First, C.F. was interested in characterizing the way China was talked about over the three decades from 1980 to 2009. To do this, he assembled three slices by starting with a \emph{search} for ``China'' (Figure \ref{fig:intro03})  and then filtering it by decade (Figure \ref{fig:intro04a}).  He further filtered these results to those editorials whose main topic was Japan, as shown in Figure \ref{fig:intro04b}. \strong{How does this relate to the China card thing below?  And what about democracy?}
-
+C.F.'s first goal was to get a sense of the different wayChina was talked about over the 80's, 90's and 00's. To do this, he assembled three slices by starting with a \emph{search} for ``China'' (Figure \ref{fig:intro03})  and then filtering it by decade (Figure \ref{fig:intro04a}).  Filtering by categorical metadata is also possible. If he chose, he could have further filtered the results to those editorials whose main topic was Japan, as shown in Figure \ref{fig:intro04b}. 
 \begin{figure}[ht!]
 \begin{center}
 	\includegraphics[width=0.5\textwidth]{fig/intro/03b.png}
@@ -243,19 +280,19 @@ First, C.F. was interested in characterizing the way China was talked about over
 \end{figure}
 
 
+
 C.F. verified his first claim using sliding interactions provided by the word menu and view switcher . His investigation began with an exploration of the ``grammatical neighborhood'' around `China'. As Figure \ref{fig:chris01} shows, clicking on the word ``China'' opens up a menu with search options. These options act as quick previews of different grammatically-related slices: they show the frequencies with which ``China'' occurs in different grammatical constructions with different words.  For C.F., the noun compound relationship yielded a surprise: an odd construction, ``China card,'' which appeared 21 times.
 
 
-\begin{figure*}[h!]
-\includegraphics[width=\textwidth]{fig/chris/01.png}
+\begin{figure}[h!]
+\includegraphics[width=0.5\textwidth]{fig/chris/01.png}
 \caption{The word menu for China allows a user to explore all the grammatical relationships in which ``China'' participates.   After selecting \emph{China > Search > noun compound modifier}, the noun-compound relationship ``China card'' stood out to C.F. \label{fig:chris01}}
-\end{figure*}
+\end{figure}
 
 \begin{figure}[h!]
 \includegraphics[width=0.3\textwidth]{fig/chris/01b.png}
 \caption{ The menu option revealing that ``China card'' occurred 21 times over Fan's editorials. Clicking on it opens up the list of sentences containing ``China card''  \label{fig:chris01b}}
 \end{figure}
-
 
 The tool allowed him to explore this this distinctive usage immediately. By selecting that very menu item, he was able to get a list of matching sentences. When C.F. read those sentences, an interpretation suggested itself:
 \begin{quote}[Reading] the sentence search results reveals that phrase is used to refer to the China's strategic value in Cold War geopolitics. Of the four post-2000 instances, only one uses the phrase to describe a contemporary political situation; the others use it to describe Cold War politics. Reducing the vastness of China to a disposable ``card,'' indicates a degree of US self-confidence, not to mention condescension, that disappears after 1989.\end{quote}
@@ -267,25 +304,6 @@ By sliding to a different view of the same data, he was able to verify the tempo
 \end{figure}
 
 This graph showed C.F. that the cold war phrase, ``China card'' was used until 1989, but rarely  after that (he had already accounted for the later uses by looking at the sentences individually). This confirmed his claim that, up until the early 90's, c=China had a Cold-war strategic significance to the U.S. that later dissipated.
-
-The easiest slide in our tool allows creating a different view of the same slice.  There is a drop-down menu at the top left corner of each view which provides this function (Figure \ref{fig:chris03}).  Selecting a different view from the menu opens up that new view (on the same slice) alongside the current one. Users can have as many views open as they want, but most displays get crowded after two are three are open; the tool allows the panels to be collapsed and a history panel allows revisiting of earlier views.  
-\begin{figure}[h!]
-\includegraphics[width=0.2\textwidth]{fig/chris/03.png}
-\caption{ The view-switcher drop-down menu, found at the top left corner of every view. Selecting an option opens a new view  of the same slice alongside the current view. \label{fig:chris03}}
-\end{figure}
-
-\subsubsection{Restricting to Matches from a Search}
-
-
-\subsubsection{Overview/Filters by Common Words and Phrases }
-
-
-\subsubsection{Related Words}
-
-\subsubsection{Grammatical Relationships}
-
-\subsubsection {Creating Arbitrary Sets}
-
 
 \subsection{Case Study: Literacy Autobiographies}
 
@@ -316,12 +334,7 @@ Edu 140 (n=40) & [anonymized] & Upper division \\
 
  \subsubsection{A new take on students' experiences}
 
-\begin{figure*}
-\includegraphics[width=\textwidth]{fig/rex/01.png}
-\caption{The initial display when opening the tool \label{fig:rex01} on R.G.'s literacy autobiographies.}
-\end{figure*}
-
-R.G. doesn't usually consider the frequencies of words unless a student repeats one to the point of distraction. However, the tool's very first overview (Figure \ref{fig:rex01}) prompted him to consider the significance of individual words and their repeated use.  As he states:
+R.G. doesn't usually consider the frequencies of words unless a student repeats one to the point of distraction. However, the tool's very first overview (like the one C.F saw in Figure \ref{fig:intro01}, except on R.G's data) prompted him to consider the significance of individual words and their repeated use.  As he states:
 \begin{quote}
 From the moment I opened [the tool], `distance' immediately provided new insight and areas of exploration as I was intrigued by unexpected high word frequencies.  The most obvious example is the frequent use of the word ``time" which is not only the most frequent noun but also the most frequent word overall.  As opposed to ``literacy'', ``language'', and any noun or verb forms of ``read'' and ``write'', the Word Tree for ``time'' appears before any term is placed in the keyword search.   I found similar surprises in the adjective and verb frequencies, and these surprises would guide my decision-making and analysis.
 \end{quote}
@@ -333,11 +346,11 @@ From the moment I opened [the tool], `distance' immediately provided new insight
 
 Faced with unexpected discoveries in every part of speech, R.G. decided to explore the adjectives (Figure \ref{fig:rex02}). The top three adjectives were not surprising - "other" (474), "first" (379), and "new" (384).  However,  ``able'' (314) and ``own'' (282) were words that he did not expect to be used frequently.
 
-R.G. now wanted to understand the unexpectedly high frequencies of "able'' and ``own''. WordSeer made this exploration easier. Instead of having to open a new window and type new search queries, clicking on the words themselves opened up Word Menus (Figure \ref{fig:rex03}) which allowed him to create Word Trees centered on those words (Figure \ref{fig:rex04}).   
+R.G. now wanted to understand the unexpectedly high frequencies of ``able'' and ``own''. WordSeer made this exploration easier. Instead of having to open a new window and type new search queries, clicking on the words themselves opened up Word Menus (Figure \ref{fig:rex03}) which allowed him to create Word Trees centered on those words (Figure \ref{fig:rex04}).   
 \begin{figure}[h!]
 \includegraphics[width=0.2\textwidth]{fig/rex/03.png}
 \includegraphics[width=0.2\textwidth]{fig/rex/03b.png}
-\caption{Clicking on the "able" and "own" in the frequent adjectives list brings up a menu with the option to create Word Trees centered on those words in new panels. The results are shown in Figure \ref{fig:rex04} \label{fig:rex03}.}
+\caption{Clicking on the ``able" and ``own" in the frequent adjectives list brings up a menu with the option to create Word Trees centered on those words in new panels. The results are shown in Figure \ref{fig:rex04} \label{fig:rex03}.}
 \end{figure}
 
 \begin{figure*}[h!]
@@ -345,7 +358,7 @@ R.G. now wanted to understand the unexpectedly high frequencies of "able'' and `
 \caption{ On R.G.'s literacy essays data set, two side-by-side Word Trees created from the word menu (with the bottom and side overview panels collapsed). On the left, the tree is centered on `able' and filtered to `able to', and on the right, the tree is centered on  `own' and filtered to `my own' in new panels \label{fig:rex04}.}
 \end{figure*}
 
-The Word Tree for "able" (Figure \ref{fig:rex04} left) revealed that the most common use of the adjective able was: \code{[form of the verb `to be'] + able + to [action verb]} with the most common ``abilities'' being literacy-related: read, understand, communicate, learn, speak, etc.  For ``own'' (Figure \ref{fig:rex04} right), the most common construction was: \code{[preposition] + my + own}.  He also used the Word Tree to zoom in and read the individual sentences.
+The Word Tree for ``able" (Figure \ref{fig:rex04} left) revealed that the most common use of the adjective able was: \code{[form of the verb `to be'] + able + to [action verb]}. To get a sense of how common this usage was overall, R.G. hovered over each branch (which displayed the number of sentences under that branch), and adding up the numbers for branches matching ``to be''. He found that the overwhelming majority, 280 out of 314 occurrences, fell into this pattern, with the most common ``abilities'' being literacy-related: read, understand, communicate, learn, speak, etc. For  ``own'' (Figure \ref{fig:rex04} right), the most common construction was: \code{[preposition] + my + own}, with around a third: 100 out of 291 occurrences.  He also used the Word Tree to zoom in and read the individual sentences.
 
 As a result, R.G. came away with a new insight about his students:
 \begin{quote}
