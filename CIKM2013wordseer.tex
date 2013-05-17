@@ -54,6 +54,7 @@ There are numerous information analysis and discovery tools that allow users to 
 Current text analysis systems put computational linguistics and data visualization into the hands of users. Tools such as Jigsaw, IBM TextMiner, and SAS Text Analytics take techniques like text classification, named-entity recognition, sentiment analysis and summarization and build systems to automate their use. To make the results of these computational analyses interpretable, they display the outputs with interactive data visualization. These systems have made advanced text mining and visualization algorithms available to users without expertise in those areas.
 
 However, language is a unique form of expression, and text as data is distinct from numerical and categorical data.  Text has both linear and hierarchical structure, its meaning is ambiguous given its representation, it has tens of thousands or hundreds of thousands of features, and frequencies of words are distributed via a power law.  
+
  Even a small fragment of text does not stand alone, but is densely interconnected with other text through the \emph{linguistic phenomena} that it contains. These are units of meaning that take surface form in text, such as words, phrases, relations between words (including synonymy and hyponymy) and literary devices, such as metaphor, sarcasm and allusion. To illustrate, consider this 13-word ``slice'' of text from Shakespeare's ``Romeo and Juliet", where a slice is simply a set of sentences (not necessarily consecutive, like in this example):
 
 \begin{verbatim}
@@ -80,6 +81,11 @@ This network of associated slices is apparent to us as readers. And to an analys
 
 In this paper, we describe a text analysis tool called WordSeer that supports such transitions.\footnote{This is version 3.0 of WordSeer, which has notably more flexible interactions than older versions.}  It allows highly flexible slicing and dicing, as well as frictionless transitions (hence ``sliding") between visual analyses, drill-downs, lateral explorations and overviews of slices in a text collection. Our tool uses computational linguistics, information retrieval and data visualization, and enables scholars with no technical background to conduct analyses yielding concrete, useful and otherwise inaccessible knowledge. 
 
+This paper is structured as follows: in the next section, we describe our motivating field of humanities and social sciences and the theory of sensemaking that motivates the need for ``sliding'' interactions between slices. After that, we explain the main ideas behind text sliding and show it in action with extended examples from case studies. Then, we describe related systems, and finally conclude with a discussion our results and future work.
+
+
+\section{Motivation}
+
 \subsection{Humanities and Social Sciences}
 The design of the tool is motivated by the desire to support the humanities and social sciences (HASS). In these fields, it is common for scholars to have hundreds, even thousands of text-based source documents of interest from which they extract evidence for complex arguments about society and culture. These collections (such as the set of all New York Times editorials about China, the complete works of Shakespeare, or the set of all 18th Century American novels)  are difficult to make sense of and navigate. Unlike numerical data, they cannot be condensed, overviewed, and summarized in an automated fashion without losing significant information. And the metadata that accompanies the documents -- often from library records -- does not capture the varied content of the of the text within.
 
@@ -91,9 +97,9 @@ We introduce the text sliding capabilities of WordSeer using two case studies. T
 	\item How U.S. perceptions of China and Japan responded to China's rise over the last 30 years.
 \end{enumerate}
 
-This paper is structured as follows: in the next section, we describe results from the field of sensemaking that motivate the need for ``sliding'' interactions between slices. After that, we explain the main ideas behind text sliding and show it in action with extended examples from case studies. Then, we describe related systems, and finally conclude with a discussion our results and future work.
 
-\section{Motivation}
+\subsection{Supporting Sensemaking}
+
 Observational studies from the literature on sensemaking describe many problems analysts encounter while trying to make sense of text collections. These studies typically study professionals such as government intelligence analysts \cite{x}, business analysts \cite{x} market researchers \cite{x} and academics \cite{x} at work, attempt to categorize the actions they perform and identify common sequences of actions. Several models of the sensemaking process have emerged \cite{x} These models attempt to explain what one would observe when watching analysts distill "understanding" from raw data, where understanding usually manifests itself as a summary, report, or presentation.
 
 Pirolli and Card \cite{pirolli_sensemaking_2005} identified ``pain points" in three areas having to do with navigation and transitions between slices while studying intelligence analysts working with large collections of text-based reports:
@@ -112,28 +118,13 @@ Pirolli and Card \cite{pirolli_sensemaking_2005} identified ``pain points" in th
 	\end{itemize}
 \end{enumerate}
 
-\subsection{Case Study: U.S. Perceptions of China and Japan}
 
-We will use the first case study:  US-China relations, to illustrate the text-sliding capabilities of our tool.
 
-[FirstName] Fan is a [scholar] at [university's] English department. Fan's research explores how US literature has responded to the rise of China since it began liberalizing its economy in the late 1970s.  His arguments depend upon a set of historical observations about the rise of China  broadly accepted by historians and cultural historians: 
-\begin{enumerate}
-\item From the 1970s to the Tiananmen crackdown in 1989, US observers paid more attention to Japan than China. During this period, China didn't have much more than a strategic, Cold War relevance. 
-\item With the onset of the 1990s, attention shifts from Japan to China. Japan entered its first ``Lost Decade'' of economic stagnation, and China, meanwhile, began deepening its economic relations with the US.
-\item After China's accession to the World Trade Organization in 2001, US-China bilateral relationship becomes increasingly important to global economics and politics.
-\item After 2001, there is an increasing sense that the US's time as the post-socialist era's last remaining superpower are numbered, and that China will replace it.
-\end{enumerate}
-Literary scholars typically allow their claims to rest on observations made by field experts like historians and sociologists, or on their own inductive reasoning. Fan, however, sought to supply these observations with as much empirical evidence as possible, as well as to verify them.
-
-To generate this evidence, Fan collected New York Times editorials from  the Lexis/Nexis database, from 1980 to 2012. Using Lexis/Nexis's metadata, Fan limited the corpus of New York Times editorials to those with subjects ``China" or ``Japan." This resulted in a set of of 5,715 articles which were then imported to our tool.
 
 
 \section{Text Sliding}
 
-<<<<<<< HEAD
-The paired concepts of \emph{slices} and \emph{views} are central to text sliding. A slice is a set of sentences, and a view is a visual representation of the data in a slice: the view can be range from a simple vertical list of the sentences in the slice, to more complex linguistic processing combined with visual analytics.  A slice is like a scientific specimen, or a sample of some chemical compound, and a view is a  lens or a test that reveals different information about the sample.
-=======
->>>>>>> 7184ce43cc80defad271dc7614cc79c802d20b6a
+
 
 \begin{figure}[ht!]
 \begin{center}
@@ -148,49 +139,78 @@ The paired concepts of \emph{slices} and \emph{views} are central to text slidin
 %
     \end{center}
     \caption{%
-        What Fan sees when he opens up his editorials in our tool.
+        What C.F. sees when he opens up his editorials in WordSeer.
      }%
 \end{figure}
 
-When users open up the tool for the first time, they see something like Figure \ref{fig:intro01}. This may seem like a lot of information, but Figure \ref{fig:intro02} breaks it down into simple components. It's a single \strong{view} with a a \strong{Word Tree} visualization of the most frequent word in the \strong{slice} ``the entire collection''. 
+When a user opens up WordSeer for the first time, rather than showing a blank screen a requiring the user to think up a query, the tool  provides summary statistics immediately, as shown in Figure \ref{fig:intro01} on a collection of \emph{New York Times} editorials.  Figure \ref{fig:intro02} breaks this down into its core components. This is a single \emph{view} with a \emph{Word Tree} visualization of the most frequent content word in the \emph{slice} ``the entire collection''. 
 
-Word Trees \cite{wattenberg_word_2008} are interactive visualizations that allow a user to explore the contexts in which a word is used. They group together common left- and right-contexts into a tree that gets finer and finer as the context get longer, terminating in individual sentences.  Because Fan hasn't specified a search query, the Word Tree view centers on the most frequent content word in the collection (content words exclude very common meaningless words, such as ``the'', ``a'', ``and'', etc.). In Fan's case, this happens to be ``China''.
+Word Trees \cite{wattenberg_word_2008} are interactive visualizations that allow a user to explore the contexts in which a word is used. They group together common left- and right-contexts into a tree that gets finer and finer as the context get longer, terminating in individual sentences.  Because no query has yet been specified, the Word Tree view centers on the most frequent content word in the collection (content words exclude very common (stop) words, such as ``the'', ``a'', ``and'', etc.). In this case, the most frequent content word is``China'' (see first case study below).
 
-The twin concepts of \strong{slices} and \strong{views} are central to text sliding. A slice is a set of sentences, and a view is a visual representation of the data in a slice: anything from a list of the sentences in the slice, to more complex linguistic processing combined with visual analytics.  A slice is like a scientific specimen, a sample of some chemical compound. and views are the different lenses, apparatuses, and tests that reveal different information about the sample.
+The paired concepts of \emph{slices} and \emph{views} are central to text sliding. A slice is a set of sentences, and a view is a visual representation of the data in a slice: the view can range from a simple vertical list of the sentences in the slice, to more complex linguistic processing combined with visual analytics.  A slice is like a scientific specimen or a sample of some chemical compound,  and a view is a lens or a test that reveals different information about the sample.
+(Currently we define a slice as \emph{a set of sentences}, although in future it might use different units of text, such as paragraphs, documents, or phrases.) We allow arbitrarily-assembled slices, but it is easiest to think of slices as combinations of searches and filters.  
 
-Text sliding is a way to get from a view of a slice, to a different view. Through the richness of language, slices are \emph{linguistically associated} with other slices (that also contain a particular word or phrase for example). If there is metadata accompanying the text, such as Act, Scene, and Speaker in Shakespeare's plays, there are also \emph{metadata associations}. Finally,  through the wide variety of visual analytics tool available, there can be many different ways of viewing and analyzing the data in a single slice. Text sliding makes all these associations accessible. 
- In fact, we define text sliding as:
+
+Text sliding is a way to move from a view of a slice to a different view. Through the richness of language, slices are \emph{linguistically associated} with other slices (that also contain a particular word or phrase, for example). If there is metadata accompanying the text, such as year, and author, as in these editorials, the user can take advantage of these  \emph{metadata associations}.  Through the wide variety of visual analytics tool available, there are many different ways of viewing and analyzing the data in a single slice. Text sliding makes all these associations accessible in a "low friction" way.
+
+In detail, we define text sliding as:
 \begin{itemize}
-	\item Getting a different view of the same slice (lateral movement)
-	\item Opening a new view of an associated slice (drilling down, following a new thread, or `more like this')
+	\item Getting a different view of the same slice, or
+	\item Opening a new view of an associated slice, which can consist of
+	\begin{itemize}
+	  \item drilling down (narrowing, selecting), or
+	  \item following a new thread (moving laterally) or
+	  \item finding related words or sentences  (also moving laterally)
+	 \end{itemize}
 \end{itemize}
 
 \subsection{Views}
-Views  are window-like panels, and they contain the following components, as deconstructed in Figure \ref{fig:intro02}:
+Views  are window-like panels, and the user can open up any number of panels in the interface to facilitate comparison across views.  Views contain the following components, as illustrated in Figure \ref{fig:intro02}:
 \begin{itemize}
-	\item A drop down menu to switch to a different view of the same slice (see Figure \ref{fig:chris03})
-	\item Breadcrumbs describing the searches and filters that define the current slice
+	\item A drop-down menu for switching to a different view of the same slice (see Figure \ref{fig:chris03}),
+	\item Breadcrumbs describing the searches and filters that define the current slice,
 	\item A visualization of the data in the slice. Currently, the choices are:
 		\begin{itemize}
-			\item A list of sentences
-			\item A list of documents that match the sentences in the slice
-			\item An interactive word tree \cite{wattenberg_word_2008} of the most common word in the slice, or the search term, if specified
-			\item Charts of how many sentences in the slice are distributed across various metadata categories
-			\item If the slice is a full document, a simple reading interface
-			\item If the slice is the result of a grammatical relation query, bar charts showing how often different words in the slice that appear in the relations
+			\item A list of sentences,
+			\item A list of documents that match the sentences in the slice,
+			\item An interactive Word Tree \cite{wattenberg_word_2008} of the most common word in the slice, or the search term, if specified,
+			\item Charts showing distributions of the slice's sentence counts across various metadata categories,
+			\item A document reader,
+			\item Bar charts showing how often different words in the slice  appear in grammatical relations.
 		\end{itemize}
 	\item Summary statistics of:
 		\begin{itemize}
-			\item How many sentences within the slice match different metadata categories
-			\item The most frequent nouns, verbs, adjectives and multi-word phrases
+			\item How many sentences within the slice match different metadata categories,
+			\item The most frequent nouns, verbs, adjectives and multi-word phrases in the slice.
 		\end{itemize}
 \end{itemize}
 
+\subsection{Grammatical Relations}
 
-\subsection{Slices}
-In our tool, we define a slice as \emph{a set of sentences}, although future tools might use different units of text, such as paragraphs, documents, or phrases. We allow arbitrarily-assembled slices, but it is easiest to think of slices as combinations of searches and filters.  
 
-For his project, Fan was interested characterizing the way China was talked about in the three decades from 1980 to 2009. To do this, he assembled three slices by starting with a \emph{search} for ``China'' (Figure \ref{fig:intro03}) and and then filtering it by decade (Figure \ref{fig:intro04a}). 
+ In our database, each sentence is indexed according to the following linguistic phenomena:
+\begin{itemize}
+  \item Each word in the sentence, and its part of speech (noun, verb, adjective, etc.)
+  \item Each consecutive two-, three-, and four-word sequence in the sentence
+  \item Each grammatical relationship in the sentence. (These are identified using a computational linguistics technology called dependency parsing,  explained in \cite{jurafsky_chapter_2009}. In particular, we use the Stanford dependency parser\cite{klein_accurate_2003}.
+\end{itemize}
+By traversing these indexes both ways, we can quickly compute the associations for a slice. From a slice, we can query for all the words, phrases, or grammatical relations in the sentences in that slice, and from there, to all the other sentences that contain each particular item.  Additionally, each view presents the most common nouns, verbs, and adjectives, as well as the most common phrases the the user automatically as shown in Figures \ref{fig:intro01} and \ref{fig:intro02}, 
+
+
+\subsection{Case Study: U.S. Perceptions of China vs. Japan}
+
+C.F. is a PhD student at [university's] English department. C.F.'s research explores how US literature has responded to the rise of China since it began liberalizing its economy in the late 1970s.  His arguments depend upon a set of historical observations about the rise of China  broadly accepted by historians and cultural historians: 
+\begin{enumerate}
+\item From the 1970s prior to the Tiananmen Square crackdown in 1989, US observers paid more attention to Japan than China. During this period, China did not have  more than a strategic, Cold War relevance. 
+\item With the onset of the 1990s, attention shifts from Japan to China. Japan entered its first ``Lost Decade'' of economic stagnation, and China, meanwhile, began deepening its economic relations with the US.
+\item After China's accession to the World Trade Organization in 2001, US-China bilateral relationship becomes increasingly important to global economics and politics.
+\item After 2001, there is an increasing sense that the US's time as the post-socialist era's last remaining superpower are numbered, and that China will replace it.
+\end{enumerate}
+Literary scholars typically allow their claims to rest on observations made by field experts like historians and sociologists, or on their own inductive reasoning. C.F., however, sought to supply these observations with as much empirical evidence as possible, as well as to verify them.
+
+To generate this evidence, C.F. collected \emph{New York Times} editorials from  the Lexis/Nexis database, from 1980 to 2012. Using Lexis/Nexis's metadata, C.F. limited the corpus to those tagged with subjects ``China" or ``Japan." This resulted in a set of 5,715 editorials which were then imported to the tool.
+
+First, C.F. was interested in characterizing the way China was talked about over the three decades from 1980 to 2009. To do this, he assembled three slices by starting with a \emph{search} for ``China'' (Figure \ref{fig:intro03})  and then filtering it by decade (Figure \ref{fig:intro04a}).  He further filtered these results to those editorials whose main topic was Japan, as shown in Figure \ref{fig:intro04b}. \strong{How does this relate to the China card thing below?  And what about democracy?}
 
 \begin{figure}[ht!]
 \begin{center}
@@ -204,43 +224,29 @@ For his project, Fan was interested characterizing the way China was talked abou
 \begin{figure}[ht!]
 \begin{center}
 %
-        \subfigure[Fan used the numerical/date ranges to filter the slice ``all sentences containing \emph{China}" to sentences from the 90's. ]{%
+        \subfigure[C.F. used the numerical/date ranges from the Metadata Filter  to filter the slice ``all sentences containing \emph{China}" to sentences from the 90's. ]{%
             \label{fig:intro04a}
 	\includegraphics[width=0.5\textwidth]{fig/intro/04b.png}
         }%
         \\
-         \subfigure[How to use the categorical metadata overview to filter the slice ``all sentences containing \emph{China}" to only sentences from editorials about Japan]{%
+         \subfigure[How to use the categorical metadata overview to filter the slice ``all sentences containing \emph{China}" to only sentences from editorials about Japan.]{%
             \label{fig:intro04b}
 	\includegraphics[width=0.5\textwidth]{fig/intro/04a.png}
         }%
 %
     \end{center}
     \caption{%
-     Overviews double as filters, which can be used to create or narrow down a slice \label{fig:intro04}
+     Overviews double as filters, which can be used to create or narrow down a slice \label{fig:intro04}.
      }%
 \end{figure}
 
-\subsubsection{Associations}
 
-Slices do not stand alone. In our database, each sentence is indexed according to the following linguistic phenomena:
-\begin{itemize}
-  \item Each word in the sentence, and its part of speech (noun, verb, adjective, etc.)
-  \item Each consecutive two-, three-, and four-word sequence in the sentence
-  \item Each grammatical relationship in the sentence. (These are identified using a computational linguistics technology called dependency parsing, fully explained in \cite{jurafsky_chapter_2009}. In particular, we use the Stanford dependency parser\footnote{Online demo  at \url{http://nlp.stanford.edu:8080/parser/}}\cite{klein_accurate_2003}.
-\end{itemize}
-By traversing these indexes both ways, we can quickly compute the associations for a slice. From a slice, we can query for all the words, phrases, or grammatical relations in the sentences in that slice, and from there, to all the other sentences that contain each particular item.
+C.F. verified his first claim using sliding interactions provided by the word menu and view switcher . His investigation began with an exploration of the ``grammatical neighborhood'' around `China'. As Figure \ref{fig:chris01} shows, clicking on the word ``China'' opens up a menu with search options. These options act as quick previews of different grammatically-related slices: they show the frequencies with which ``China'' occurs in different grammatical constructions with different words.  For C.F., the noun compound relationship yielded a surprise: an odd construction, ``China card,'' which appeared 21 times.
 
-In fact, we present the most common nouns, verbs, and adjectives, as well as the most common phrases the the user automatically. As shown in Figures \ref{fig:intro01} and \ref{fig:intro02}, 
-
-\subsection{Text-Sliding Interactions}
-
-Our goal is to make as many different types of associations and views available without overwhelming the user. 
-
-Fan verified his first claim using sliding interactions provided by the word menu and view switcher . His investigation began with an exploration of the ``grammatical neighborhood'' around `China'.
 
 \begin{figure*}[h!]
 \includegraphics[width=\textwidth]{fig/chris/01.png}
-\caption{The word menu for China allows a user to explore all the grammatical relationships in which ``China'' participates. The noun-compound relationship ``China card'' stood out to Fan. \label{fig:chris01}}
+\caption{The word menu for China allows a user to explore all the grammatical relationships in which ``China'' participates.   After selecting \emph{China > Search > noun compound modifier}, the noun-compound relationship ``China card'' stood out to C.F. \label{fig:chris01}}
 \end{figure*}
 
 \begin{figure}[h!]
@@ -248,23 +254,22 @@ Fan verified his first claim using sliding interactions provided by the word men
 \caption{ The menu option revealing that ``China card'' occurred 21 times over Fan's editorials. Clicking on it opens up the list of sentences containing ``China card''  \label{fig:chris01b}}
 \end{figure}
 
-As Figure \ref{fig:chris01} shows, clicking on the word ``China'' opens up a menu with search options. These options act as quick previews of different grammatically-related slices: they show the frequencies with which ``China'' occurs in different grammatical constructions with different words.  For Fan, the noun compound relationship yielded a surprise: an odd construction, ``China card,'' appeared 21 times.
 
-
-Our tool allowed him to explore this this distinctive usage immediately. By selecting that very menu item (Figure \ref{fig:chris01b}), he was able to get a list of matching sentence. When Fan read those sentences, an interpretation suggested itself:
+The tool allowed him to explore this this distinctive usage immediately. By selecting that very menu item, he was able to get a list of matching sentences. When C.F. read those sentences, an interpretation suggested itself:
 \begin{quote}[Reading] the sentence search results reveals that phrase is used to refer to the China's strategic value in Cold War geopolitics. Of the four post-2000 instances, only one uses the phrase to describe a contemporary political situation; the others use it to describe Cold War politics. Reducing the vastness of China to a disposable ``card,'' indicates a degree of US self-confidence, not to mention condescension, that disappears after 1989.\end{quote}
-By sliding to a different view of the same data, he was able to verify the temporal claim. Using the drop-down menu at the top left of the panel (described earlier in Figure \ref{fig:chris03}) he selected a different view, Word Frequencies. This kept the slice the same (the sentences containing ``China card''), but opened up the word frequencies view alongside the list of search results.  Because the ``year'' metadata was attached to each article, this view displayed a graph of how frequent  sentences containing ``China Card'' were over time (Figure \ref{fig:chris02}). 
+By sliding to a different view of the same data, he was able to verify the temporal claim. Using the drop-down menu at the top left of the panel (Figure \ref{fig:chris03}) he selected a different view, Word Frequencies. This retained the same slice (the sentences containing ``China card''), but opened up the word frequencies view alongside the list of search results.  Because the ``year'' metadata was attached to each article, this view displayed a graph of how frequent  sentences containing ``China Card'' were over time (Figure \ref{fig:chris02}). 
 
 \begin{figure}[h!]
 \includegraphics[width=0.5\textwidth]{fig/chris/02.png}
 \caption{ The number of sentences matching ``China card'' over time. \label{fig:chris02}}
 \end{figure}
-This graph showed him that the cold war phrase, ``China card'' was used up until 1989, but rarely ever after that (he had already accounted for the later ones by looking at the sentences individually). This confirmed his claim that, up until the early 90's, china had a Cold-war strategic significance to the U.S. that later dissipated.
 
-The easiest slide in our tool is \emph{lateral movement}: creating a different view of the same slice.  There is a drop-down menu at the top left corner of each view which provides this function (Figure \ref{fig:chris03}).  Selecting a different view from the menu opens up that new view (on the same slice) alongside the current one. Users can have as many views open as they want, but most displays get crowded after 2 or 3.  
+This graph showed C.F. that the cold war phrase, ``China card'' was used until 1989, but rarely  after that (he had already accounted for the later uses by looking at the sentences individually). This confirmed his claim that, up until the early 90's, c=China had a Cold-war strategic significance to the U.S. that later dissipated.
+
+The easiest slide in our tool allows creating a different view of the same slice.  There is a drop-down menu at the top left corner of each view which provides this function (Figure \ref{fig:chris03}).  Selecting a different view from the menu opens up that new view (on the same slice) alongside the current one. Users can have as many views open as they want, but most displays get crowded after two are three are open; the tool allows the panels to be collapsed and a history panel allows revisiting of earlier views.  
 \begin{figure}[h!]
 \includegraphics[width=0.2\textwidth]{fig/chris/03.png}
-\caption{ This is the view-switcher drop-down menu. It can be found at the top left corner of every view. Selecting an option opens a new view  of the same slice alongside the current view. \label{fig:chris03}}
+\caption{ The view-switcher drop-down menu, found at the top left corner of every view. Selecting an option opens a new view  of the same slice alongside the current view. \label{fig:chris03}}
 \end{figure}
 
 \subsubsection{Restricting to Matches from a Search}
@@ -279,16 +284,15 @@ The easiest slide in our tool is \emph{lateral movement}: creating a different v
 
 \subsubsection {Creating Arbitrary Sets}
 
-\section{Case Studies}
 
-\subsection{Literacy Autobiographies}
+\subsection{Case Study: Literacy Autobiographies}
 
 \subsubsection{Introduction}
-As a college English Composition instructor,  [FirstName] Ganding, at  [university's] school of Education asks students to write often and in a variety of situations. In this project, he examined ways in which he might draw upon our tool to assist in the teaching and learning of writing. He was particularly interested in the literacy autobiography. In this type of writing, students describe significant experiences they have had with literacy and reflect upon the importance of literacy to their lives.  
+As a college English Composition instructor,  R.G., at  [university's] school of Education asks students to write often and in a variety of situations. In this project, he examined ways in which he might draw upon the tool to assist in the teaching and learning of writing. He was particularly interested in the literacy autobiography. In this type of writing, students describe significant experiences they have had with literacy and reflect upon the importance of literacy to their lives.  
 
-He analyzed the content of approximately 140 literacy autobiographies written by students from courses that he has taught over that past two years, each about 1,500 to 2,000 words long. He is familiar with the collection, having previously read and commented on each of the 140 essays included.  Table \ref{table:rex-courses} shows the different courses from which literacy autobiographies were analyzed. The courses were at different colleges and taught at different proficiency levels.
+R.G. analyzed the content of approximately 140 literacy autobiographies written by students from courses that he has taught over that past two years, each about 1,500 to 2,000 words long. He is familiar with the collection, having previously read and commented on each of the 140 essays included.  Table \ref{table:rex-courses} shows the different courses from which literacy autobiographies were analyzed. The courses were at different colleges and taught at different proficiency levels.
 
-Among the questions that guided his inquiry were the following. In this example, we show how our tool helped him get answers:
+Among the questions that guided his inquiry were the following. In this example, we show how the tool helped him get answers:
 \begin{enumerate}
 \item What can a distant reading of student literacy autobiographies tell him about students that close readings cannot?
 \item What patterns exist in student literacy autobiographies at different course levels and institutions?
@@ -312,48 +316,48 @@ Edu 140 (n=40) & UC Berkeley & Upper division \\
 
 \begin{figure*}
 \includegraphics[width=\textwidth]{fig/rex/01.png}
-\caption{The initial display when opening the tool \label{fig:rex01}}
+\caption{The initial display when opening the tool \label{fig:rex01} on R.G.'s literacy essays.}
 \end{figure*}
 
-Ganding don't usually consider the frequencies of words unless a student repeats one to the point of distraction. However, our tool's very first overview (Figure \ref{fig:rex01}) prompted him to consider the significance of individual words and their repeated use:
+R.G. doesn't usually consider the frequencies of words unless a student repeats one to the point of distraction. However, the tool's very first overview (Figure \ref{fig:rex01}) prompted him to consider the significance of individual words and their repeated use.  As he states:
 \begin{quote}
-From the moment I opened [the tool], `distance' immediately provided new insight and areas of exploration as I was intrigued by unexpected high word frequencies.  The most obvious example is the frequent use of the word ``time" which is not only the most frequent noun but also the most frequent word overall.  As opposed to ``literacy'', ``language'', and any noun or verb forms of ``read'' and ``write'', the word tree for ``time'' appears before any term is placed in the key word search.   I found similar surprises in the adjective and verb frequencies, and these surprises would guide my decision-making and analysis.
+From the moment I opened [the tool], `distance' immediately provided new insight and areas of exploration as I was intrigued by unexpected high word frequencies.  The most obvious example is the frequent use of the word ``time" which is not only the most frequent noun but also the most frequent word overall.  As opposed to ``literacy'', ``language'', and any noun or verb forms of ``read'' and ``write'', the Word Tree for ``time'' appears before any term is placed in the keyword search.   I found similar surprises in the adjective and verb frequencies, and these surprises would guide my decision-making and analysis.
 \end{quote}
 
 \begin{figure}
 \includegraphics[width=0.5\textwidth]{fig/rex/02.png}
-\caption{The most frequent adjectives overall in the literacy autobiographies \label{fig:rex02}}
+\caption{The most frequent adjectives overall in R.G.'s literacy essays \label{fig:rex02}.}
 \end{figure}
 
-Faced with unexpected discoveries in every part of speech, Ganding decided to explore the adjectives (Figure \ref{fig:rex02}). The top three adjectives were not surprising - other (474), first (379), and new (384).  However,  ``able'' (314) and ``own'' (282) were words that he did not expect to be used frequently.
+Faced with unexpected discoveries in every part of speech, R.G. decided to explore the adjectives (Figure \ref{fig:rex02}). The top three adjectives were not surprising - other (474), first (379), and new (384).  However,  ``able'' (314) and ``own'' (282) were words that he did not expect to be used frequently.
 
-Ganding now wanted to understand the unexpectedly high frequencies of `able'' and ``own''. Our tool made this exploration easier. Instead of having to open a new window and type new search queries, clicking on the words themselves opened up Word Menus (Figure \ref{fig:rex03}) which allowed him to create word trees centered on those words (Figure \ref{fig:rex04}).   
+R.G. now wanted to understand the unexpectedly high frequencies of "able'' and ``own''. WordSeer made this exploration easier. Instead of having to open a new window and type new search queries, clicking on the words themselves opened up Word Menus (Figure \ref{fig:rex03}) which allowed him to create Word Trees centered on those words (Figure \ref{fig:rex04}).   
 \begin{figure}[h!]
 \includegraphics[width=0.2\textwidth]{fig/rex/03.png}
 \includegraphics[width=0.2\textwidth]{fig/rex/03b.png}
-\caption{Clicking on the `able' and `own' in the frequent adjectives list brings up a menu with the option to create Word Trees centered on those words in new panels. The results are shown in Figure \ref{fig:rex04} \label{fig:rex03}}
+\caption{Clicking on the "able" and "own" in the frequent adjectives list brings up a menu with the option to create Word Trees centered on those words in new panels. The results are shown in Figure \ref{fig:rex04} \label{fig:rex03}.}
 \end{figure}
 
 \begin{figure*}[h!]
 \includegraphics[width=\textwidth]{fig/rex/04.png}
-\caption{ Two side-by-side Word Trees created from the word menu (with the bottom and side overview panels collapsed). On the left, the tree is centered on `able' and filtered to `able to', and on the right, the tree is centered on  `own' and filtered to `my own' in new panels \label{fig:rex04}}
+\caption{ On R.G.'s literacy essays data set, two side-by-side Word Trees created from the word menu (with the bottom and side overview panels collapsed). On the left, the tree is centered on `able' and filtered to `able to', and on the right, the tree is centered on  `own' and filtered to `my own' in new panels \label{fig:rex04}.}
 \end{figure*}
 
-The word tree for able (Figure \ref{fig:rex04} left) revealed that the most common use of the adjective able was: \code{[form of the verb `to be'] + able + to [action verb]} with the most common ``abilities'' being literacy-related: read, understand, communicate, learn, speak, etc.  For ``own'' (Figure \ref{fig:rex04} right), the most common construction was: \code{[preposition] + my + own}.  He also used the word tree to zoom in and read the individual sentences.
+The Word Tree for "able" (Figure \ref{fig:rex04} left) revealed that the most common use of the adjective able was: \code{[form of the verb `to be'] + able + to [action verb]} with the most common ``abilities'' being literacy-related: read, understand, communicate, learn, speak, etc.  For ``own'' (Figure \ref{fig:rex04} right), the most common construction was: \code{[preposition] + my + own}.  He also used the Word Tree to zoom in and read the individual sentences.
 
-As a result, Ganding came away with a new insight about his students:
+As a result, R.G. came away with a new insight about his students:
 \begin{quote}
 Student writers articulate their experiences from some first encounter with the unfamiliar, followed by a process of being ``able" to act within that which is becoming less unfamiliar.  Moving into literacy requires these writers to develop their ``own" abilities as necessary to survive and prosper in that context.
 \end{quote} 
 
 \subsubsection{Writing proficiency at across courses}
-The different courses Ganding taught had different emphases and were taken by students with differing amounts of college education. He was especially interested in differences in sentence construction, hypothesizing that more proficient students would use advanced structures more frequently. To initiate the analyses, he performed word searches on terms such as ``though", ``while", ``although", and ``however", which indicate a complex structure called a ``concessive''. He was expecting them to be increasingly frequent as he moved from English 1A, to English 201, to English 5, to Ed140.
+The different courses R.G. taught had different emphases and were taken by students with differing amounts of college education. He was especially interested in differences in sentence construction, hypothesizing that more proficient students would use advanced structures more frequently. To initiate the analyses, he performed word searches on terms such as ``though", ``while", ``although", and ``however", which indicate a complex structure called a ``concessive''. He was expecting consessives to be increasingly frequent as he moved from English 1A, to English 201, to English 5, to Ed140.
 
-The Word Frequencies visualization allowed Ganding to confirm his hypothesis. It shows how often terms occur across different metadata categories (and can shown the counts stacked or grouped, or normalized or raw). Ganding searched for multiple terms simultaneously, which created a comparative visualization (Figure \ref{fig:rex05}).
+The Word Frequencies visualization allowed R.G. to confirm his hypothesis. It shows how often terms occur across different metadata categories (and can shown the counts stacked or grouped, or normalized or raw). R.G. searched for multiple terms simultaneously, which created a comparative visualization (Figure \ref{fig:rex05}).
 
 \begin{figure}[h!]
 \includegraphics[width=0.5\textwidth]{fig/rex/05.png}
-\caption{The normalized frequencies of different concessive words. Normalizing the counts adjusts for categories of unequal sizes, showing the percent of matching sentences in different categories instead of the counts. The words are `although' (blue), `though' (orange) `while' (green) and `however' (red). \label{fig:rex05}}
+\caption{The normalized frequencies of different "concessive" words. Normalizing the counts adjusts for categories of unequal sizes, showing the percent of matching sentences in different categories instead of the counts. The words are `although' (blue), `though' (orange) `while' (green) and `however' (red). \label{fig:rex05}}
 \end{figure}
 
 The increasing frequencies across the course levels confirmed his hunch that as students become more experienced and comfortable with the written word, they used more complex sentence structures more frequently. 
