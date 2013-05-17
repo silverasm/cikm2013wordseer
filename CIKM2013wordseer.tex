@@ -31,14 +31,9 @@
 \maketitle
 
 \begin{abstract}
-<<<<<<< HEAD
 
-
-This paper describes a tool whose goal is to help scholars and analysts discover patterns and formulate and test hypotheses about the contents of their text collections, midway between what traditional humanities scholars call a  ``close read'' and the digital humanities  ``distant read'' or  "culturomics" approach.  
+This paper describes a tool whose goal is to help scholars and analysts discover patterns and formulate and test hypotheses about the contents of their text collections, midway between what traditional humanities scholars call a  ``close read'' and the digital humanities  ``distant read'' or  ``culturomics" approach.  
 To this end, we describe a text analysis and discovery tool that allows for highly flexible  ``slicing and dicing'' (hence  ``sliding'') across a text collection.  The tool allows users to view text from different angles by selecting subsets of data, viewing those as visualizations, moving laterally to view other subsets of data, slicing into another view, expanding the viewed data by relaxing constraints, and so on.  However, these tools operate over numerical and categorical data, but do not seamlessly operate over raw textual information with the same flexibility. We illustrate the text sliding capabilities of the tool with two real-world case studies from the humanities and social sciences -- the practice of literacy education, and U.S. perceptions of China and Japan over the last 30 years -- showing how the tool has enabled scholars with no technical background to make new, important discoveries in these text collections.
-=======
-There are numerous information analysis and discovery tools that allow users to view multidimensional data from different angles by selecting subsets of data, viewing those as visualizations, moving laterally to view other subsets of data, and so on.  However, these tools operate over numerical and categorical data, but do not seamlessly operate over raw textual information with the same flexibility. In this paper we describe a text analysis and discovery tool that allows for highly flexible  ``slicing and dicing'' (hence  ``sliding'') across a text collection.  The goal of the tool is to help scholars and analysts discover patterns and formulate and test hypotheses about the contents of their text collections, midway between what traditional humanities scholars call a  ``close read'' and the digital humanities  ``distant read'' or ``culturomics" approach.  We illustrate the text sliding capabilities of the tool with two real-world case studies from the humanities and social sciences -- the practice of literacy education, and U.S. perceptions of China and Japan over the last 30 years -- showing how the tool has enabled scholars with no technical background to make new, important discoveries in these text collections.
->>>>>>> 5cc60f03bd871f5127a1c8721b71c90c4f862d50
 
 \end{abstract}
 
@@ -51,11 +46,6 @@ There are numerous information analysis and discovery tools that allow users to 
 \keywords{exploratory data analysis, text mining, information visualization, digital humanities}
 
 \section{Introduction}
-<<<<<<< HEAD
-=======
-Current text analysis systems put computational linguistics and data visualization into the hands of users. Tools such as Jigsaw \cite{gorg_combining_2012}, IBM TextMiner, and SAS Text Analytics take techniques like text classification, named-entity recognition, sentiment analysis and summarization and build systems to automate their use. To make the results of these computational analyses interpretable, they display the outputs with interactive data visualization. These systems have made advanced text mining and visualization algorithms available to users without expertise in those areas.
->>>>>>> 5cc60f03bd871f5127a1c8721b71c90c4f862d50
-
 Given a collection of text data, how can one explore its contents to find new patterns and insight?  This paper describes a new tool for exploratory data analysis \cite{tukey} which attempts to provide frictionless access to text and its metadata.  Although many tools have been developed to analyze numerical and categorical data, language in its written form of text has special properties that makes it more difficult to analyze. Text has both linear and hierarchical structure, its meaning is ambiguous given its representation, it has tens of thousands or hundreds of thousands of features, and frequencies of words are usually distributed via a power law.   Even a small fragment of text does not stand alone, but is densely interconnected with other text through linguistic phenomena.  These are units of meaning that take surface form in text, such as words, phrases, relations between words (including synonymy and hyponymy), not to mention literary devices, such as metaphor, sarcasm and allusion. To illustrate, consider this 13-word ``slice'' of text from Shakespeare's ``Romeo and Juliet", where a slice is simply a set of sentences (not necessarily consecutive, like in this example):
 
 \begin{verbatim}
@@ -78,11 +68,7 @@ The more structure there is to text, the more kinds of associations are possible
 \item The location within the play: Act 1, Scene 4 can be associated with the other scenes in that act, or the all speakers in that scene.
 \end{itemize}
 
-<<<<<<< HEAD
-This network of associated slices is apparent to the reader. And to an analyst trying to make sense of an idea, some associations may be deeply meaningful.  Transitions  and associations are central to the text analysis process, and people seeking knowledge from text are engaging in \emph{sensemaking} \cite{}. They do not follow a straight path from data input to analysis output, but meander between analysis, interpretation, exploration and understanding on different sub-collections of data \cite{}.  It is therefore important for text analysis systems to support not just algorithmic and visual analysis, but the transitions: slicing, filtering and exploration that lead from analysis to analysis, visualization to visualization, and finally to insight.
-=======
-This network of associated slices is apparent to the reader. And to an analyst trying to make sense of an idea, some associations may be deeply meaningful.  Transitions  and associations are central to the text analysis process, and people seeking knowledge from text are engaging in \emph{sensemaking}\cite{russell_cost_1993, russell_being_2006, pirolli_sensemaking_2005}. They do not follow a straight path from data input to analysis output, but meander between analysis, interpretation, exploration and understanding on different sub-collections of data.  It is therefore important for text analysis systems to support not just algorithmic and visual analysis, but the transitions: slicing, filtering and exploration that lead from analysis to analysis, visualization to visualization, and finally to insight.
->>>>>>> 5cc60f03bd871f5127a1c8721b71c90c4f862d50
+This network of associated slices is apparent to the reader. And to an analyst trying to make sense of an idea, some associations may be deeply meaningful.  Transitions  and associations are central to the text analysis process, and people seeking knowledge from text are engaging in \emph{sensemaking}. They do not follow a straight path from data input to analysis output, but meander between analysis, interpretation, exploration and understanding on different sub-collections of data \cite{russell_cost_1993, russell_being_2006, pirolli_sensemaking_2005}.  It is therefore important for text analysis systems to support not just algorithmic and visual analysis, but the transitions: slicing, filtering and exploration that lead from analysis to analysis, visualization to visualization, and finally to insight.
 
 In this paper, we describe a text analysis tool called WordSeer that supports such transitions\footnote{This is version 3.0 of WordSeer, which has notably more flexible interactions than older versions.}.  It allows highly flexible slicing and dicing, as well as frictionless transitions (hence ``sliding") between visual analyses, drill-downs, lateral explorations and overviews of slices in a text collection. Our tool uses computational linguistics, information retrieval and data visualization, and enables scholars with no technical background to conduct analyses yielding concrete, useful and otherwise inaccessible knowledge. 
 
@@ -94,26 +80,19 @@ This paper is structured as follows: in the next section, we describe our motiva
 \subsection{Humanities and Social Sciences}
 The design of the tool is motivated by the desire to support the humanities and social sciences (HASS). In these fields, it is common for scholars to have hundreds, even thousands of text-based source documents of interest from which they extract evidence for complex arguments about society and culture. These collections (such as the set of all \emph{New York Times} editorials about China, the complete works of Shakespeare, or the set of all 18th Century American novels)  are difficult to make sense of and navigate. Unlike numerical data, they cannot be condensed, overviewed, and summarized in an automated fashion without losing significant information. And the metadata that accompanies the documents -- often from library records -- does not capture the varied content of the of the text within.
 
-<<<<<<< HEAD
-HASS scholars are an important area of focus for tool builders for another reason: low uptake. A 2012 study of computational tool use among these scholars showed that adoption was low despite an abundance of tools \cite{}. The main culprit? Poor interface design. In our research, we have tried to avoid this problem by taking an iterative, user-centered design approach. We collaborate with active HASS scholars working on text analysis problems of existing professional interest to them, and let their needs, behaviors, and observations drive tool development.
-=======
-HASS scholars are an important area of focus for tool builders for another reason: low uptake. A 2012 study \cite{gibbs_building_2012} of computational tool use among these scholars showed that adoption was low despite an abundance of tools. The main culprit? Poor interface design. In our research, we have tried to avoid this problem by taking an iterative, user-centered design approach. We collaborate with active HASS scholars working on text analysis problems of existing professional interest to them, and let their needs, behaviors, and observations drive tool development.
->>>>>>> 5cc60f03bd871f5127a1c8721b71c90c4f862d50
+HASS scholars are an important area of focus for tool builders for another reason: low uptake. A 2012 study of computational tool use among these scholars showed that adoption was low despite an abundance of tools \cite{gibbs_building_2012}. The main culprit? Poor interface design. In our research, we have tried to avoid this problem by taking an iterative, user-centered design approach. We collaborate with active HASS scholars working on text analysis problems of existing professional interest to them, and let their needs, behaviors, and observations drive tool development.
 
 We introduce the text sliding capabilities of WordSeer using two case studies. The researchers driving these studies successfully used the tool to further their projects. The two projects investigated:
 \begin{enumerate}
 	\item How U.S. perceptions of China and Japan responded to China's rise over the last 30 years.
 	\item How college students from diverse backgrounds remember and reflect upon literacy.
-end{enumerate}
+\end{enumerate}
 
 
 \subsection{Supporting Sensemaking}
 
-<<<<<<< HEAD
-Observational studies from the literature on sensemaking describe many problems analysts encounter while trying to make sense of text collections. These studies typically study professionals such as government intelligence analysts \cite{x}, business analysts \cite{x} market researchers \cite{x} and academics \cite{x} at work, attempt to categorize the actions they perform and identify common sequences of actions. Several models of the sensemaking process have emerged \cite{x}.  These models attempt to explain what one would observe when watching analysts distill "understanding" from raw data, where understanding usually manifests itself as a summary, report, or presentation.
-=======
-Observational studies from the literature on sensemaking describe many problems analysts encounter while trying to make sense of text collections. These studies typically study professionals such as government intelligence analysts \cite{pirolli_sensemaking_2005}, business analysts \cite{} market researchers \cite{x} and academics \cite{x} at work, attempt to categorize the actions they perform and identify common sequences of actions. Several models of the sensemaking process have emerged \cite{x} These models attempt to explain what one would observe when watching analysts distill "understanding" from raw data, where understanding usually manifests itself as a summary, report, or presentation.
->>>>>>> 5cc60f03bd871f5127a1c8721b71c90c4f862d50
+
+Observational studies from the literature on sensemaking describe many problems analysts encounter while trying to make sense of text collections. These studies typically study professionals such as government intelligence analysts \cite{pirolli_sensemaking_2005}, business analysts \cite{} market researchers \cite{x} and academics \cite{x} at work, attempt to categorize the actions they perform and identify common sequences of actions. Several models of the sensemaking process have emerged \cite{x} These models attempt to explain what one would observe when watching analysts distill ``understanding" from raw data, where understanding usually manifests itself as a summary, report, or presentation.
 
 Pirolli and Card \cite{pirolli_sensemaking_2005} identified ``pain points" in three areas having to do with navigation and transitions  while studying intelligence analysts working with large collections of text-based reports; after each we identify the design goals in our system that attempt to address each issue:
 \begin{enumerate}
@@ -349,7 +328,7 @@ This section has introduced the core text sliding features of WordSeer.  The nex
 
 \section{Case Study: U.S. Perceptions of\\China Japan}
 
-C.F. is a PhD student at [university's] English department. His dissentation explores how U.S. literature has responded to the rise of China since it began liberalizing its economy in the late 1970s.  His arguments depend upon a set of historical observations about the rise of China  broadly accepted by historians and cultural historians: 
+C.F. is a PhD student at [university's] English department. His dissertation explores how U.S. literature has responded to the rise of China since it began liberalizing its economy in the late 1970s.  His arguments depend upon a set of historical observations about the rise of China  broadly accepted by historians and cultural historians: 
 \begin{enumerate}
 \item From the 1970s prior to the Tiananmen Square crackdown in 1989, U.S. observers paid more attention to Japan than China. During this period, China did not have  more than a strategic, Cold War relevance. 
 \item With the onset of the 1990s, attention shifts from Japan to China. Japan entered its first ``Lost Decade'' of economic stagnation, and China, meanwhile, began deepening its economic relations with the U.S.
@@ -451,8 +430,6 @@ Figure \ref{fig:chris07} shows the distribution of centrality and interdependenc
 \end{figure}
 
 
-
-
 \section{Case Study: Literacy Essays}
 
 \subsection{Introduction}
@@ -493,11 +470,7 @@ From the moment I opened [the tool], `distance' immediately provided new insight
 \caption{The most frequent adjectives overall in R.G.'s literacy essays \label{fig:rex02}.}
 \end{figure}
 
-<<<<<<< HEAD
 Faced with unexpected discoveries in every part of speech, R.G. decided to explore the adjectives (Figure \ref{fig:rex02}). The top three adjectives were not surprising - ``other" (474),``first" (379), and ``new" (384).  However,  ``able'' (314) and ``own'' (282) were words that he did not expect to be used frequently.
-=======
-Faced with unexpected discoveries in every part of speech, R.G. decided to explore the adjectives (Figure \ref{fig:rex02}). The top three adjectives were not surprising - ``other" (474), ``first" (379), and ``new" (384).  However,  ``able'' (314) and ``own'' (282) were words that he did not expect to be used frequently.
->>>>>>> 5cc60f03bd871f5127a1c8721b71c90c4f862d50
 
 R.G. now wanted to understand the unexpectedly high frequencies of ``able'' and ``own''. WordSeer made this exploration easier. Instead of having to open a new window and type new search queries, clicking on the words themselves opened up Word Menus which allowed him to create Word Trees centered on those words.
 
@@ -523,10 +496,9 @@ The Word Frequencies visualization allowed R.G. to confirm his hypothesis. It sh
 \end{figure}
 The increasing frequencies across the course levels confirmed his hunch that as students become more experienced and comfortable with the written word, they used more complex sentence structures more frequently. 
 
+
 \input{relatedwork}
 \input{discussion}
-
-
 \section{Acknowledgements}
 We sincerely thank [Firstname Lastname, Firstname Lastname, and Firstname Lastname] for helpful comments on a Case Study not described in this paper. We are also grateful to [Firstname Lastname] for his helpful advice and thought-provoking discussions throughout.
 
