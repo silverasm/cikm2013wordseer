@@ -3,11 +3,13 @@
 
 
 
-\section{}
+\section{Related Work}
 
-There are numerous information analysis and discovery tools that allow users to view multidimensional data from different angles by selecting subsets of data, viewing those as visualizations, moving laterally to view other subsets of data, slicing into another view, expanding the viewed data by relaxing constraints, and so on.  However, these tools operate over numerical and categorical data, but do not seamlessly operate over raw textual information with the same flexibility. 
+Exploratory data analysis  (EDA) is an approach popularized by the statistician John Tukey whose goals are to maximize insight into a data set, uncover underlying structure, test underlying assumptions, and find bases from which to formulate hypotheses to test with confirmatory approaches \cite{turkey1977exploratory,tukey1980we}.  Many of the tools developed for EDA such as Polaris (which because the product Tableau) \cite{stotle2002polaris}, and Spotfire \cite{ahlberg1996spotfire} allow users to view multidimensional data from different angles by selecting subsets of data, viewing those as visualizations, moving laterally to view other subsets of data, moving into another view, expanding the viewed data by relaxing constraints, and so on.  However, these tools operate over numerical and categorical data, but do not seamlessly operate over raw textual information with the same flexibility. 
 
-Current text analysis systems put computational linguistics and data visualization into the hands of users. Tools such as Jigsaw \cite{}, IBM TextMiner \cite{}, and SAS Text Analytics \cite{} take techniques like text classification, named-entity recognition, sentiment analysis and summarization and build systems to automate their use. To make the results of these computational analyses interpretable, they display the outputs with interactive data visualization. These systems have made advanced text mining and visualization algorithms available to users without expertise in those areas.
+There are also many highly specialized exploratory interfaces, such as Paperlens \cite{} and Apolo, two  of many tools for exploring collections of bibliographic citations.
+
+Current text analysis systems put computational linguistics and data visualization into the hands of users. Tools such as Jigsaw \cite{stasko2008jigsaw},  Takmi (made into the product IBM TextMiner) \cite{uramoto2004text}, and SAS Text Analytics \cite{} take techniques like text classification, named-entity recognition, sentiment analysis and summarization and build systems to automate their use. To make the results of these computational analyses interpretable, they display the outputs with interactive data visualization. These systems have made advanced text mining and visualization algorithms available to users without expertise in those areas, but do not provide flexibility of  the system described here.
 
 
 
@@ -24,3 +26,83 @@ Tableau
 Sandbox/Trist
 
 IBM TextMiner (UIMA)
+
+@article{uramoto2004text,
+  title={A text-mining system for knowledge discovery from biomedical documents},
+  author={Uramoto, Naohiko and Matsuzawa, Hirofumi and Nagano, Tohru and Murakami, Akiko and Takeuchi, Hironori and Takeda, Kohichi},
+  journal={IBM Systems Journal},
+  volume={43},
+  number={3},
+  pages={516--533},
+  year={2004},
+  publisher={IBM}
+}
+
+@techreport{ibmcontent,
+  title={IBM Content Analytics Version 2.2: Discovering Actionable Insight from Your Content},
+  author={Zhu, W.-D. and Iwai, A. and Layba, T. and Magdalen, J. and McNeil, K. and Nasukawa T. and Patel, N. and Sugano, K.},
+  booktitle={IBM Redbooks},
+  year={2011},
+  organization={IBM}
+}
+
+@article{stasko2008jigsaw,
+  title={Jigsaw: supporting investigative analysis through interactive visualization},
+  author={Stasko, John and G{\"o}rg, Carsten and Liu, Zhicheng},
+  journal={Information visualization},
+  volume={7},
+  number={2},
+  pages={118--132},
+  year={2008},
+  publisher={SAGE Publications}
+}
+
+@inproceedings{donn1996query,
+  title={Query previews in networked information systems},
+  author={Donn, K and Plaisant, Catherine and Shneiderman, Ben},
+  booktitle={Research and Technology Advances in Digital Libraries, 1996. ADL'96., Proceedings of the Third Forum on},
+  pages={120--129},
+  year={1996},
+  organization={IEEE}
+}
+
+@article{ahlberg1996spotfire,
+  title={Spotfire: an information exploration environment},
+  author={Ahlberg, Christopher},
+  journal={ACM SIGMOD Record},
+  volume={25},
+  number={4},
+  pages={25--29},
+  year={1996},
+  publisher={ACM}
+}
+
+@article{stolte2002polaris,
+  title={Polaris: A system for query, analysis, and visualization of multidimensional relational databases},
+  author={Stolte, Chris and Tang, Diane and Hanrahan, Pat},
+  journal={Visualization and Computer Graphics, IEEE Transactions on},
+  volume={8},
+  number={1},
+  pages={52--65},
+  year={2002},
+  publisher={IEEE}
+}
+
+@article{tukey1980we,
+  title={We need both exploratory and confirmatory},
+  author={Tukey, John W},
+  journal={The American Statistician},
+  volume={34},
+  number={1},
+  pages={23--25},
+  year={1980},
+  publisher={Taylor \& Francis}
+}
+
+@article{tukey1977exploratory,
+  title={Exploratory data analysis},
+  author={Tukey, John W},
+  journal={Reading, MA},
+  volume={231},
+  year={1977}
+}
