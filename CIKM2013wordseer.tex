@@ -110,15 +110,12 @@ While studying intelligence analysts working with large collections of text-base
 \end{enumerate}
 
 
-
-
 \section{Text Sliding}
 
-The paired concepts of \emph{slices} and \emph{views} are central to text sliding. A slice is a set of sentences, and a view is a visual representation of the data in a slice: the view can range from a simple vertical list of the sentences in the slice, to more complex linguistic processing combined with visual analytics.  A slice is like a scientific specimen or a sample of some chemical compound,  and a view is a lens or a test that reveals different information about the sample.
-(Currently we define a slice as \emph{a set of sentences}, although in future it might use different units of text, such as paragraphs, documents, or phrases.) We allow arbitrarily-assembled slices, but it is easiest to think of slices as combinations of searches and filters.  
+The paired concepts of \emph{slices} and \emph{views} are central to text sliding. A slice is a set of sentences, and a view is a visual representation of the data in a slice: the view can range from a simple vertical list of the sentences in the slice, to more complex linguistic processing combined with visual analytics.  A slice is like a sample of some chemical compound,  and a view is a lens or a test that reveals different information about the sample. (Currently we define a slice as \emph{a set of sentences}, although in future it might use different units of text, such as paragraphs, documents, or phrases.) 
 
 
-Text sliding is a way to move from a view of a slice to a different view. Through the richness of language, slices can be associated with many other slices (such as those that contain the same  words, phrases, or ideas). If there is metadata accompanying the text, such as date or topic tag, the user can take advantage of these  \emph{metadata associations}.  Finally, through the wide variety of visual analytics tool available, there are several different ways of viewing and analyzing the data in a single slice. Text sliding makes all these associations accessible in a ``low friction" way.
+Text sliding is a way to move from a view of a slice to a different view. Through the richness of language, slices can be associated with many other slices (such as those that contain the same  words, phrases, or ideas). If there is metadata accompanying the text, such as date or topic tag, the user can take advantage of these  \emph{metadata associations} as well.  Finally, through the wide variety of visual analytics tool available, there are several different ways of viewing and analyzing the data in a single slice. Text sliding makes all these associations accessible in a ``low friction" way.
 
 In detail, we define text sliding as:
 \begin{itemize}
@@ -134,40 +131,37 @@ In detail, we define text sliding as:
 
 \subsection{Views}
 Views  are window-like panels, and the user can open up any number of panels in the interface to facilitate comparison across views.  Views contain the following components, as illustrated in Figure \ref{fig:intro02}:
-\begin{itemize}
-	\item A drop-down menu for switching to a different view of the same slice (see Figure \ref{fig:chris03}),
-	\item Breadcrumbs describing the searches and filters that define the current slice,
-	\item A visualization of the data in the slice. Currently, the choices are:
-		\begin{itemize}
-			\item A list of sentences,
-			\item A list of documents that match the sentences in the slice,
-			\item An interactive Word Tree \cite{wattenberg_word_2008} of the most common word in the slice, or the search term, if specified,
-			\item Charts showing distributions of the slice's sentence counts across various metadata categories,
-			\item A document reader,
-			\item Bar charts showing how often different words in the slice  appear in grammatical relations.
-		\end{itemize}
-	\item Summary statistics of:
-		\begin{itemize}
-			\item How many sentences within the slice match different metadata categories,
-			\item The most frequent nouns, verbs, adjectives and multi-word phrases in the slice.
-		\end{itemize}
-\end{itemize}
+\\
+\\ 1) A drop-down menu for switching to a different view of the same slice (see Figure \ref{fig:chris03}),
+\\ 2) Breadcrumbs describing the searches and filters that define the current slice,
+\\ 3)  A visualization of the data in the slice. Currently, the choices are:
+\\ \indent -- A list of sentences,
+\\ \indent -- A list of documents that match the sentences in the slice,
+\\ \indent -- An interactive Word Tree \cite{wattenberg_word_2008} of the most common word in the slice, or the search term, if specified,
+\\ \indent -- Charts showing distributions of the slice's sentence counts across various metadata categories,
+\\ \indent -- A document reader,
+\\ \indent -- Bar charts showing how often different words in the slice  appear in grammatical relations.
+\\ 4) Summary statistics of:
+\\ \indent -- How many sentences within the slice match different metadata categories,
+\\ \indent -- The most frequent nouns, verbs, adjectives and multi-word phrases in the slice.
+\\
+
 
 The simplest sliding interaction in WordSeer is creating a different view of the same slice.  There is a drop-down menu at the top left corner of each view which provides this function (Figure \ref{fig:chris03}).  Selecting a different view from the menu opens up that new view (on the same slice) alongside the current one. Users can have as many views open as they want, but most displays get crowded after two are three are open; the tool allows the panels to be collapsed and a history panel allows revisiting of earlier views.  
 \begin{figure}[h!]
+\begin{center}
 \includegraphics[width=0.2\textwidth]{fig/chris/03.png}
+\end{center}
 \caption{ The view-switcher drop-down menu.\label{fig:chris03}}
 \end{figure}
 
 
 When a user opens up WordSeer for the first time, instead of  showing a blank screen a requiring the user to think up a query, the tool  provides summary statistics immediately, as shown in Figure \ref{fig:intro01} on a collection of \emph{New York Times} editorials.  Figure \ref{fig:intro02} breaks this down into its core components. This is a single \emph{view} with a \emph{Word Tree} visualization of the most frequent content word in the \emph{slice} consisting of ``the entire collection''. 
 
-
-
 \begin{figure}[ht!]
 \begin{center}
 %
-        \subfigure[A single view showing a visualization accompanied by some summary/filters.            \label{fig:intro01}]{%
+        \subfigure[The initial view for Case Study 1. \label{fig:intro01}]{%
 	\includegraphics[width=0.5\textwidth]{fig/intro/01.png}
         }%
         \\
@@ -177,7 +171,7 @@ When a user opens up WordSeer for the first time, instead of  showing a blank sc
 %
     \end{center}
     \caption{%
-        What C.F. sees when he opens up his editorials in WordSeer.
+       Views in WordSeer.
      }%
 \end{figure}
 
