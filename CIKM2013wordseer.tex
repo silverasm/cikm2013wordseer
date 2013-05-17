@@ -337,6 +337,8 @@ To generate this evidence, C.F. collected \emph{New York Times} editorials from 
 
 After a few weeks of face-to-face meetings in which we discussed his research goals and demonstrated how to use WordSeer to ask questions, C.F. gradually became comfortable using WordSeer on his own. After that, we continued to meet, but focused on discussing his progress, and to on plans for new analysis features based on his needs.
 
+By the end of his project, C.F. had used WordSeer to find evidence for all four observations above. In this paper, we elaborate on numbers 1 and 3, because those investigations made are particularly heavy use of text sliding.
+
 
 \subsection{Confirming Intuitions}
 After becoming comfortable with WordSeer's functionality, C.F's first goal was to get a sense of the tone towards China in the three different decades in his collection: the `80s, `90s, and `00s.  He already had some intuitions of what he would find, but never having used the \emph{New York Times} editorials, or done any previous computational analysis, he wanted to test both the reliability of his corpus, and the ability of WordSeer to replicate well-known facts.
@@ -360,57 +362,76 @@ Using the Word Frequencies visualization in combination with Word Sets, he was a
 This first investigation allowed C.F. to rest easy. Secure in having re-discovered the rise of China, he returned to his original questions.
 
 \subsection{1980's: Insignificant, Except for Cold War Strategy}
-While comparing the most frequent adjectives for the three decades C.F noticed a drop-off in cold war words, and an increase in global and financial words:
-\begin{itemize}
-\item ``Soviet''  went from 1029 in the 1980s to only 80 in the 2000s, and ``communist'' went from 284 to 112.  
-\item On the other hand,  ``global'' had a five-fold increase from from 208 in the 1980s to 1047 in the 2000's. In the same time span,  ``financial'' doubled from 192 to 394.
-\end{itemize}
+While comparing the most frequent adjectives for the three decades C.F noticed a drop-off in cold war words. ``Soviet''  went from 1029 in the 1980s to only 80 in the 2000s, and ``communist'' went from 284 to 112.   To investigate the drop-off in more detail, he used the the Word Menu to quickly open up word frequency plots for these two words over time, and filtered them to just the editorials about China.  Figure \ref{fig:chris04b} shows a plot of these words together:
 
 \begin{figure}[h!]
 \includegraphics[width=0.5\textwidth]{fig/chris/04b.png}
-\caption{The Word Frequencies of `communist' (blue, bottom) and `soviet' (orange, top) in the editorials about China over time. In the early `90's almost 1 in 10 sentences about China mentions one of these two terms. However, in the early `90s, there is a sharp decline, and the terms gradually decrease in frequency over the remaining 20 years. }
+\caption{The Word Frequencies of `communist' (blue) and `soviet' (orange) in the editorials about China over time. In the early `90's almost 1 in 10 sentences about China mentions one of these two terms. However, in the early `90s, there is a sharp decline, and the terms gradually decrease in frequency over the remaining 20 years. \label{fig:chris04b}}.
 \end{figure}
 
-The Word Frequency visualization of these terms in the China editorials (Figure \ref{}) adds depth to these observations.  It shows the dominance and equally dramatic drop-off in cold war mentions over this time period. In the early `80s, almost 11\% -- more than 1 in 10 sentences in those editorials -- mentions one of these the cold war terms. By the `90s, however, this association is down to a trickle. 
-
-An exploration of the ``grammatical neighborhood'' around `China'  helped C.F. find yet more evidence for this idea. This time, through the decline of a rhetorical device. As Figure \ref{fig:chris01} shows, clicking on the word ``China'' opens up a menu with search options. These options act as quick previews of different grammatically-related slices: they show the frequencies with which ``China'' occurs in different grammatical constructions with different words.  For C.F., the noun compound relationship yielded a surprise. He noticed an odd construction, ``China card,'' which appeared 21 times.
+Plotting the terms together (Figure \ref{fig:chris04b}) added depth to his initial observation of their decline.  It shows the dominance and equally dramatic drop-off in cold war mentions over this time period. In the early `80s, almost 11\% -- more than 1 in 10 sentences in those editorials -- mentions one of these the cold war terms. By the `90s, however, this association is down to a trickle. 
 
 \begin{figure}[h!]
 \includegraphics[width=0.5\textwidth]{fig/chris/01.png}
 \caption{The word menu for China allows a user to explore all the grammatical relationships in which ``China'' participates.   After selecting \emph{China > Search > noun compound modifier}, the noun-compound relationship ``China card'' stood out to C.F. \label{fig:chris01}}
 \end{figure}
 
+An exploration of the ``grammatical neighborhood'' around `China'  helped C.F. find yet more evidence for this idea. This time, it was through a distinctive rhetorical device. As Figure \ref{fig:chris01} shows, clicking on the word ``China'' opens up a menu with search options. These options act as quick previews of different grammatically-related slices: they show the frequencies with which ``China'' occurs in different grammatical constructions with different words.  For C.F., the noun compound relationship yielded a surprise. He noticed an odd construction, ``China card,'' which appeared 21 times.
 
+He immediately explored this this distinctive usage by selecting List of Search Results options for that relationship.  This opened up the list of sentences in which the noun compound ``China card'' occurred.  When C.F. read the sentences, an interpretation suggested itself:
+\begin{quote}
+[Reading] the sentence search results reveals that phrase is used to refer to the China's strategic value in Cold War geopolitics. Of the four post-2000 instances, only one uses the phrase to describe a contemporary political situation; the others use it to describe Cold War politics. Reducing the vastness of China to a disposable ``card,'' indicates a degree of US self-confidence, not to mention condescension, that disappears after 1989.
+\end{quote}
 
-\subsection{1990's: Strengthening Ties with the U.S.}
-When he compared the frequencies of common nouns across the three slices, he noticed a stark drop-off in occurrence of the word ``rights'', which went from 1451 occurrences in the 90's to merely 399 in the 00's. Further investigation using ``Word Frequencies'' search with terms ``human rights'' and ``rights abuses'' revealed the magnitude of the drop off:
-
-
-
-\begin{figure}[h!]
-\includegraphics[width=0.5\textwidth]{fig/chris/01.png}
-\caption{The word menu for China allows a user to explore all the grammatical relationships in which ``China'' participates.   After selecting \emph{China > Search > noun compound modifier}, the noun-compound relationship ``China card'' stood out to C.F. \label{fig:chris01}}
-\end{figure}
-
-\begin{figure}[h!]
-\includegraphics[width=0.3\textwidth]{fig/chris/01b.png}
-\caption{ The menu option revealing that ``China card'' occurred 21 times over Fan's editorials. Clicking on it opens up the list of sentences containing ``China card''  \label{fig:chris01b}}
-\end{figure}
-
-The tool allowed him to explore this this distinctive usage immediately. By selecting that very menu item, he was able to get a list of matching sentences. When C.F. read those sentences, an interpretation suggested itself:
-\begin{quote}[Reading] the sentence search results reveals that phrase is used to refer to the China's strategic value in Cold War geopolitics. Of the four post-2000 instances, only one uses the phrase to describe a contemporary political situation; the others use it to describe Cold War politics. Reducing the vastness of China to a disposable ``card,'' indicates a degree of US self-confidence, not to mention condescension, that disappears after 1989.\end{quote}
-By sliding to a different view of the same data, he was able to verify the temporal claim. Using the drop-down menu at the top left of the panel (Figure \ref{fig:chris03}) he selected a different view, Word Frequencies. This retained the same slice (the sentences containing ``China card''), but opened up the word frequencies view alongside the list of search results.  Because the ``year'' metadata was attached to each article, this view displayed a graph of how frequent  sentences containing ``China Card'' were over time (Figure \ref{fig:chris02}). 
-
+The Word Frequencies view of the same data allowed him to make that temporal claim. Using the drop-down menu at the top left of the panel (Figure \ref{fig:chris03}) he opened up the the word frequencies view alongside his list of search results.  Because the ``year'' metadata was attached to each article, this view displayed a graph of how frequent  sentences containing ``China Card'' were over time (Figure \ref{fig:chris02}). 
 \begin{figure}[h!]
 \includegraphics[width=0.5\textwidth]{fig/chris/02.png}
 \caption{ The number of sentences matching ``China card'' over time. \label{fig:chris02}}
 \end{figure}
+The graph shows that ``China card'' the rhetorical figure signifying cold-war strategic value, was used relatively frequently until 1989, but rarely  after that. This confirmed his claim that, up until the early 90's, China had a Cold-war strategic significance to the U.S. that later dissipated.
 
-This graph showed C.F. that the cold war phrase, ``China card'' was used until 1989, but rarely  after that (he had already accounted for the later uses by looking at the sentences individually). This confirmed his claim that, up until the early 90's, c=China had a Cold-war strategic significance to the U.S. that later dissipated.
 
-\subsection{Case Study: Literacy Autobiographies}
+\subsection{Mid `90's onwards: China's ties with the U.S. Strengthen}
+A major event in Chinese international relations occurred in 2001, when china joined the World Trade Organization (WTO).  Although attention had been shifting towards China since the `90s, it is during this period that US-China relations are thought to have become more interdependent, and central to global politics. 
 
-\subsubsection{Introduction}
+To find evidence for this, C.F.  started with a grammatical structure he thought might make a good proxy for US-China relations: the \emph{conjunction}, which is just an \emph{and} relationship between two words.  He needed a grammatical search because of the possibility of constructions like 
+\begin{quote}
+``The United States, the world's top energy guzzler, and China, with the world's fastest-growing energy thirst \ldots" (April 2006).
+\end{quote}
+This fragment places China and the United States in clear conjunction with each other, but an exact-phrase search for \code{`United States and China'} would miss it. 
+
+He created a list of search results view, containing a total of 142 sentences (Figure \ref{fig:chris05}).
+\begin{figure}[h!]
+\includegraphics[width=0.5\textwidth]{fig/chris/05-circled.png}
+\caption{ The \emph{List of Search Results} view of the slice of sentences matching the  grammatical relationship \code{conjuction(United States, China)}. \label{fig:chris05}}
+\end{figure}
+A quick look at the distribution of articles over the Year category (circled in red) confirmed his choice of starting point. These were much more frequent from the mid-nieties onward. In fact, out of the 142 occurrences, 116 (81\%) occurred after 1994.
+
+He begain skimming over the results, but soon noticed a problem. While these these sentences did indeed contain many references to US-China relations, they also contained many conjunctions that weren't interesting: purely grammatical ones like ``While maintaining cautious vigilance against rival powers, the United States, Soviet Union, and China separately welcomed this trend.'', and relations involving other parties, like ``In turn, the nuclear five -- the United States, Britain, Russia, France and China -- committed themselves to sign a comprehensive test ban by next year.''
+
+WordSeer's sentence sets are designed to solve exactly this problem. C.F. recognized this, and put them to good use. He manually went through each of the 134 results, and created a sentence set out of the ones that satisfied his criteria: having to do with relations solely between the US and China relations.  He called this set \code{\{US-China relations\}}. Sentences were sometimes ambiguous, but the ease of looking up the sentence within the editorial made it easy to check whether or not it should be included. To quote:
+\begin{quote}
+[The filtering process] was significantly aided by the ability to click on the sentence and immediately see it located in context within the full editorial.
+\end{quote}
+He eliminated about half the sentences from consideration, leaving him with a set of  79 sentences. A \emph{Word Frequencies} view of of this smaller slice made the picture much clearer (\ref{fig:chris06}). Of the 79 sentences, the overwhelming majority (86\%) occur after 1995.
+\begin{figure}[h!]
+\includegraphics[width=0.5\textwidth]{fig/chris/06.png}
+\caption{ The distribution of sentences in in the  \code{\{US-China\} relations slice}.  86\% of the sentences occur after 1994. \label{fig:chris06}}
+\end{figure}
+C.F. noticed a subtle point: as he moved from the 1990's to the 2000's, the relationship between the US and China seemed to be increasingly  `central' and `inter-dependent':
+\begin{quote}
+Phrases and words like the following begin to appear: ``21st century's most important relationship,'' ``co-dependent,'' ``interlocking,'' etc. But I achieved a more precise sense of the themes of \emph{interdependence} and \emph{centrality }independence and centrality more precisely using a Word Set of thematically-related adjectives drawn from the Frequent Adjectives overview. Using a the set consisting of ``most central important indispensable dependent interdependent dependency entangled interlocking interdependency'' (taken from the overview). The graph shows that it's not until 1995 that the US-China relationship is characterized by these themes.
+\begin{figure}[h!]
+\includegraphics[width=0.5\textwidth]{fig/chris/07.png}
+\caption{ The distribution of the \code{\{centrality and interdependence\}} Word Set within the \code{conjunction(United States, China)} slice. There are no occurrences before 1995. \label{fig:chris07}}
+\end{figure}
+\end{quote}
+
+
+
+\section{Case Study: Literacy Autobiographies}
+
+\subsection{Introduction}
 As a college English Composition instructor,  R.G., at  [university's] school of Education asks students to write often and in a variety of situations. In this project, he examined ways in which he might draw upon the tool to assist in the teaching and learning of writing. He was particularly interested in the literacy autobiography. In this type of writing, students describe significant experiences they have had with literacy and reflect upon the importance of literacy to their lives.  
 
 R.G. analyzed the content of approximately 140 literacy autobiographies written by students from courses that he has taught over that past two years, each about 1,500 to 2,000 words long. He is familiar with the collection, having previously read and commented on each of the 140 essays included.  Table \ref{table:rex-courses} shows the different courses from which literacy autobiographies were analyzed. The courses were at different colleges and taught at different proficiency levels.
@@ -420,7 +441,6 @@ Among the questions that guided his inquiry were the following. In this example,
 \item What can a distant reading of student literacy autobiographies tell him about students that close readings cannot?
 \item What patterns exist in student literacy autobiographies at different course levels and institutions?
 \end{enumerate}
-
 
 \begin{table}
 \begin{tabular}{lll}
@@ -435,7 +455,7 @@ Edu 140 (n=40) & [anonymized] & Upper division \\
 \end{table}
 
 
- \subsubsection{A new take on students' experiences}
+ \subsection{A new take on students' experiences}
 
 R.G. doesn't usually consider the frequencies of words unless a student repeats one to the point of distraction. However, the tool's very first overview (like the one C.F saw in Figure \ref{fig:intro01}, except on R.G's data) prompted him to consider the significance of individual words and their repeated use.  As he states:
 \begin{quote}
@@ -468,7 +488,7 @@ As a result, R.G. came away with a new insight about his students:
 Student writers articulate their experiences from some first encounter with the unfamiliar, followed by a process of being ``able" to act within that which is becoming less unfamiliar.  Moving into literacy requires these writers to develop their ``own" abilities as necessary to survive and prosper in that context.
 \end{quote} 
 
-\subsubsection{Writing proficiency across courses}
+\subsection{Writing proficiency across courses}
 The different courses R.G. taught had different emphases and were taken by students with differing amounts of college education. He was especially interested in differences in sentence construction, hypothesizing that more proficient students would use advanced structures more frequently. To initiate the analyses, he performed word searches on terms such as ``though", ``while", ``although", and ``however", which indicate a complex structure called a ``concessive''. He was expecting consessives to be increasingly frequent as he moved from English 1A, to English 201, to English 5, to Ed140.
 
 The Word Frequencies visualization allowed R.G. to confirm his hypothesis. It shows how often terms occur across different metadata categories (and can shown the counts stacked or grouped, or normalized or raw). R.G. searched for multiple terms simultaneously, which created a comparative visualization (Figure \ref{fig:rex05}).
