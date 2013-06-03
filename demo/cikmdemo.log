@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  3 JUN 2013 11:15
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  3 JUN 2013 13:13
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -288,254 +288,172 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 31.
+LaTeX Font Info:    Try loading font information for U+msa on input line 28.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 31.
+LaTeX Font Info:    Try loading font information for U+msb on input line 28.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 31.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 28.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for T1+aett on input line 43.
+Overfull \hbox (14.26237pt too wide) in paragraph at lines 28--28
+ []\eaddfnt hearst@ischoo.berkeley.edu| 
+ []
 
+
+Overfull \hbox (2.68721pt too wide) in paragraph at lines 42--43
+\T1/aer/m/n/9 uses com-pu-ta-tional lin-guis-tics, in-for-ma-tion re-trieval an
+d data
+ []
+
+LaTeX Font Info:    Try loading font information for T1+aett on input line 46.
 (/usr/local/texlive/2010/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
-Overfull \hbox (2.68721pt too wide) in paragraph at lines 65--66
-\T1/aer/m/n/9 uses com-pu-ta-tional lin-guis-tics, in-for-ma-tion re-trieval an
-d data
+Underfull \hbox (badness 10000) in paragraph at lines 57--72
+
+ []
+
+
+Overfull \hbox (3.49008pt too wide) in paragraph at lines 57--72
+[]\T1/aer/m/n/9 -- Charts show-ing dis-tri-bu-tions of the slice's sen-tence co
+unts
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--72
+
  []
 
 [1{/usr/local/texlive/2010/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-Overfull \hbox (2.26505pt too wide) in paragraph at lines 92--93
-\T1/aer/m/n/9 they were rel-e-vant or not, and plac-ing them into groups. 
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 135--150
-
- []
-
-
-Overfull \hbox (3.49008pt too wide) in paragraph at lines 135--150
-[]\T1/aer/m/n/9 -- Charts show-ing dis-tri-bu-tions of the slice's sen-tence co
-unts
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 135--150
-
- []
-
-<fig/chris/03.png, id=19, 170.6375pt x 143.53625pt>
-File: fig/chris/03.png Graphic file (type png)
- <use fig/chris/03.png>
-<fig/intro/01.png, id=20, 1280.785pt x 707.64375pt>
+<fig/intro/01.png, id=14, 1280.785pt x 707.64375pt>
 File: fig/intro/01.png Graphic file (type png)
  <use fig/intro/01.png>
-Overfull \hbox (15.07787pt too wide) in paragraph at lines 167--168
+Overfull \hbox (15.07787pt too wide) in paragraph at lines 82--83
  [] 
  []
 
-<fig/intro/02.png, id=21, 722.7pt x 475.7775pt>
+<fig/intro/02.png, id=15, 722.7pt x 475.7775pt>
 File: fig/intro/02.png Graphic file (type png)
  <use fig/intro/02.png>
-Overfull \hbox (15.07787pt too wide) in paragraph at lines 171--173
+Overfull \hbox (15.07787pt too wide) in paragraph at lines 86--88
  [][] 
  []
 
-[3 <./fig/chris/03.png (PNG copy)>]
-<fig/intro/03b.png, id=26, 660.4675pt x 121.45375pt>
+<fig/intro/03b.png, id=17, 660.4675pt x 121.45375pt>
 File: fig/intro/03b.png Graphic file (type png)
  <use fig/intro/03b.png>
-Overfull \hbox (12.0pt too wide) in paragraph at lines 190--191
+Overfull \hbox (12.0pt too wide) in paragraph at lines 99--100
  [] 
  []
 
-<fig/intro/04b.png, id=27, 588.1975pt x 308.15125pt>
-File: fig/intro/04b.png Graphic file (type png)
- <use fig/intro/04b.png>
-Overfull \hbox (18.15573pt too wide) in paragraph at lines 203--204
- [] 
- []
 
-<fig/intro/04a.png, id=28, 588.1975pt x 317.185pt>
-File: fig/intro/04a.png Graphic file (type png)
- <use fig/intro/04a.png>
-Overfull \hbox (18.15573pt too wide) in paragraph at lines 208--210
- [][] 
- []
-
-
-Overfull \hbox (1.15767pt too wide) in paragraph at lines 227--228
+Overfull \hbox (1.15767pt too wide) in paragraph at lines 118--119
 []\T1/aer/m/n/9 Each word in the sen-tence, and its part of speech (noun,
  []
 
-[4 <./fig/intro/01.png (PNG copy)> <./fig/intro/02.png> <./fig/intro/03b.png> <
-./fig/intro/04b.png> <./fig/intro/04a.png>]
-<fig/intro/06.png, id=36, 1247.66125pt x 178.6675pt>
-File: fig/intro/06.png Graphic file (type png)
- <use fig/intro/06.png>
-Overfull \hbox (12.0pt too wide) in paragraph at lines 238--239
- [] 
- []
-
-
-Overfull \hbox (1.86188pt too wide) in paragraph at lines 235--244
+[2 <./fig/intro/01.png (PNG copy)> <./fig/intro/02.png> <./fig/intro/03b.png>]
+Overfull \hbox (1.86188pt too wide) in paragraph at lines 126--127
 []\T1/aer/m/n/9 Each view au-to-mat-i-cally presents the most com-mon nouns,
  []
 
-<fig/chris/01.png, id=37, 677.53125pt x 292.09125pt>
+<fig/chris/01.png, id=25, 677.53125pt x 292.09125pt>
 File: fig/chris/01.png Graphic file (type png)
  <use fig/chris/01.png>
-Overfull \hbox (12.0pt too wide) in paragraph at lines 248--249
+Overfull \hbox (12.0pt too wide) in paragraph at lines 129--130
 [][] 
  []
 
-<fig/intro/09.png, id=38, 397.485pt x 381.425pt>
-File: fig/intro/09.png Graphic file (type png)
- <use fig/intro/09.png>
-<fig/intro/10a-word-sets.png, id=39, 272.01625pt x 325.215pt>
-File: fig/intro/10a-word-sets.png Graphic file (type png)
-
-<use fig/intro/10a-word-sets.png>
-Underfull \hbox (badness 1122) in paragraph at lines 278--278
-[]\T1/aer/m/n/9 (a) Cre-at-ing a ``growth''
- []
-
-<fig/intro/10b-word-sets.png, id=40, 617.30624pt x 56.21pt>
-File: fig/intro/10b-word-sets.png Graphic file (type png)
-
-<use fig/intro/10b-word-sets.png>
-Overfull \hbox (15.07787pt too wide) in paragraph at lines 282--283
- [][] 
- []
-
-<fig/intro/10c-word-sets.png, id=41, 274.02374pt x 121.45375pt>
-File: fig/intro/10c-word-sets.png Graphic file (type png)
-
-<use fig/intro/10c-word-sets.png>
-<fig/intro/10d-word-sets.png, id=42, 200.75pt x 146.5475pt>
-File: fig/intro/10d-word-sets.png Graphic file (type png)
-
-<use fig/intro/10d-word-sets.png>
-<fig/chris/04a.png, id=43, 554.07pt x 288.07625pt>
+<fig/chris/04a.png, id=26, 554.07pt x 288.07625pt>
 File: fig/chris/04a.png Graphic file (type png)
  <use fig/chris/04a.png>
-Overfull \hbox (12.0pt too wide) in paragraph at lines 301--302
+Overfull \hbox (12.0pt too wide) in paragraph at lines 151--152
  [] 
  []
 
 
 LaTeX Font Warning: Font shape `T1/aett/bx/n' undefined
-(Font)              using `T1/aett/m/n' instead on input line 305.
+(Font)              using `T1/aett/m/n' instead on input line 155.
 
-
-Underfull \vbox (badness 5175) has occurred while \output is active []
-
- [5 <./fig/intro/06.png (PNG copy)> <./fig/chris/01.png> <./fig/intro/09.png (P
-NG copy)>]
-Overfull \hbox (6.08191pt too wide) in paragraph at lines 322--322
-[]\secfnt 1980's: China In-signif-i-cant Ex-cept for Cold
+(./cikmdemo.bbl [3 <./fig/chris/01.png> <./fig/chris/04a.png (PNG copy)>])
+<fig/chris/03.png, id=33, 170.6375pt x 143.53625pt>
+File: fig/chris/03.png Graphic file (type png)
+ <use fig/chris/03.png>
+<fig/intro/04b.png, id=34, 588.1975pt x 308.15125pt>
+File: fig/intro/04b.png Graphic file (type png)
+ <use fig/intro/04b.png>
+Overfull \hbox (18.15573pt too wide) in paragraph at lines 181--182
+ [] 
  []
 
-<fig/chris/04b.png, id=50, 545.03625pt x 299.1175pt>
-File: fig/chris/04b.png Graphic file (type png)
- <use fig/chris/04b.png>
-Overfull \hbox (12.0pt too wide) in paragraph at lines 326--327
-[][] 
+<fig/intro/04a.png, id=35, 588.1975pt x 317.185pt>
+File: fig/intro/04a.png Graphic file (type png)
+ <use fig/intro/04a.png>
+Overfull \hbox (18.15573pt too wide) in paragraph at lines 186--188
+ [][] 
  []
 
-[6 <./fig/intro/10a-word-sets.png (PNG copy)> <./fig/intro/10b-word-sets.png (P
-NG copy)> <./fig/intro/10c-word-sets.png (PNG copy)> <./fig/intro/10d-word-sets
-.png (PNG copy)> <./fig/chris/04a.png (PNG copy)> <./fig/chris/04b.png>]
-Overfull \hbox (1.26768pt too wide) in paragraph at lines 336--337
-\T1/aer/m/n/9 scribe a con-tem-po-rary po-lit-i-cal sit-u-a-tion; the oth-
+<fig/intro/06.png, id=36, 1247.66125pt x 178.6675pt>
+File: fig/intro/06.png Graphic file (type png)
+ <use fig/intro/06.png>
+Overfull \hbox (12.0pt too wide) in paragraph at lines 196--197
+ [] 
  []
 
-<fig/chris/02.png, id=55, 518.93875pt x 214.8025pt>
-File: fig/chris/02.png Graphic file (type png)
- <use fig/chris/02.png>
-Overfull \hbox (12.0pt too wide) in paragraph at lines 341--342
-[][] 
+<fig/intro/09.png, id=37, 397.485pt x 381.425pt>
+File: fig/intro/09.png Graphic file (type png)
+ <use fig/intro/09.png>
+<fig/intro/10a-word-sets.png, id=38, 272.01625pt x 325.215pt>
+File: fig/intro/10a-word-sets.png Graphic file (type png)
+
+<use fig/intro/10a-word-sets.png>
+Underfull \hbox (badness 1122) in paragraph at lines 217--217
+[]\T1/aer/m/n/9 (a) Cre-at-ing a ``growth''
  []
 
+<fig/intro/10b-word-sets.png, id=39, 617.30624pt x 56.21pt>
+File: fig/intro/10b-word-sets.png Graphic file (type png)
 
-Overfull \hbox (1.07849pt too wide) in paragraph at lines 348--349
-\T1/aer/m/n/9 (WTO). Al-though at-ten-tion had been shift-ing to-wards China
+<use fig/intro/10b-word-sets.png>
+Overfull \hbox (15.07787pt too wide) in paragraph at lines 221--222
+ [][] 
  []
 
-<fig/chris/05-circled.png, id=56, 539.01375pt x 547.04375pt>
-File: fig/chris/05-circled.png Graphic file (type png)
+<fig/intro/10c-word-sets.png, id=40, 274.02374pt x 121.45375pt>
+File: fig/intro/10c-word-sets.png Graphic file (type png)
 
-<use fig/chris/05-circled.png>
-Overfull \hbox (12.0pt too wide) in paragraph at lines 358--359
-[][] 
- []
+<use fig/intro/10c-word-sets.png>
+<fig/intro/10d-word-sets.png, id=41, 200.75pt x 146.5475pt>
+File: fig/intro/10d-word-sets.png Graphic file (type png)
 
-[7 <./fig/chris/02.png> <./fig/chris/05-circled.png>]
-<fig/chris/07.png, id=63, 637.38126pt x 261.97874pt>
-File: fig/chris/07.png Graphic file (type png)
- <use fig/chris/07.png>
-Overfull \hbox (12.0pt too wide) in paragraph at lines 378--379
-[][] 
- []
+<use fig/intro/10d-word-sets.png> [4 <./fig/chris/03.png (PNG copy)> <./fig/int
+ro/04b.png> <./fig/intro/04a.png> <./fig/intro/06.png (PNG copy)>] [5
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 379--379
-\T1/aett/bx/n/9 and interdependence} \T1/aer/bx/n/9 Word Set within the
- []
-
-
-Underfull \hbox (badness 4913) in paragraph at lines 379--379
-\T1/aett/bx/n/9 conjunction(United States, China) \T1/aer/bx/n/9 slice. There
- []
-
-<fig/rex/04.png, id=64, 1260.71pt x 682.55pt>
-File: fig/rex/04.png Graphic file (type png)
- <use fig/rex/04.png>
-Overfull \hbox (12.0pt too wide) in paragraph at lines 420--421
-[][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[8 <./fig/chris/07.png>] <fig/rex/05.png, id=69, 539.01375pt x 282.05376pt>
-File: fig/rex/05.png Graphic file (type png)
-
-<use fig/rex/05.png>
-Overfull \hbox (12.0pt too wide) in paragraph at lines 436--437
-[][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[9 <./fig/rex/04.png (PNG copy)> <./fig/rex/05.png (PNG copy)>] (./cikmdemo.bbl
-) [10] (./cikmdemo.aux)
+ <./fig/intro/09.png (PNG copy)> <./fig/intro/10a-word-sets.png (PNG copy)> <./
+fig/intro/10b-word-sets.png (PNG copy)> <./fig/intro/10c-word-sets.png (PNG cop
+y)> <./fig/intro/10d-word-sets.png (PNG copy)>] (./cikmdemo.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 2998 strings out of 493747
- 38761 string characters out of 3143546
- 98281 words of memory out of 3000000
- 6189 multiletter control sequences out of 15000+200000
+ 2947 strings out of 493747
+ 37831 string characters out of 3143546
+ 97170 words of memory out of 3000000
+ 6143 multiletter control sequences out of 15000+200000
  53547 words of font info for 73 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 39i,10n,26p,1278b,300s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,10n,26p,803b,302s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2010/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/tex
 live/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/te
@@ -549,10 +467,10 @@ exmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2010/texmf-di
 st/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2010/texmf-dist/font
 s/type1/urw/times/utmb8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/ur
 w/times/utmr8a.pfb>
-Output written on cikmdemo.pdf (10 pages, 1188465 bytes).
+Output written on cikmdemo.pdf (5 pages, 663101 bytes).
 PDF statistics:
- 116 PDF objects out of 1000 (max. 8388607)
- 62 compressed objects within 1 object stream
+ 89 PDF objects out of 1000 (max. 8388607)
+ 50 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
 

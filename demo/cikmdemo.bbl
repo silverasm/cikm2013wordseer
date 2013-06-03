@@ -1,60 +1,14 @@
-\begin{thebibliography}{10}
-
-\bibitem{ahlberg1996spotfire}
-C.~Ahlberg.
-\newblock Spotfire: an information exploration environment.
-\newblock {\em SIGMOD}, 25(4):25--29, 1996.
-
-\bibitem{bron2012subjunctive}
-M.~Bron, J.~van Gorp, F.~Nack, M.~de~Rijke, A.~Vishneuski, and S.~de~Leeuw.
-\newblock A subjunctive exploratory search interface to support media studies
-  researchers.
-\newblock In {\em {SIGIR}}, pages 425--434. ACM, 2012.
-
-\bibitem{chau2011apolo}
-D.~H. Chau, A.~Kittur, J.~I. Hong, and C.~Faloutsos.
-\newblock Apolo: making sense of large network data by combining rich user
-  interaction and machine learning.
-\newblock In {\em CHI}, pages 167--176. ACM, 2011.
-
-\bibitem{don2007discovering}
-A.~Don, E.~Zheleva, M.~Gregory, S.~Tarkan, L.~Auvil, T.~Clement,
-  B.~Shneiderman, and C.~Plaisant.
-\newblock Discovering interesting usage patterns in text collections.
-\newblock In {\em {CIKM}}, pages 213--222. ACM, 2007.
+\begin{thebibliography}{1}
 
 \bibitem{donn_query_1996}
 K.~Donn, C.~Plaisant, and B.~Shneiderman.
 \newblock Query previews in networked information systems.
 \newblock In {\em Advances in Digital Libraries `96.}, page 120–129, 1996.
 
-\bibitem{gibbs_building_2012}
-F.~Gibbs and T.~Owens.
-\newblock Building better digital humanities tools.
-\newblock {\em DH Quarterly}, 6(2), 2012.
-
-\bibitem{gorg_combining_2012}
-C.~Gorg, Z.~Liu, J.~Kihm, J.~Choo, H.~Park, and J.~Stasko.
-\newblock Combining computational analyses and interactive visualization for
-  document exploration and sensemaking in jigsaw.
-\newblock {\em {IEEE} Visualization and Computer Graphics}, {PP}(99), Dec.
-  2012.
-
-\bibitem{jonker2005information}
-D.~Jonker, W.~Wright, D.~Schroh, P.~Proulx, and B.~Cort.
-\newblock Information triage with trist.
-\newblock In {\em 2005 International Conference on Intelligence Analysis},
-  pages 2--4, 2005.
-
 \bibitem{klein_accurate_2003}
 D.~Klein and C.~D. Manning.
 \newblock Accurate unlexicalized parsing.
 \newblock In {\em Proc. ACL '03}, volume~1, pages 423--430, 2003.
-
-\bibitem{lee2005understanding}
-B.~Lee, M.~Czerwinski, G.~Robertson, and B.~B. Bederson.
-\newblock Understanding research trends in conferences using paperlens.
-\newblock In {\em CHI'05 extended abstracts}, pages 1969--1972. ACM, 2005.
 
 \bibitem{pirolli_sensemaking_2005}
 P.~Pirolli and S.~Card.
@@ -63,43 +17,15 @@ P.~Pirolli and S.~Card.
 \newblock In {\em Proc. International Conference on Intelligence Analysis},
   volume~1, pages 2--4, MacLean, {VA}, {USA}, 2005.
 
-\bibitem{rao1994protofoil}
-R.~Rao, S.~K. Card, W.~Johnson, L.~Klotz, and R.~H. Trigg.
-\newblock Protofoil: storing and finding the information worker's paper
-  documents in an electronic file cabinet.
-\newblock In {\em {CHI}}, pages 180--185. ACM, 1994.
-
-\bibitem{rockwell2003text}
-G.~Rockwell.
-\newblock What is text analysis, really?
-\newblock {\em Literary and linguistic computing}, 18(2):209--219, 2003.
-
 \bibitem{russell_cost_1993}
 D.~M. Russell, M.~J. Stefik, P.~Pirolli, and S.~K. Card.
 \newblock The cost structure of sensemaking.
 \newblock In {\em Proc. {INTERACT} and {CHI}}, {CHI} '93, 1993.
 
-\bibitem{stolte2002polaris}
-C.~Stolte, D.~Tang, and P.~Hanrahan.
-\newblock Polaris: A system for query, analysis, and visualization of
-  multidimensional relational databases.
-\newblock {\em IEEE Visualization and Computer Graphics}, 8(1):52--65, 2002.
-
 \bibitem{tukey1977exploratory}
 J.~W. Tukey.
 \newblock Exploratory data analysis.
 \newblock {\em Reading, MA}, 231, 1977.
-
-\bibitem{tukey1980we}
-J.~W. Tukey.
-\newblock We need both exploratory and confirmatory.
-\newblock {\em The American Statistician}, 34(1):23--25, 1980.
-
-\bibitem{uramoto2004text}
-N.~Uramoto, H.~Matsuzawa, T.~Nagano, A.~Murakami, H.~Takeuchi, and K.~Takeda.
-\newblock A text-mining system for knowledge discovery from biomedical
-  documents.
-\newblock {\em IBM Systems Journal}, 43(3):516--533, 2004.
 
 \bibitem{wattenberg_word_2008}
 M.~Wattenberg and F.~B. Viegas.
