@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  3 JUN 2013 13:13
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  3 JUN 2013 13:51
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -313,10 +313,16 @@ Overfull \hbox (2.68721pt too wide) in paragraph at lines 42--43
 d data
  []
 
-LaTeX Font Info:    Try loading font information for T1+aett on input line 46.
+LaTeX Font Info:    Try loading font information for T1+aett on input line 48.
 (/usr/local/texlive/2010/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
+Overfull \hbox (6.73991pt too wide) in paragraph at lines 48--49
+\T1/aett/m/n/9 edu / cikm2013demo/$\T1/aer/m/n/9 . More videos are at at $\T1/a
+ett/m/n/9 http : / / wordseer .
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 57--72
 
  []
@@ -385,7 +391,7 @@ Overfull \hbox (12.0pt too wide) in paragraph at lines 151--152
 LaTeX Font Warning: Font shape `T1/aett/bx/n' undefined
 (Font)              using `T1/aett/m/n' instead on input line 155.
 
-(./cikmdemo.bbl [3 <./fig/chris/01.png> <./fig/chris/04a.png (PNG copy)>])
+(./cikmdemo.bbl) [3 <./fig/chris/01.png> <./fig/chris/04a.png (PNG copy)>]
 <fig/chris/03.png, id=33, 170.6375pt x 143.53625pt>
 File: fig/chris/03.png Graphic file (type png)
  <use fig/chris/03.png>
@@ -437,23 +443,22 @@ File: fig/intro/10c-word-sets.png Graphic file (type png)
 File: fig/intro/10d-word-sets.png Graphic file (type png)
 
 <use fig/intro/10d-word-sets.png> [4 <./fig/chris/03.png (PNG copy)> <./fig/int
-ro/04b.png> <./fig/intro/04a.png> <./fig/intro/06.png (PNG copy)>] [5
-
- <./fig/intro/09.png (PNG copy)> <./fig/intro/10a-word-sets.png (PNG copy)> <./
-fig/intro/10b-word-sets.png (PNG copy)> <./fig/intro/10c-word-sets.png (PNG cop
-y)> <./fig/intro/10d-word-sets.png (PNG copy)>] (./cikmdemo.aux)
+ro/04b.png> <./fig/intro/04a.png> <./fig/intro/06.png (PNG copy)> <./fig/intro/
+09.png (PNG copy)> <./fig/intro/10a-word-sets.png (PNG copy)> <./fig/intro/10b-
+word-sets.png (PNG copy)> <./fig/intro/10c-word-sets.png (PNG copy)> <./fig/int
+ro/10d-word-sets.png (PNG copy)>] (./cikmdemo.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 2947 strings out of 493747
- 37831 string characters out of 3143546
- 97170 words of memory out of 3000000
- 6143 multiletter control sequences out of 15000+200000
+ 2945 strings out of 493747
+ 37795 string characters out of 3143546
+ 98164 words of memory out of 3000000
+ 6141 multiletter control sequences out of 15000+200000
  53547 words of font info for 73 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 39i,10n,26p,803b,302s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,10n,26p,687b,302s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2010/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/tex
 live/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/te
@@ -467,10 +472,10 @@ exmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2010/texmf-di
 st/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2010/texmf-dist/font
 s/type1/urw/times/utmb8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/ur
 w/times/utmr8a.pfb>
-Output written on cikmdemo.pdf (5 pages, 663101 bytes).
+Output written on cikmdemo.pdf (4 pages, 662049 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 86 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  71 words of extra memory for PDF output out of 10000 (max. 10000000)
 

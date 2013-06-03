@@ -5,7 +5,7 @@
 \newcommand{\code}[1] {\texttt{#1}}
 
 \begin{document}
-\title{Text Sliding: Information Discovery with Intensely Integrated Text Analysis}
+\title{WordSeer: A Knowledge Synthesis Environment for Textual Data}
 \numberofauthors{4}
 
 \author{% 1st. author
@@ -14,7 +14,7 @@
        \affaddr{UC Berkeley}\\
        \email{aditi@cs.berkeley.edu}
 % 2nd. author
-\alignauthor {Mart A.  Hearst}\\
+\alignauthor {Marti A.  Hearst}\\
        \affaddr{School of Information}\\
        \affaddr{UC Berkeley}\\
        \email{hearst@ischoo.berkeley.edu}
@@ -29,27 +29,27 @@
 
 \begin{abstract}
 
-This paper describes WordSeer, a tool whose goal is to help scholars and analysts discover patterns and formulate and test hypotheses about the contents of  text collections, midway between what  humanities scholars call a traditional  ``close read'' and the new ``distant read'' or  ``culturomics" approach.  
-To this end, we describe a text analysis and discovery tool that allows for highly flexible  ``slicing and dicing'' (hence  ``sliding'') across a text collection.  The tool allows users to view text from different angles by selecting subsets of data, viewing those as visualizations, moving laterally to view other subsets of data, slicing into another view, expanding the viewed data by relaxing constraints, and so on.  We illustrate the text sliding capabilities of the tool with two real-world case studies from the humanities and social sciences -- the practice of literacy education, and U.S. perceptions of China and Japan over the last 30 years -- showing how the tool has enabled scholars with no technical background to make new, important discoveries in these text collections.
+We describe WordSeer, a tool whose goal is to help scholars and analysts discover patterns and formulate and test hypotheses about the contents of  text collections, midway between what  humanities scholars call a traditional  ``close read'' and the new ``distant read'' or  ``culturomics" approach.  
+To this end, WordSeer allows for highly flexible  ``slicing and dicing'' (hence  ``sliding'') across a text collection.  The tool allows users to view text from different angles by selecting subsets of data, viewing those as visualizations, moving laterally to view other subsets of data, slicing into another view, expanding the viewed data by relaxing constraints, and so on.  We illustrate the text sliding capabilities of the tool with examples from a case study in the field of humanities and social sciences -- an analysis of how U.S. perceptions of China and Japan  changed over the last 30 years.
 
 \end{abstract}
 
 \section{Introduction}
 This paper describes a new tool for exploratory data analysis \cite{tukey1977exploratory} that attempts to provide frictionless access to text and its metadata.  Although many tools have been developed to analyze numerical and categorical data, language in its written form of text has special properties that makes it more difficult to analyze. Text has both linear and hierarchical structure, its meaning is ambiguous given its representation, it has tens of thousands or hundreds of thousands of features, and frequencies of words are usually distributed via a power law.  
 
-Even a small fragment of text does not stand alone, but evokes, in the reader's mind, other texts containing the same words, phrases, or ideas. To an analyst trying to make sense of an idea, some associations may be deeply meaningful.  Transitions  and associations are central to the text analysis process, and people seeking knowledge from text are engaging in \emph{sensemaking}. They do not follow a straight path from data input to analysis output, but meander between analysis, interpretation, exploration and understanding on different sub-collections of data \cite{russell_cost_1993, pirolli_sensemaking_2005}. 
+Even a small fragment of text does not stand alone, but evokes, in the reader's mind, other texts containing the same words, phrases, or ideas. To an analyst trying to make sense of an idea, some associations may be deeply meaningful.  Transitions  and associations are central to the text analysis process, and people seeking knowledge from text are engaging in \emph{sensemaking}. They do not follow a straight path from data input to analysis output, but meander between analysis, interpretation, exploration and understanding on different sub-collections of data \cite{pirolli_sensemaking_2005}. 
 
 In this paper, we describe a text analysis tool called WordSeer that supports such transitions\footnote{WordSeer is a web application. This is version 3.0, which has notably more flexible interactions than older versions.}.  It allows highly flexible slicing and dicing, as well as frictionless transitions (hence ``sliding") between visual analyses, drill-downs, lateral explorations and overviews of slices in a text collection. Our tool uses computational linguistics, information retrieval and data visualization, and enables scholars with no technical background to conduct analyses yielding concrete, useful and otherwise inaccessible knowledge. 
 
-We introduce the text sliding capabilities of WordSeer with a running example of a real-world case study with C.F.,  a scholar at UC Berkeley's English department. He studied how U.S. perceptions of China and Japan responded to China's rise over the last 30 years using a collection of 5,715  \emph{New York Times} editorials about China and Japan from 1980 to 2012. 
+The design of the tool is motivated by the desire to support the humanities and social sciences (HASS). In these fields, it is common for scholars to have hundreds, even thousands of text-based source documents of interest from which they extract evidence for complex arguments about society and culture. 
 
-A video demonstrating WordSeer through examples from  this case study is available at \url{http://www.youtube.com/}.
+We introduce the text sliding capabilities of WordSeer with a running example from a real-world case study with C.F. (author 3),  a scholar at UC Berkeley's English department. He studied how U.S. perceptions of China and Japan responded to China's rise over the last 30 years using a collection of 5,715  \emph{New York Times} editorials about China and Japan from 1980 to 2012. 
+
+A video demonstrating WordSeer through more examples from  this case study is here: \url{http://wordseer.berkeley.edu/cikm2013demo/}. More videos are at at \url{http://wordseer.berkeley.edu}.
 
 \section{Text Sliding}
 
-The paired concepts of \emph{slices} and \emph{views} are central to text sliding. 
-
-A slice is a set of sentences -- usually something meaningful, like a list of sentences containing a given term, or all the sentences in a particular document.  A view is a visual representation of the data in a slice: the view can range from a simple vertical list of the sentences in the slice, to more complex linguistic processing combined with visual analytics.
+The paired concepts of \emph{slices} and \emph{views} are central to text sliding. A slice is a set of sentences -- usually something meaningful, like a list of sentences containing a given term, or all the sentences in a particular document.  A view is a visual representation of the data in a slice: the view can range from a simple vertical list of the sentences in the slice, to more complex linguistic processing combined with visual analytics.
 
 We define text sliding as showing a different view of the same slice, or opening a  view of an associated slice, which can consist of drilling down (narrowing, selecting), or broadening (by removing constraints), or following a new thread (moving laterally) or finding related words or sentences  (also moving laterally).
 
@@ -72,12 +72,12 @@ In WordSeer, views  are window-like panels, and the user can open up any number 
 
 The simplest sliding interaction in WordSeer is creating a different view of the same slice.  There is a drop-down menu at the top left corner of each view which provides this function (Figure \ref{fig:chris03}). A history panel allows revisiting of earlier views.  
 
-When a user opens up WordSeer for the first time, instead of  showing a blank screen a requiring the user to think up a query, the tool  provides summary statistics immediately, as shown in Figure \ref{fig:intro01} on a collection of \emph{New York Times} editorials.  Figure \ref{fig:intro02} breaks this down into its core components. This is a single \emph{view} with a \emph{Word Tree} visualization of the most frequent content word (`China') in the \emph{slice} consisting of ``the entire collection''. 
+When a user opens up WordSeer for the first time, instead of  showing a blank screen a requiring the user to think up a query, the tool  provides summary statistics immediately, as shown in Figure \ref{fig:intro01} for the case study.  Figure \ref{fig:intro02} breaks this down into its core components. This is a single \emph{view} with a \emph{Word Tree} visualization of the most frequent content word (`China') in the \emph{slice} consisting of ``the entire collection''. 
 
 \begin{figure}[ht!]
 \begin{center}
 %
-        \subfigure[The initial view for Case Study 1. \label{fig:intro01}]{%
+        \subfigure[The initial view of 30 years of \emph{New York Times} editorials about China and Japan, for C.F.'s case study. \label{fig:intro01}]{%
 	\includegraphics[width=0.5\textwidth]{fig/intro/01.png}
         }%
         \\
@@ -102,7 +102,7 @@ The easiest way to make slices in WordSeer is by intersecting \emph{searches} an
         Searching for sentences matching ``China''.\label{fig:intro03}
      }%
 \end{figure}
-One of C.F's first goals was to get a sense of the different ways China was discussed in the `80s, `90s and `00s. To do this, he assembled three slices, one for each decade, by starting with a \emph{search} for ``China'' (Figure \ref{fig:intro03})  and then filtering the `Year' category to range over each ten-year period (Figure \ref{fig:intro04a}).  WordSeer does not require metadata to be numerical ranges, it can also work with categorical values. If he had wanted to, C.F. could have filtered these results to just editorials whose main topic tag was China or Japan, using the controls shown in Figure \ref{fig:intro04b}. 
+One of C.F's first goals in the case study was to get a sense of the different ways China was discussed in the `80s, `90s and `00s. To do this, he assembled three slices, one for each decade, by starting with a \emph{search} for ``China'' (Figure \ref{fig:intro03})  and then filtering the `Year' category to range over each ten-year period (Figure \ref{fig:intro04a}).  WordSeer does not require metadata to be numerical ranges, it can also work with categorical values. If he had wanted to, C.F. could have filtered these results to just editorials whose main topic tag was China or Japan, using the controls shown in Figure \ref{fig:intro04b}. 
 
 WordSeer's overviews showed clear differences between the decades. In particular, the increasing  frequencies of growth-related verbs contributed to a sense of China's rise, as shown by the frequencies per decade below:
 \begin{itemize}
@@ -123,7 +123,7 @@ WordSeer's overviews showed clear differences between the decades. In particular
 
  Grammatical relationships are identified using the Stanford dependency parser\cite{klein_accurate_2003} which extracts many kinds of relationships; some of the more easily understood ones include \emph{noun compound}, where two nouns come together to signify a new concept, \emph{adjective modifier} where an adjective describes another word, and \emph{direct subject} in which a word is the agent of a verb. 
 
-Each view automatically presents the most common nouns, verbs, adjectives, and phrases (Figure \ref{fig:intro06}),  along with their counts (providing a query preview \cite{donn_query_1996} in a panel at the bottom.
+Each view automatically presents the most common nouns, verbs, adjectives, and phrases (Figure \ref{fig:intro06}),  along with their counts in a panel at the bottom.
 
 \begin{figure}[h!]
 \includegraphics[width=0.5\textwidth]{fig/chris/01.png}
@@ -196,7 +196,7 @@ For sentences and documents, the idea is the same.  Users can hand-pick collecti
 	\includegraphics[width=0.5\textwidth]{fig/intro/06.png}
 \end{center}
     \caption{%
-       The most frequent phrases, nouns, verbs, and adjectives in the \emph{New York Times} editorials for Case Study 1.  \label{fig:intro06}
+       The most frequent phrases, nouns, verbs, and adjectives in the \emph{New York Times} editorials for C.F.'s case study.  \label{fig:intro06}
      }%
 \end{figure}
 

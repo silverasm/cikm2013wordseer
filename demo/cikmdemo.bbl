@@ -1,10 +1,5 @@
 \begin{thebibliography}{1}
 
-\bibitem{donn_query_1996}
-K.~Donn, C.~Plaisant, and B.~Shneiderman.
-\newblock Query previews in networked information systems.
-\newblock In {\em Advances in Digital Libraries `96.}, page 120–129, 1996.
-
 \bibitem{klein_accurate_2003}
 D.~Klein and C.~D. Manning.
 \newblock Accurate unlexicalized parsing.
@@ -16,11 +11,6 @@ P.~Pirolli and S.~Card.
   identified through cognitive task analysis.
 \newblock In {\em Proc. International Conference on Intelligence Analysis},
   volume~1, pages 2--4, MacLean, {VA}, {USA}, 2005.
-
-\bibitem{russell_cost_1993}
-D.~M. Russell, M.~J. Stefik, P.~Pirolli, and S.~K. Card.
-\newblock The cost structure of sensemaking.
-\newblock In {\em Proc. {INTERACT} and {CHI}}, {CHI} '93, 1993.
 
 \bibitem{tukey1977exploratory}
 J.~W. Tukey.
